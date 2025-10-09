@@ -5,53 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aktienklar – Analysen, Rechner & Rankings</title>
   <!-- Tailwind via CDN -->
-<script>
-  // Chart-Canvas holen
-  const ctx = document.getElementById('c_chart');
-  // Chart-Handler vorhalten
-  let cChart = null;
-  
-  if (cChart) {
-  cChart.data.labels = labels;
-  cChart.data.datasets[0].data = bal;
-  cChart.data.datasets[1].data = inv;
-  try { cChart.update(); } catch(e) { console.warn('Chart-Update übersprungen:', e); }
-}
-function bindUI() {
-    // --- Dividenden-Rechner ---
-    ['d_amount', 'd_yield', 'd_tax'].forEach(id => {
-      document.getElementById(id)?.addEventListener('input', updateDiv);
-    });
-
-    // --- Zinseszins-Rechner ---
-    ['c_start', 'c_monthly', 'c_years', 'c_rate'].forEach(id => {
-      document.getElementById(id)?.addEventListener('input', updateCompound);
-    });
-
-    // --- Grundlagen-Suche ---
-    const glSearch = document.getElementById('gl_search');
-    const glClear = document.getElementById('gl_clear');
-    glSearch?.addEventListener('input', glFilter);
-    glClear?.addEventListener('click', () => {
-      if (glSearch) glSearch.value = '';
-      glFilter();
-    });
-
-    // --- Formulare blockieren (Seite soll nicht neu laden) ---
-    document.querySelectorAll('form').forEach(f =>
-      f.addEventListener('submit', e => e.preventDefault())
-    );
-
-    // --- Beim Start einmal alles berechnen ---
-    try { updateDiv(); } catch (e) { console.warn('updateDiv Fehler:', e); }
-    try { updateCompound(); } catch (e) { console.warn('updateCompound Fehler:', e); }
-    try { glFilter?.(); } catch (e) { /* Suche optional */ }
-  }
-
-  // Wenn die Seite vollständig geladen ist → bindUI starten
-  document.addEventListener('DOMContentLoaded', bindUI);
-  
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts & Chart.js -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
     .container { max-width: 1120px; }
@@ -825,5 +784,107 @@ function bindUI() {
     });
 
   </script>
+
+<!-- ===== Robust init for calculators & search (GitHub Pages safe) ===== -->
+<script>
+/* Make chart optional: if Chart.js fails to load, the rest still works */
+(function () {
+  function safeInitChart(){
+    try {
+      var canvas = document.getElementById('c_chart');
+      if (!canvas) return;                 // no canvas, nothing to do
+      if (!window.Chart) return;           // Chart.js not loaded, skip
+      if (window.cChart) return;           // already created elsewhere
+      window.cChart = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            { label: 'Vermögen', data: [], tension: 0.25 },
+            { label: 'Einzahlungen', data: [], tension: 0.25 }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: { y: { ticks: { callback: v => (v||0).toLocaleString('de-DE') } } }
+        }
+      });
+    } catch (e) {
+      console.warn('Chart init skipped:', e);
+    }
+  }
+
+  function bindUI() {
+    // Dividend calculator
+    ['d_amount','d_yield','d_tax'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && typeof window.updateDiv === 'function') {
+        el.addEventListener('input', window.updateDiv);
+      }
+    });
+
+    // Compound interest calculator
+    ['c_start','c_monthly','c_years','c_rate'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el && typeof window.updateCompound === 'function') {
+        el.addEventListener('input', window.updateCompound);
+      }
+    });
+
+    // Search (Grundlagen)
+    var glSearch = document.getElementById('gl_search');
+    var glClear  = document.getElementById('gl_clear');
+    if (glSearch && typeof window.glFilter === 'function') {
+      glSearch.addEventListener('input', window.glFilter);
+    }
+    if (glClear) {
+      glClear.addEventListener('click', function(){
+        if (glSearch) glSearch.value = '';
+        if (typeof window.glFilter === 'function') window.glFilter();
+      });
+    }
+
+    // Prevent form submits from reloading page
+    document.querySelectorAll('form').forEach(function(f){
+      f.addEventListener('submit', function(e){ e.preventDefault(); });
+    });
+
+    // First run
+    safeInitChart();
+    try { if (typeof window.updateDiv === 'function') window.updateDiv(); } catch(e){ console.warn(e); }
+    try { if (typeof window.updateCompound === 'function') window.updateCompound(); } catch(e){ console.warn(e); }
+    try { if (typeof window.glFilter === 'function') window.glFilter(); } catch(e){ /* optional */ }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindUI);
+  } else {
+    bindUI();
+  }
+
+  // Patch updateCompound to be chart-safe if it exists later
+  var patchApplied = false;
+  function patchUpdateCompound(){
+    if (patchApplied) return;
+    if (typeof window.updateCompound !== 'function') return;
+    patchApplied = true;
+    var original = window.updateCompound;
+    window.updateCompound = function(){
+      try { safeInitChart(); } catch(e){}
+      var result = original.apply(this, arguments);
+      try {
+        if (window.cChart) { window.cChart.update(); }
+      } catch(e){ console.warn('Chart update skipped:', e); }
+      return result;
+    };
+  }
+
+  // Try now and also after load (in case functions are declared later)
+  patchUpdateCompound();
+  window.addEventListener('load', patchUpdateCompound);
+})();
+</script>
+<!-- ===== End robust init ===== -->
 </body>
 </html>
