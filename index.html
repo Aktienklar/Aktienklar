@@ -714,15 +714,48 @@
     });
 
     function updateCompound(){
-      let start = +document.getElementById('c_start').value||0;
-      const monthly = +document.getElementById('c_monthly').value||0;
-      const years = +document.getElementById('c_years').value||0;
-      const rate = +document.getElementById('c_rate').value||0;
-      let balance = start; let invested = start;
-      const labels=['0']; const bal=[Math.round(balance)]; const inv=[invested];
-      for(let y=1;y<=years;y++){
-        for(let m=0;m<12;m++){ balance = balance*(1+rate/100/12)+monthly; invested+=monthly; }
-        labels.push(String(y)); bal.push(Math.round(balance)); inv.push(invested);
+  let start = +document.getElementById('c_start').value||0;
+  const monthly = +document.getElementById('c_monthly').value||0;
+  const years = +document.getElementById('c_years').value||0;
+  const rate = +document.getElementById('c_rate').value||0;
+
+  let balance = start; 
+  let invested = start;
+  const labels=['0']; 
+  const bal=[Math.round(balance)]; 
+  const inv=[invested];
+
+  for(let y=1;y<=years;y++){
+    for(let m=0;m<12;m++){ 
+      balance = balance*(1+rate/100/12)+monthly; 
+      invested+=monthly; 
+    }
+    labels.push(String(y)); 
+    bal.push(Math.round(balance)); 
+    inv.push(invested);
+  }
+
+  const finalBal = bal[bal.length-1];
+  const finalInv = inv[inv.length-1];
+
+  const euro = (v)=> (v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'});
+  const outFinal = document.getElementById('c_final');
+  const outInvested = document.getElementById('c_invested');
+  if(outFinal) outFinal.textContent = euro(finalBal);
+  if(outInvested) outInvested.textContent = euro(finalInv);
+
+  if (window.cChart) {
+    try {
+      window.cChart.data.labels = labels;
+      window.cChart.data.datasets[0].data = bal;
+      window.cChart.data.datasets[1].data = inv;
+      window.cChart.update();
+    } catch(e) {
+      console.warn('Chart update skipped:', e);
+    }
+  }
+}
+labels.push(String(y)); bal.push(Math.round(balance)); inv.push(invested);
       }
       document.getElementById('c_final').textContent = €(bal[bal.length-1]);
       document.getElementById('c_invested').textContent = €(inv[inv.length-1]);
