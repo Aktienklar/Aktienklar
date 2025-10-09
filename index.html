@@ -690,15 +690,24 @@
     updateMini();
 
     // Dividenden-Rechner
-    function updateDiv() {
-      const a = +document.getElementById('d_amount').value || 0;
-      const y = +document.getElementById('d_yield').value || 0;
-      const t = +document.getElementById('d_tax').value || 0;
-      const g = a * y / 100; const n = g * (1 - t/100);
-      document.getElementById('d_gross').textContent = €(g);
-      document.getElementById('d_net').textContent = €(n);
-    }
-    ['d_amount','d_yield','d_tax'].forEach(id=>document.getElementById(id).addEventListener('input', updateDiv));
+    
+function updateDiv(){
+  const aEl = document.getElementById('d_amount');
+  const yEl = document.getElementById('d_yield');
+  const tEl = document.getElementById('d_tax');
+  if (!aEl || !yEl || !tEl) return;
+  const a = +aEl.value || 0;
+  const y = +yEl.value || 0;
+  const t = +tEl.value || 0;
+  const g = a * y / 100;
+  const n = g * (1 - t/100);
+  const grossOut = document.getElementById('d_gross');
+  const netOut = document.getElementById('d_net');
+  if (grossOut) grossOut.textContent = window['€'](g);
+  if (netOut) netOut.textContent = window['€'](n);
+}
+
+['d_amount','d_yield','d_tax'].forEach(id=>document.getElementById(id).addEventListener('input', updateDiv));
     updateDiv();
 
     // Zinseszins-Simulator + Chart
@@ -713,14 +722,22 @@
         scales:{ y:{ ticks:{ callback:(v)=> v.toLocaleString('de-DE') } } } }
     });
 
-    function updateCompound(){
-  let start = +document.getElementById('c_start').value||0;
-  const monthly = +document.getElementById('c_monthly').value||0;
-  const years = +document.getElementById('c_years').value||0;
-  const rate = +document.getElementById('c_rate').value||0;
+    
+function updateCompound(){
+  const startEl = document.getElementById('c_start');
+  const monthlyEl = document.getElementById('c_monthly');
+  const yearsEl = document.getElementById('c_years');
+  const rateEl = document.getElementById('c_rate');
+  if (!startEl || !monthlyEl || !yearsEl || !rateEl) return;
+
+  let start = +startEl.value||0;
+  const monthly = +monthlyEl.value||0;
+  const years = +yearsEl.value||0;
+  const rate = +rateEl.value||0;
 
   let balance = start; 
   let invested = start;
+
   const labels=['0']; 
   const bal=[Math.round(balance)]; 
   const inv=[invested];
@@ -735,14 +752,10 @@
     inv.push(invested);
   }
 
-  const finalBal = bal[bal.length-1];
-  const finalInv = inv[inv.length-1];
-
-  const euro = (v)=> (v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'});
   const outFinal = document.getElementById('c_final');
   const outInvested = document.getElementById('c_invested');
-  if(outFinal) outFinal.textContent = euro(finalBal);
-  if(outInvested) outInvested.textContent = euro(finalInv);
+  if (outFinal) outFinal.textContent = window['€'](bal[bal.length-1]);
+  if (outInvested) outInvested.textContent = window['€'](inv[inv.length-1]);
 
   if (window.cChart) {
     try {
@@ -755,6 +768,7 @@
     }
   }
 }
+
 labels.push(String(y)); bal.push(Math.round(balance)); inv.push(invested);
       }
       document.getElementById('c_final').textContent = €(bal[bal.length-1]);
@@ -795,17 +809,23 @@ labels.push(String(y)); bal.push(Math.round(balance)); inv.push(invested);
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Grundlagen-Suche
-    function glFilter(){
-      const q = (document.getElementById('gl_search')?.value || '').trim().toLowerCase();
-      const cards = Array.from(document.querySelectorAll('#termsGrid .term-card'));
-      let shown = 0;
-      for(const c of cards){
-        const txt = (c.textContent + ' ' + (c.dataset.keywords || '')).toLowerCase();
-        const vis = q === '' || txt.includes(q);
-        c.style.display = vis ? '' : 'none';
-        if(vis) shown++;
-      }
-      const cnt = document.getElementById('gl_count'); if(cnt) cnt.textContent = String(shown);
+    
+function glFilter(){
+  const searchEl = document.getElementById('gl_search');
+  const q = (searchEl?.value || '').trim().toLowerCase();
+  const cards = Array.from(document.querySelectorAll('#termsGrid .term-card'));
+  let shown = 0;
+  for (const c of cards) {
+    const txt = (c.textContent + ' ' + (c.dataset.keywords || '')).toLowerCase();
+    const vis = q === '' || txt.includes(q);
+    c.style.display = vis ? '' : 'none';
+    if (vis) shown++;
+  }
+  const cnt = document.getElementById('gl_count'); if (cnt) cnt.textContent = String(shown);
+  const empty = document.getElementById('gl_empty'); if (empty) empty.classList.toggle('hidden', shown !== 0);
+}
+
+const cnt = document.getElementById('gl_count'); if(cnt) cnt.textContent = String(shown);
       const empty = document.getElementById('gl_empty'); if(empty) empty.classList.toggle('hidden', shown !== 0);
     }
     window.addEventListener('DOMContentLoaded', ()=>{
@@ -919,5 +939,17 @@ labels.push(String(y)); bal.push(Math.round(balance)); inv.push(invested);
 })();
 </script>
 <!-- ===== End robust init ===== -->
+
+<script>
+// Ensure a EUR formatter exists globally
+(function(){
+  if (typeof window['€'] !== 'function') {
+    window['€'] = function(v){ try { return (v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'}); } catch(e){ return String(v); } };
+  }
+  if (typeof window.formatEUR !== 'function') {
+    window.formatEUR = window['€'];
+  }
+})();
+</script>
 </body>
 </html>
