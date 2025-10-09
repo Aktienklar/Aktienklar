@@ -10,29 +10,47 @@
   const ctx = document.getElementById('c_chart');
   // Chart-Handler vorhalten
   let cChart = null;
+  
+  if (cChart) {
+  cChart.data.labels = labels;
+  cChart.data.datasets[0].data = bal;
+  cChart.data.datasets[1].data = inv;
+  try { cChart.update(); } catch(e) { console.warn('Chart-Update übersprungen:', e); }
+}
+function bindUI() {
+    // --- Dividenden-Rechner ---
+    ['d_amount', 'd_yield', 'd_tax'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', updateDiv);
+    });
 
-  // Nur versuchen, wenn Chart.js wirklich geladen ist und ein Canvas existiert
-  if (window.Chart && ctx) {
-    try {
-      cChart = new Chart(ctx, {
-        type: 'line',
-        data: { 
-          labels: [], 
-          datasets: [
-            { label: 'Vermögen', data: [], tension: 0.25 },
-            { label: 'Einzahlungen', data: [], tension: 0.25 }
-          ]
-        },
-        options: { 
-          responsive: true, 
-          plugins: { legend: { position: 'bottom' } },
-          scales: { y: { ticks: { callback: v => v.toLocaleString('de-DE') } } }
-        }
-      });
-    } catch (e) {
-      console.warn('Chart konnte nicht initialisiert werden:', e);
-    }
+    // --- Zinseszins-Rechner ---
+    ['c_start', 'c_monthly', 'c_years', 'c_rate'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', updateCompound);
+    });
+
+    // --- Grundlagen-Suche ---
+    const glSearch = document.getElementById('gl_search');
+    const glClear = document.getElementById('gl_clear');
+    glSearch?.addEventListener('input', glFilter);
+    glClear?.addEventListener('click', () => {
+      if (glSearch) glSearch.value = '';
+      glFilter();
+    });
+
+    // --- Formulare blockieren (Seite soll nicht neu laden) ---
+    document.querySelectorAll('form').forEach(f =>
+      f.addEventListener('submit', e => e.preventDefault())
+    );
+
+    // --- Beim Start einmal alles berechnen ---
+    try { updateDiv(); } catch (e) { console.warn('updateDiv Fehler:', e); }
+    try { updateCompound(); } catch (e) { console.warn('updateCompound Fehler:', e); }
+    try { glFilter?.(); } catch (e) { /* Suche optional */ }
   }
+
+  // Wenn die Seite vollständig geladen ist → bindUI starten
+  document.addEventListener('DOMContentLoaded', bindUI);
+  
 </script>
   <style>
     body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
