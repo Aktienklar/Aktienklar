@@ -8,9 +8,5 @@
       "path": "/api/top-traded?period=week",
       "schedule": "5 7 * * 1"
     },
-    {
-      "path": "/api/top-traded?period=month",
-      "schedule": "10 7 1 * *"
-    }
   ]
 }
