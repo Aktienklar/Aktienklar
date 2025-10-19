@@ -1,0 +1,6 @@
+{
+  "crons": [
+    { "path": "/api/top-traded?period=day",   "schedule": "0 7 * * *" },
+    { "path": "/api/top-traded?period=week",  "schedule": "5 7 * * 1" }
+  ]
+}
