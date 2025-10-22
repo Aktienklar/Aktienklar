@@ -1,0 +1,11 @@
+{
+  "name": "aktienklar-rankings",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:rankings": "node scripts/build-rankings.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
