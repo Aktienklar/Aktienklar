@@ -1,22 +1,23 @@
-name: Build rankings (Finnhub)
+name: Build rankings (Yahoo Finance)
 
 on:
   schedule:
-    - cron: "30 18 * * 1-5"   # Läuft jeden Werktag um 18:30 UTC
-  workflow_dispatch: {}       # Manuell auslösbar
+    - cron: "30 18 * * 1-5"    # Werktags 18:30 UTC (anpassen, z.B. 20:30 UTC)
+  workflow_dispatch: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+
       - name: Build rankings JSON
-        env:
-          FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
         run: node scripts/build-rankings.mjs
+
       - name: Commit JSON
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
