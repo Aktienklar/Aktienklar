@@ -36,10 +36,9 @@ jobs:
         run: node scripts/build-rankings.mjs
 
       # Beide JSON-Dateien committen
-      - name: Commit JSON
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update rankings JSON (DE + S&P 500)"
-          file_pattern: |
-            data/rankings.json
-            data/rankings_sp500.json
+     - name: Commit JSON
+  uses: stefanzweifel/git-auto-commit-action@v5
+  with:
+    commit_message: "Update rankings JSON (DE + S&P 500)"
+    file_pattern: data/*.json
+
