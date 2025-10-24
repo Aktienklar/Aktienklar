@@ -2,15 +2,16 @@ name: Build rankings (Yahoo Finance)
 
 on:
   schedule:
-    - cron: "30 18 * * 1-5"   # werktags 18:30 UTC
-  workflow_dispatch: {}
+    - cron: "30 18 * * 1-5"    # werktags 18:30 UTC
+  workflow_dispatch: {}         # Manueller Start im Actions-Tab
 
 permissions:
-  contents: write  # nötig für Auto-Commit
+  contents: write               # nötig für Auto-Commit
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,25 +21,24 @@ jobs:
         with:
           node-version: "20"
 
-      # (A) Deutschland wie gehabt → data/rankings.json
+      # (A) Deutschland -> data/rankings.json
       - name: Build DE rankings JSON
         run: node scripts/build-rankings.mjs
 
-      # (B) S&P 500: Universum holen → data/universe_sp500.json
+      # (B) S&P 500 Universe -> data/universe_sp500.json
       - name: Fetch S&P 500 universe
         run: node scripts/fetch-sp500.mjs
 
-      # (B) S&P 500: Rankings bauen → data/rankings_sp500.json
+      # (B) S&P 500 Rankings -> data/rankings_sp500.json
       - name: Build S&P 500 rankings JSON
         env:
           UNIVERSE_PATH: data/universe_sp500.json
           OUT_PATH: data/rankings_sp500.json
         run: node scripts/build-rankings.mjs
 
-      # Beide JSON-Dateien committen
-     - name: Commit JSON
-  uses: stefanzweifel/git-auto-commit-action@v5
-  with:
-    commit_message: "Update rankings JSON (DE + S&P 500)"
-    file_pattern: data/*.json
-
+      # Alle JSONs im data/ Ordner committen (sehr wichtig!)
+      - name: Commit JSON
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update rankings JSON (DE + S&P 500)"
+          file_pattern: data/*.json
