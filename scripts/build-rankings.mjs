@@ -8,8 +8,12 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const UNIVERSE_PATH = path.join(ROOT, "data/universe.json");
-const OUT_PATH = path.join(ROOT, "data/rankings.json");
+const UNIVERSE_PATH = process.env.UNIVERSE_PATH
+  ? path.join(ROOT, process.env.UNIVERSE_PATH)
+  : path.join(ROOT, "data/universe.json");
+const OUT_PATH = process.env.OUT_PATH
+  ? path.join(ROOT, process.env.OUT_PATH)
+  : path.join(ROOT, "data/rankings.json");
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -73,32 +77,34 @@ async function main() {
       // 10 Jahre Trend
       let trend10y_cagr = null;
       try {
-        const ten = await yChart(symbol, "10y");
-        const c = (ten.c || []).filter((x) => x != null);
-        if (c.length > 252) {
+        const tenYears = await yChart(symbol, "10y");
+        const c = tenYears.c.filter((x) => x != null);
+        if (c.length >= 2) {
           const start = c[0];
           const end = c[c.length - 1];
           trend10y_cagr = cagr(start, end, 10);
         }
-      } catch (_) {
-        // ok
+      } catch (e) {
+        // 10y optional, bei Fehlern ignorieren
       }
 
       rows.push({
         symbol,
         name,
-        price: close,
-        change_pct,
+        close,
         volume: vol,
         turnover_eur,
+        change_pct,
         drawdown_pct,
         trend10y_cagr,
       });
+
+      // höflich throttlen
+      await sleep(150);
     } catch (e) {
-      console.warn("Symbol failed:", symbol, String(e));
+      console.error("Skip", symbol, "-", e.message);
+      await sleep(100);
     }
-    // höflich throttlen
-    await sleep(150);
   }
 
   // Kategorien bilden
