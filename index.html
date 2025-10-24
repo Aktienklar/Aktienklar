@@ -727,6 +727,7 @@ section { scroll-margin-top: 110px; }
 <!-- RANKINGS -->
 <!-- RANKINGS (auto-generated) -->
 <!-- RANKINGS (auto-generated, dual market: DE + S&P500) -->
+<!-- RANKINGS (auto-generated, dual market: DE + S&P500) -->
 <section id="rankings" style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070'); background-size:cover; background-position:center;" class="relative py-16">
   <div class="absolute inset-0 bg-black/40"></div>
   <div class="absolute inset-0 bg-black/60"></div>
@@ -795,11 +796,14 @@ section { scroll-margin-top: 110px; }
     };
     const eur = new Intl.NumberFormat("de-DE", { style:"currency", currency:"EUR", maximumFractionDigits:0 });
 
-    function cardHTML(row){
+    // Hauptkarte: bei Turnarounds wird zusätzlich % unter ATH gezeigt
+    function cardHTML(row, isTurnaround=false){
       const chg = row.change_pct ?? null;
+      const offHigh = row.off_high_pct ?? null; // <= falls anders heißt, bitte nennen!
       const pillClass = chg==null ? "bg-white/10 text-white/80"
         : chg>=0 ? "bg-green-100 text-green-700"
         : "bg-red-100 text-red-700";
+
       return `
       <article class="p-6 rounded-2xl bg-white/90 shadow">
         <div class="flex justify-between items-start mb-2">
@@ -810,6 +814,11 @@ section { scroll-margin-top: 110px; }
         <div class="text-sm text-black/70">
           Volumen: ${fmtVol(row.volume)} · Umsatz: ${row.turnover_eur!=null ? eur.format(row.turnover_eur) : "–"}
         </div>
+        ${
+          isTurnaround && offHigh!=null
+            ? `<div class="mt-1 text-xs text-black/60">${Math.abs(offHigh).toFixed(1)} % unter Allzeithoch</div>`
+            : ""
+        }
       </article>`;
     }
 
@@ -820,10 +829,10 @@ section { scroll-margin-top: 110px; }
         most_bought:  `${prefix}-most-bought`,
         turnarounds:  `${prefix}-turnarounds`,
       };
-      document.getElementById(m.most_traded).innerHTML  = (data.most_traded  || []).map(cardHTML).join("");
-      document.getElementById(m.most_sold).innerHTML    = (data.most_sold    || []).map(cardHTML).join("");
-      document.getElementById(m.most_bought).innerHTML  = (data.most_bought  || []).map(cardHTML).join("");
-      document.getElementById(m.turnarounds).innerHTML  = (data.turnarounds  || []).map(cardHTML).join("");
+      document.getElementById(m.most_traded).innerHTML  = (data.most_traded  || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.most_sold).innerHTML    = (data.most_sold    || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.most_bought).innerHTML  = (data.most_bought  || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.turnarounds).innerHTML  = (data.turnarounds  || []).map(r => cardHTML(r, true)).join("");
     }
 
     function wireTabs(scopeSelector){
@@ -847,7 +856,7 @@ section { scroll-margin-top: 110px; }
 
     (async function init(){
       try {
-        // Daten laden (relative Pfade)
+        // Daten laden
         const de = await loadJSON("data/rankings.json");
         renderPanelsInto("de", de);
         document.getElementById("meta-de").textContent = de.as_of || de.generated_at || "";
@@ -860,11 +869,10 @@ section { scroll-margin-top: 110px; }
         wireTabs("#block-de");
         wireTabs("#block-sp");
 
-        // Sicherstellen: jeweils "Am meisten gehandelt" sichtbar
+        // Startansicht: "Am meisten gehandelt"
         document.querySelector("#de-most-traded")?.classList.remove("hidden");
         document.querySelector("#sp-most-traded")?.classList.remove("hidden");
 
-        // Buttons visuell aktiv markieren
         document.querySelector('#block-de .rank-tab[data-target="de-most-traded"]')?.setAttribute("aria-pressed","true");
         document.querySelector('#block-sp .rank-tab[data-target="sp-most-traded"]')?.setAttribute("aria-pressed","true");
 
