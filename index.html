@@ -727,7 +727,6 @@ section { scroll-margin-top: 110px; }
 <!-- RANKINGS -->
 <!-- RANKINGS (auto-generated) -->
 <!-- RANKINGS (auto-generated, dual market: DE + S&P500) -->
-
 <section id="rankings" style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070'); background-size:cover; background-position:center;" class="relative py-16">
   <div class="absolute inset-0 bg-black/40"></div>
   <div class="absolute inset-0 bg-black/60"></div>
@@ -739,16 +738,16 @@ section { scroll-margin-top: 110px; }
     <!-- ===== Block 1: Deutschland ===== -->
     <div id="block-de" class="mb-14">
       <div class="flex items-center gap-3 mb-3">
-        <h3 class="text-2xl font-semibold">Deutschland</h3>
+        <h3 class="text-2xl font-semibold text-white">Deutschland</h3>
         <span id="meta-de" class="text-xs text-white/80"></span>
       </div>
 
       <!-- Tabs (DE) -->
       <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Rankings DE">
         <button class="rank-tab pill" data-target="de-most-traded" aria-pressed="true">Am meisten gehandelt</button>
-        <button class="rank-tab pill" data-target="de-most-sold">Am meisten verkauft</button>
-        <button class="rank-tab pill" data-target="de-most-bought">Am meisten gekauft</button>
-        <button class="rank-tab pill" data-target="de-turnarounds">Turnaround-Kandidaten</button>
+        <button class="rank-tab pill" data-target="de-most-sold" aria-pressed="false">Am meisten verkauft</button>
+        <button class="rank-tab pill" data-target="de-most-bought" aria-pressed="false">Am meisten gekauft</button>
+        <button class="rank-tab pill" data-target="de-turnarounds" aria-pressed="false">Turnaround-Kandidaten</button>
       </div>
 
       <!-- Panels (DE) -->
@@ -761,16 +760,16 @@ section { scroll-margin-top: 110px; }
     <!-- ===== Block 2: S&P 500 ===== -->
     <div id="block-sp" class="mb-2">
       <div class="flex items-center gap-3 mb-3">
-        <h3 class="text-2xl font-semibold">S&amp;P 500</h3>
+        <h3 class="text-2xl font-semibold text-white">S&amp;P 500</h3>
         <span id="meta-sp" class="text-xs text-white/80"></span>
       </div>
 
       <!-- Tabs (S&P) -->
       <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Rankings S&P 500">
         <button class="rank-tab pill" data-target="sp-most-traded" aria-pressed="true">Am meisten gehandelt</button>
-        <button class="rank-tab pill" data-target="sp-most-sold">Am meisten verkauft</button>
-        <button class="rank-tab pill" data-target="sp-most-bought">Am meisten gekauft</button>
-        <button class="rank-tab pill" data-target="sp-turnarounds">Turnaround-Kandidaten</button>
+        <button class="rank-tab pill" data-target="sp-most-sold" aria-pressed="false">Am meisten verkauft</button>
+        <button class="rank-tab pill" data-target="sp-most-bought" aria-pressed="false">Am meisten gekauft</button>
+        <button class="rank-tab pill" data-target="sp-turnarounds" aria-pressed="false">Turnaround-Kandidaten</button>
       </div>
 
       <!-- Panels (S&P) -->
@@ -807,7 +806,7 @@ section { scroll-margin-top: 110px; }
           <h4 class="text-lg font-semibold">${row.name || row.symbol}</h4>
           <span class="text-xs px-2 py-1 rounded-full ${pillClass}">${fmtPct(chg)}</span>
         </div>
-        <div class="text-sm text-black/60 mb-2"> ${row.symbol || ""}</div>
+        <div class="text-sm text-black/60 mb-2">${row.symbol || ""}</div>
         <div class="text-sm text-black/70">
           Volumen: ${fmtVol(row.volume)} · Umsatz: ${row.turnover_eur!=null ? eur.format(row.turnover_eur) : "–"}
         </div>
@@ -821,7 +820,6 @@ section { scroll-margin-top: 110px; }
         most_bought:  `${prefix}-most-bought`,
         turnarounds:  `${prefix}-turnarounds`,
       };
-      // Karten befüllen
       document.getElementById(m.most_traded).innerHTML  = (data.most_traded  || []).map(cardHTML).join("");
       document.getElementById(m.most_sold).innerHTML    = (data.most_sold    || []).map(cardHTML).join("");
       document.getElementById(m.most_bought).innerHTML  = (data.most_bought  || []).map(cardHTML).join("");
@@ -832,10 +830,8 @@ section { scroll-margin-top: 110px; }
       const scope = document.querySelector(scopeSelector);
       scope.querySelectorAll(".rank-tab").forEach(btn=>{
         btn.addEventListener("click", ()=>{
-          // pressed state
           scope.querySelectorAll(".rank-tab").forEach(b=>b.setAttribute("aria-pressed","false"));
           btn.setAttribute("aria-pressed","true");
-          // panels togglen
           const targetId = btn.dataset.target;
           scope.querySelectorAll(".rank-panel").forEach(p=>p.classList.add("hidden"));
           scope.querySelector("#"+targetId).classList.remove("hidden");
@@ -851,7 +847,7 @@ section { scroll-margin-top: 110px; }
 
     (async function init(){
       try {
-        // relative Pfade (funktionieren auch auf GitHub Pages)
+        // Daten laden (relative Pfade)
         const de = await loadJSON("data/rankings.json");
         renderPanelsInto("de", de);
         document.getElementById("meta-de").textContent = de.as_of || de.generated_at || "";
@@ -860,9 +856,17 @@ section { scroll-margin-top: 110px; }
         renderPanelsInto("sp", sp);
         document.getElementById("meta-sp").textContent = sp.as_of || sp.generated_at || "";
 
-        // Tabs in beiden Blöcken verdrahten
+        // Tabs verdrahten
         wireTabs("#block-de");
         wireTabs("#block-sp");
+
+        // Sicherstellen: jeweils "Am meisten gehandelt" sichtbar
+        document.querySelector("#de-most-traded")?.classList.remove("hidden");
+        document.querySelector("#sp-most-traded")?.classList.remove("hidden");
+
+        // Buttons visuell aktiv markieren
+        document.querySelector('#block-de .rank-tab[data-target="de-most-traded"]')?.setAttribute("aria-pressed","true");
+        document.querySelector('#block-sp .rank-tab[data-target="sp-most-traded"]')?.setAttribute("aria-pressed","true");
 
         // Fußzeile
         document.getElementById("rankings-meta").textContent =
@@ -874,6 +878,7 @@ section { scroll-margin-top: 110px; }
     })();
   </script>
 </section>
+
 
 <!-- ABOUT & FOOTER -->
 <section class="py-14 md:py-20 border-t border-neutral-200/50 relative overflow-hidden" id="broker"><div class="absolute inset-0 -z-10" style="background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%);"></div><div class="absolute inset-0 -z-10 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); filter: brightness(0.25);"></div><div class="container mx-auto px-5"><h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white">Broker-Vergleich &amp; Partnerlinks</h2><p class="mt-2 text-sm md:text-base text-gray-300 max-w-2xl">Hier findest du eine kuratierte Liste seriöser Broker. Die Links sind Affiliate-Links: Wenn du dich darüber registrierst, kann Aktienklar eine Provision erhalten – für dich entstehen keine zusätzlichen Kosten. Risikohinweis: Der Handel mit Wertpapieren/CFDs/Krypto ist mit erheblichen Risiken verbunden.</p><div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">eToro</h3><span class="pill" style="color:black;">Broker</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">Multi-Asset Broker (Aktien, ETFs, Krypto). Einfacher Einstieg, Social Trading.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/Hybrid. Ersetze mit deinem individuellen Affiliate-Link.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://partners.etoro.com/" style="color:black;">Zu eToro</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Capital.com</h3><span class="pill" style="color:black;">CFD/Forex</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">CFD-Broker mit vielen Märkten, schlanke App, gute Education.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/RevShare/Hybrid. Ersetze mit deinem Affiliate-Link.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://capital.com/affiliate" style="color:black;">Zu Capital.com</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Plus500</h3><span class="pill" style="color:black;">CFD/Forex</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">CFD-Anbieter mit sehr breitem Produktangebot und solider Plattform.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA-Programm. Ersetze mit deinem Partnerlink.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.plus500partners.com/" style="color:black;">Zu Plus500</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Admirals (Admiral Markets)</h3><span class="pill" style="color:black;">CFD/Forex</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">CFD &amp; Forex, MetaTrader-Unterstützung, umfangreiche Research-Angebote.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/RevShare. Ersetze mit deinem Affiliate-Link.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://admiralmarkets.com/partners" style="color:black;">Zu Admirals</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Interactive Brokers</h3><span class="pill" style="color:black;">Broker</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">Professioneller Broker mit sehr niedrigen Gebühren und breitem Produktuniversum.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">Revenue Share. Ersetze mit deinem Affiliate-Link.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.interactivebrokers.com/affiliate/" style="color:black;">Zu Interactive Brokers</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">AvaTrade</h3><span class="pill" style="color:black;">CFD/Forex</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">CFD/Forex-Broker, mehrere Plattformen, dediziertes Partnerprogramm.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/Hybrid. Ersetze mit deinem Partnerlink.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.avapartner.com/" style="color:black;">Zu AvaTrade</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Binance (Krypto)</h3><span class="pill" style="color:black;">Krypto</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">Größte Krypto-Börse nach Volumen; Gebührenrabatte über Ref-Code möglich.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">Prozentuale Beteiligung an Trading-Gebühren. Ersetze mit deinem Ref-Link/Code.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.binance.com/en/affiliate" style="color:black;">Zu Binance</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Bybit (Krypto)</h3><span class="pill" style="color:black;">Krypto</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">Krypto-Derivate &amp; Spot, häufige Promotions und Bonusaktionen.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">30–50 % der Gebühren. Ersetze mit deinem Partnerlink.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://affiliate.bybit.com/" style="color:black;">Zu Bybit</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div><div class="card text-black bg-white"><div class="flex items-start justify-between gap-4"><h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Coinbase (Krypto)</h3><span class="pill" style="color:black;">Krypto</span></div><p class="mt-2 text-sm text-neutral-700" style="color:black;">Einsteigerfreundliche Krypto-Börse aus den USA mit starker Marke.</p><p class="mt-2 text-xs text-neutral-500" style="color:black;">Provision pro Registrierung. Ersetze mit deinem Affiliate-Link.</p><div class="mt-4"><a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50" data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.coinbase.com/affiliate" style="color:black;">Zu Coinbase</a></div><p class="mt-3 text-[12px] text-neutral-500" style="color:black;">Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.</p></div></div><div class="mt-10 rounded-xl border bg-white p-5 text-black"><h4 class="text-lg font-semibold text-[#0E2A47]">Transparenzhinweis &amp; Rechtliches</h4><p class="mt-1 text-sm text-neutral-700">Alle Links sind als Werbung/Affiliate zu verstehen. Bitte tausche die Platzhalter durch deine individuellen Partner-IDs aus. Achte auf Impressum, Datenschutzerklärung und rechtlich erforderliche Risikohinweise in deinem Land.</p></div></div></section><section id="about">
