@@ -1904,36 +1904,32 @@ function toggleCard(btn){
 
 <script>
 (function initAccordion() {
-  // alle Container finden, egal ob Anlagestrategien oder Über uns
   const roots = document.querySelectorAll('[data-accordion-root]');
   roots.forEach((root) => {
     root.addEventListener('click', (ev) => {
       const btn = ev.target.closest('[data-acc-btn]');
       if (!btn || !root.contains(btn)) return;
 
-      // passendes Panel finden
-      const panel = btn.parentElement?.nextElementSibling?.matches?.('[data-acc-panel]')
-        ? btn.parentElement.nextElementSibling
-        : btn.nextElementSibling?.matches?.('[data-acc-panel]')
-          ? btn.nextElementSibling
-          : null;
-
+      const panel =
+        btn.parentElement?.nextElementSibling?.matches?.('[data-acc-panel]')
+          ? btn.parentElement.nextElementSibling
+          : btn.nextElementSibling?.matches?.('[data-acc-panel]')
+            ? btn.nextElementSibling
+            : null;
       if (!panel) return;
 
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const wasOpen = btn.getAttribute('aria-expanded') === 'true';
 
-      // schließen aller Panels innerhalb desselben Akkordeons (optional)
-      root.querySelectorAll('[data-acc-btn][aria-expanded="true"]').forEach((openBtn) => {
-        if (openBtn !== btn) {
+      // Optional: Nur wenn root das Attribut data-accordion="single" hat, andere schließen
+      if (root.getAttribute('data-accordion') === 'single') {
+        root.querySelectorAll('[data-acc-btn][aria-expanded="true"]').forEach((openBtn) => {
+          if (openBtn === btn) return;
           openBtn.setAttribute('aria-expanded', 'false');
-          const openIcon = openBtn.querySelector('svg');
-          if (openIcon) openIcon.classList.remove('rotate-180');
+          openBtn.querySelector('svg')?.classList.remove('rotate-180');
           const openPanel = openBtn.parentElement?.nextElementSibling;
           if (openPanel) {
             openPanel.style.maxHeight = openPanel.scrollHeight + 'px';
-            requestAnimationFrame(() => {
-              openPanel.style.maxHeight = '0px';
-            });
+            requestAnimationFrame(() => { openPanel.style.maxHeight = '0px'; });
             const onEnd = (e) => {
               if (e.propertyName !== 'max-height') return;
               openPanel.hidden = true;
@@ -1941,24 +1937,22 @@ function toggleCard(btn){
             };
             openPanel.addEventListener('transitionend', onEnd);
           }
-        }
-      });
+        });
+      }
 
-      // aktuelles Panel togglen
-      if (!isOpen) {
+      // Scrollposition sichern, um Mini-Jumps zu vermeiden
+      const y = window.scrollY;
+
+      if (!wasOpen) {
         btn.setAttribute('aria-expanded', 'true');
-        const icon = btn.querySelector('svg');
-        if (icon) icon.classList.add('rotate-180');
+        btn.querySelector('svg')?.classList.add('rotate-180');
         panel.hidden = false;
         panel.style.maxHeight = panel.scrollHeight + 'px';
       } else {
         btn.setAttribute('aria-expanded', 'false');
-        const icon = btn.querySelector('svg');
-        if (icon) icon.classList.remove('rotate-180');
+        btn.querySelector('svg')?.classList.remove('rotate-180');
         panel.style.maxHeight = panel.scrollHeight + 'px';
-        requestAnimationFrame(() => {
-          panel.style.maxHeight = '0px';
-        });
+        requestAnimationFrame(() => { panel.style.maxHeight = '0px'; });
         const onEnd = (e) => {
           if (e.propertyName !== 'max-height') return;
           panel.hidden = true;
@@ -1966,10 +1960,14 @@ function toggleCard(btn){
         };
         panel.addEventListener('transitionend', onEnd);
       }
+
+      // Scrollposition zurücksetzen (falls sich Layout leicht verschiebt)
+      window.scrollTo(0, y);
     });
   });
 })();
 </script>
+
 
 
 </body>
