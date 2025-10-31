@@ -6,8 +6,10 @@
   <title>Datenschutzerklärung – Aktienklar</title>
   <link rel="icon" href="/favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="robots" content="index,follow" />
 </head>
 <body class="bg-white text-neutral-900">
+  <!-- Header -->
   <header class="border-b border-neutral-200/80 bg-white/80 backdrop-blur">
     <div class="container mx-auto max-w-4xl px-4 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2">
@@ -24,72 +26,186 @@
   <main class="container mx-auto max-w-3xl px-4 py-10">
     <div class="mb-6 flex items-center justify-between">
       <h1 class="text-3xl font-bold text-[#0E2A47]">Datenschutzerklärung</h1>
-      <a href="/" class="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm hover:bg-neutral-50">
-        ← Zur Startseite
-      </a>
+      <a href="/" class="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm hover:bg-neutral-50">← Zur Startseite</a>
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-8">
+      <!-- 1 -->
       <section class="rounded-xl border border-neutral-200 p-6">
         <h2 class="text-xl font-semibold mb-3">1. Verantwortlicher</h2>
-        <p><strong>Aktienklar</strong><br />vertreten durch: <strong>[vollständiger Name]</strong><br />
-          [Straße Hausnr.], 99099 Erfurt, Deutschland<br />
+        <p><strong>Aktienklar</strong><br>
+          vertreten durch: <strong>[vollständiger Name]</strong><br>
+          [Straße Hausnr.], 99099 Erfurt, Deutschland<br>
           E-Mail: <a class="text-[#0E2A47] underline" href="mailto:info@aktienklar.de">info@aktienklar.de</a></p>
+        <p class="mt-3 text-sm text-neutral-600">Ein Datenschutzbeauftragter ist nicht benannt, da die gesetzlichen Voraussetzungen derzeit nicht vorliegen.</p>
       </section>
 
+      <!-- 2 -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">2. Hosting</h2>
-        <p>GitHub Pages (GitHub, Inc., USA). Technische Verbindungsdaten werden zur sicheren Bereitstellung verarbeitet (Art. 6 Abs. 1 lit. f DSGVO). Eine Übermittlung in die USA kann erfolgen (Standardvertragsklauseln).</p>
+        <h2 class="text-xl font-semibold mb-3">2. Grundsätze der Datenverarbeitung</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Zwecke:</strong> Bereitstellung der Website und ihrer Funktionen (Rechner, Inhalte), Sicherheit/Fehleranalyse, Reichweitenmessung (mit Einwilligung), Kommunikation, künftig Newsletter/Abos.</li>
+          <li><strong>Rechtsgrundlagen:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertrag/Anbahnung), lit. c (gesetzliche Pflichten), lit. f (berechtigtes Interesse: sichere/effiziente Bereitstellung, Missbrauchserkennung), lit. a (Einwilligung z. B. Analytics/Newsletter).</li>
+          <li><strong>Kategorien Betroffener:</strong> Webseitenbesucher:innen, Kommunikationspartner:innen, Abonnent:innen (künftig), Kund:innen (künftig).</li>
+        </ul>
       </section>
 
+      <!-- 3 Hosting / CDNs -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">3. Server-Logfiles</h2>
-        <p>IP-Adresse, Datum/Uhrzeit, Referrer, abgerufene Ressourcen, HTTP-Status, Datenmenge, Browser/OS. Zweck: Betrieb, Sicherheit, Fehleranalyse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <h2 class="text-xl font-semibold mb-3">3. Hosting & Content Delivery</h2>
+        <p><strong>GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA):</strong>
+          Bereitstellung statischer Inhalte. Bei Abruf werden technisch erforderliche Verbindungsdaten verarbeitet (IP-Adresse, Datum/Uhrzeit, angeforderte Ressourcen, HTTP-Status, Datenmenge, User-Agent).
+          Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (sichere und effiziente Bereitstellung). Es kann zu Übermittlungen in die USA kommen; GitHub stützt diese auf geeignete Garantien (z. B. Standardvertragsklauseln).</p>
+        <p class="mt-3"><strong>CDNs & Bibliotheken:</strong> Zur schnellen Auslieferung nutzen wir externe CDNs wie
+          <em>cdn.jsdelivr.net</em> (Chart.js/Tailwind), <em>fonts.googleapis.com</em> / <em>fonts.gstatic.com</em> (Google Fonts).
+          Beim Abruf dieser Ressourcen werden technisch erforderliche Verbindungsdaten durch den jeweiligen Anbieter verarbeitet (Art. 6 Abs. 1 lit. f DSGVO). Google Fonts werden über das Web eingebunden; es findet keine Speicherung von personenbezogenen Daten durch uns statt, jedoch verarbeitet Google beim Abruf z. B. IP/Browserinformationen.</p>
       </section>
 
+      <!-- 4 Server Logs -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">4. Cookies & Consent</h2>
-        <p>Notwendige Cookies auf Basis Art. 6 Abs. 1 lit. f DSGVO. Nicht-essenzielle Tools (z. B. Analytics) nur mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) über ein Consent-Banner; Widerruf jederzeit möglich.</p>
+        <h2 class="text-xl font-semibold mb-3">4. Server-Logfiles</h2>
+        <p>Automatisch verarbeitete Daten: IP-Adresse, Datum/Uhrzeit, Referrer-URL, aufgerufene Datei/URL, HTTP-Statuscode, übertragene Datenmenge, Browser/OS-Typ. Zweck: Betrieb, Sicherheit (z. B. Angriffserkennung), Fehleranalyse. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Logdaten werden nur für die genannten Zwecke verwendet und anschließend gelöscht oder anonymisiert. Typische Speicherfrist: bis zu 30 Tage (abweichend nach Sicherheitsvorfall möglich).</p>
       </section>
 
+      <!-- 5 Cookies/Consent -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">5. Google Analytics</h2>
-        <p>Google Ireland Limited, Dublin, Irland. Einsatz mit IP-Anonymisierung (EU/EWR-Kürzung). In Ausnahmefällen Übermittlung in die USA. Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Zweck: Reichweitenmessung/Optimierung. Info: <a class="text-[#0E2A47] underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutz</a>.</p>
+        <h2 class="text-xl font-semibold mb-3">5. Cookies, lokale Speicherung & Einwilligungsmanagement</h2>
+        <p>Wir setzen technisch notwendige Cookies/Storage ein, um die Website bereitzustellen (z. B. Sprachauswahl, Anti-Bot-Schutz, Einwilligungsstatus). Nicht notwendige Technologien (z. B. Google Analytics) werden nur nach Einwilligung über unser Consent-Banner aktiviert.</p>
+        <div class="mt-3 overflow-x-auto">
+          <table class="min-w-full text-sm">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="py-2 pr-4">Kategorie</th><th class="py-2 pr-4">Zweck</th><th class="py-2 pr-4">Speicherort</th><th class="py-2">Dauer</th>
+              </tr>
+            </thead>
+            <tbody class="align-top">
+              <tr class="border-b">
+                <td class="py-2 pr-4">Notwendig</td>
+                <td class="py-2 pr-4">Merkt sich deine Cookie-Einstellungen (Opt-in/Opt-out)</td>
+                <td class="py-2 pr-4">localStorage: <code>ak_consent_v1</code></td>
+                <td class="py-2">bis Widerruf/Löschung</td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-4">Analytics (optional)</td>
+                <td class="py-2 pr-4">Reichweitenmessung (Google Analytics, nur nach Einwilligung)</td>
+                <td class="py-2 pr-4">Cookies durch Google / lokale Speicherung</td>
+                <td class="py-2">gem. Google-Angaben; i. d. R. 14 Monate Datenaufbewahrung</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3">Du kannst deine Wahl jederzeit über den Link „Cookies verwalten“ im Footer ändern (Widerruf mit Wirkung für die Zukunft). Zudem kannst du Cookies im Browser löschen oder blockieren.</p>
       </section>
 
+      <!-- 6 Google Analytics -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">6. Newsletter (zukünftig)</h2>
-        <p>Double-Opt-In; Verarbeitung von E-Mail (optional Name) zur Versendung. Rechtsgrundlage: Einwilligung. Einsatz eines Dienstleisters möglich (z. B. <em>[Brevo/Mailchimp]</em>).</p>
+        <h2 class="text-xl font-semibold mb-3">6. Google Analytics (nur nach Einwilligung)</h2>
+        <p>Wir verwenden <strong>Google Analytics</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland), um die Nutzung unserer Website zu analysieren und zu verbessern. Wir setzen die <strong>IP-Anonymisierung</strong> ein (Kürzung innerhalb der EU/EWR). Nur in Ausnahmefällen wird die volle IP an einen Server der Google LLC in den USA übertragen und dort gekürzt.</p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li><strong>Datenarten:</strong> pseudonyme Nutzungsdaten (z. B. Seitenaufrufe, Interaktionen, ungefährer Standort, Geräte-/Browserinformationen), gekürzte IP.</li>
+          <li><strong>Zweck:</strong> Reichweitenmessung, Fehleranalyse, Optimierung von Inhalten und Usability.</li>
+          <li><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via Banner).</li>
+          <li><strong>Speicherdauer bei Google:</strong> standardmäßig bis zu 14 Monate (kontrolliert über Analytics-Einstellungen).</li>
+          <li><strong>Empfänger:</strong> Google Ireland Limited (ggf. Google LLC, USA – mit geeigneten Garantien, z. B. Standardvertragsklauseln).</li>
+        </ul>
+        <p class="mt-2">Du kannst deine Einwilligung jederzeit im Cookie-Banner (Footer-Link „Cookies verwalten“) widerrufen. Weitere Informationen zum Datenschutz bei Google findest du in den Google-Datenschutzhinweisen.</p>
       </section>
 
+      <!-- 7 Newsletter -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">7. Abos & Zahlungen (zukünftig)</h2>
-        <p>Verarbeitung von Vertrags-/Zahlungsdaten zur Vertragserfüllung (Art. 6 Abs. 1 lit. b) und gesetzl. Pflichten (lit. c). Zahlungsdienstleister möglich (z. B. <em>[Stripe/PayPal]</em>).</p>
+        <h2 class="text-xl font-semibold mb-3">7. Newsletter (geplant)</h2>
+        <p>Bei Anmeldung verarbeiten wir deine E-Mail-Adresse (optional Name) zur Zusendung unseres Newsletters. Wir verwenden das Double-Opt-In-Verfahren. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Du kannst die Einwilligung jederzeit über den Abmeldelink oder per E-Mail an <a class="text-[#0E2A47] underline" href="mailto:info@aktienklar.de">info@aktienklar.de</a> widerrufen.</p>
+        <p class="mt-2">Sofern ein Versanddienstleister eingesetzt wird (z. B. <em>[Newsletter-Anbieter]</em>), erfolgt eine Übermittlung der erforderlichen Daten an diesen Anbieter auf Basis eines Auftragsverarbeitungsvertrags (Art. 28 DSGVO). Eventuelle Übermittlungen in Drittländer erfolgen nur unter den Voraussetzungen der Art. 44 ff. DSGVO.</p>
       </section>
 
+      <!-- 8 Abos/Zahlungen -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">8. Deine Rechte</h2>
-        <p>Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch, Widerruf, Beschwerde (TLfDI, Häßlerstraße 8, 99096 Erfurt).</p>
+        <h2 class="text-xl font-semibold mb-3">8. Abonnements & Zahlungsabwicklung (geplant)</h2>
+        <p>Bei Abschluss eines Abos verarbeiten wir Vertrags- und Zahlungsdaten (z. B. Name, Rechnungsadresse, E-Mail, gewähltes Produkt, Zahlungsinformationen). Rechtsgrundlagen: Art. 6 Abs. 1 lit. b DSGVO (Vertrag), lit. c (gesetzliche Aufbewahrungspflichten). Zur Zahlungsabwicklung können Zahlungsdienstleister eingesetzt werden (z. B. <em>[Stripe/PayPal]</em>) auf Grundlage von Auftragsverarbeitung/entspr. Rollenmodellen. Die für die Abwicklung notwendigen Daten werden an den jeweiligen Anbieter übermittelt.</p>
+        <p class="mt-2 text-sm text-neutral-600">Handels-/steuerrechtliche Aufbewahrung: i. d. R. 6–10 Jahre (Deutschland).</p>
       </section>
 
+      <!-- 9 Kommunikation -->
       <section class="rounded-xl border border-neutral-200 p-6">
-        <h2 class="text-xl font-semibold mb-3">9. Drittlandübermittlungen</h2>
-        <p>Nur gem. Art. 44 ff. DSGVO (z. B. Standardvertragsklauseln, zusätzliche Maßnahmen).</p>
+        <h2 class="text-xl font-semibold mb-3">9. Kommunikation</h2>
+        <p>Bei Kontaktaufnahme (z. B. per E-Mail) verarbeiten wir deine Angaben zur Bearbeitung der Anfrage. Rechtsgrundlagen: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation); bei Vertragsbezug Art. 6 Abs. 1 lit. b DSGVO. Speicherfrist: abhängig vom Anliegen; bei gesetzlichen Aufbewahrungspflichten entsprechend länger.</p>
       </section>
 
-      <p class="text-sm text-neutral-500">Stand: 31.10.2025</p>
+      <!-- 10 Empfänger/Kategorien -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">10. Empfängerkategorien</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Hosting/Technik/Dienstleister (z. B. GitHub Pages, CDNs, E-Mail-Provider)</li>
+          <li>Analyse-Dienst (Google Analytics; nur bei Einwilligung)</li>
+          <li>Newsletter-Dienst (geplant)</li>
+          <li>Zahlungsdienstleister/Abrechnungsdienst (geplant)</li>
+          <li>Behörden/Steuerberatung, sofern gesetzlich erforderlich</li>
+        </ul>
+        <p class="mt-2">Verarbeitung mit Dienstleistern erfolgt, soweit erforderlich, auf Basis von Auftragsverarbeitungsverträgen (Art. 28 DSGVO).</p>
+      </section>
+
+      <!-- 11 Drittland -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">11. Datenübermittlung in Drittländer</h2>
+        <p>Sofern Anbieter in Drittländern (außerhalb der EU/EWR) Daten verarbeiten, erfolgt dies nur, wenn die besonderen Voraussetzungen der Art. 44 ff. DSGVO erfüllt sind (z. B. Angemessenheitsbeschluss, EU-Standardvertragsklauseln, zusätzliche Maßnahmen).</p>
+      </section>
+
+      <!-- 12 Speicherfristen -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">12. Speicherfristen</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Server-Logs: i. d. R. bis zu 30 Tage</li>
+          <li>Cookie/Consent-Status: bis Widerruf/Löschung</li>
+          <li>Analytics-Daten: i. d. R. 14 Monate (kontrolliert in Google Analytics)</li>
+          <li>Kommunikation/E-Mails: bis Abschluss der Anfrage; bei gesetzlichen Pflichten länger</li>
+          <li>Kundendaten/Vertrags- & Zahlungsdaten (geplant): gem. Handels-/Steuerrecht 6–10 Jahre</li>
+        </ul>
+      </section>
+
+      <!-- 13 Rechte -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">13. Deine Rechte</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18)</li>
+          <li>Datenübertragbarkeit (Art. 20)</li>
+          <li>Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f (Art. 21)</li>
+          <li>Widerruf erteilter Einwilligungen (Art. 7 Abs. 3) mit Wirkung für die Zukunft</li>
+          <li>Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</li>
+        </ul>
+        <p class="mt-2">Zuständige Aufsichtsbehörde: <strong>Thüringer Landesbeauftragter für den Datenschutz und die Informationsfreiheit (TLfDI)</strong>, Häßlerstraße 8, 99096 Erfurt, Deutschland.</p>
+      </section>
+
+      <!-- 14 Minderjährige / Profiling / DNT -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">14. Weitere Hinweise</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li><strong>Minderjährige:</strong> Unser Angebot richtet sich nicht an Kinder unter 16 Jahren.</li>
+          <li><strong>Automatisierte Entscheidungen/Profiling:</strong> finden nicht statt. Google Analytics erstellt pseudonyme Nutzungsprofile, sofern du eingewilligt hast.</li>
+          <li><strong>„Do Not Track“:</strong> Wir respektieren deine Einwilligungsentscheidung über das Banner; DNT-Signale werden derzeit nicht einheitlich ausgewertet.</li>
+        </ul>
+      </section>
+
+      <!-- 15 Änderungen -->
+      <section class="rounded-xl border border-neutral-200 p-6">
+        <h2 class="text-xl font-semibold mb-3">15. Aktualisierung dieser Erklärung</h2>
+        <p>Wir passen diese Datenschutzerklärung an, sobald neue Funktionen, Dienste oder rechtliche Anforderungen dies erfordern. Die jeweils aktuelle Fassung ist hier abrufbar.</p>
+        <p class="mt-2 text-sm text-neutral-500">Stand: 31.10.2025</p>
+      </section>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="border-t border-neutral-200/80">
-    <div class="container mx-auto max-w-3xl px-4 py-6 text-sm text-neutral-500 flex gap-4">
+    <div class="container mx-auto max-w-3xl px-4 py-6 text-sm text-neutral-500 flex gap-4 flex-wrap">
       <a href="/impressum.html" class="hover:underline">Impressum</a>
       <a href="/datenschutz.html" class="hover:underline">Datenschutz</a>
       <a href="/disclaimer.html" class="hover:underline">Disclaimer</a>
+      <a href="#" id="manage-cookies" class="hover:underline">Cookies verwalten</a>
       <span class="ml-auto">© <span id="year"></span> Aktienklar</span>
     </div>
   </footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <!-- Falls du mein Cookie-Banner-Script nutzt, ist #manage-cookies bereits verdrahtet -->
 </body>
 </html>
