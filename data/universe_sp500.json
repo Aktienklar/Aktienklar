@@ -813,9 +813,6 @@
     "symbol": "KMI"
   },
   {
-    "symbol": "KMX"
-  },
-  {
     "symbol": "KO"
   },
   {
@@ -1237,6 +1234,9 @@
   },
   {
     "symbol": "SO"
+  },
+  {
+    "symbol": "SOLS"
   },
   {
     "symbol": "SOLV"
