@@ -2662,6 +2662,10 @@ function renderMsg(doc) {
 ["tab-chat","link-chat-desktop","link-chat-mobile"]
   .forEach(id => document.getElementById(id)?.classList.toggle("hidden", !loggedIn));
 
+// ➕ Neu (Community):
+["tab-community","link-community-desktop","link-community-mobile"]
+  .forEach(id => document.getElementById(id)?.classList.toggle("hidden", !loggedIn));
+
 // === Live-Chat verbinden/trennen (NEU – Schritt 6b)
 
 // Bisherigen Listener (falls vorhanden) abbauen
