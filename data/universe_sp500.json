@@ -477,9 +477,6 @@
     "symbol": "EME"
   },
   {
-    "symbol": "EMN"
-  },
-  {
     "symbol": "EMR"
   },
   {
@@ -1159,6 +1156,9 @@
   },
   {
     "symbol": "PYPL"
+  },
+  {
+    "symbol": "Q"
   },
   {
     "symbol": "QCOM"
