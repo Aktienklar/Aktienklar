@@ -199,6 +199,7 @@ section { scroll-margin-top: 110px; }
       <a class="hover:text-[#0E2A47]" href="#" data-nav="about">Über uns</a>
       <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="analysen-pro" id="link-analysen-pro-desktop">Analysen</a>
       <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="chat" id="link-chat-desktop">Chat</a>
+      <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="chat" id="link-chat-desktop">Community</a>
     </nav>
 
      <!-- Anmelden (Header) -->
@@ -226,6 +227,7 @@ section { scroll-margin-top: 110px; }
   <a href="#" data-nav="about">Über uns</a>
   <a href="#" data-nav="analysen-pro" class="hidden" id="link-analysen-pro-mobile">Analysen</a>
   <a href="#" data-nav="chat" class="hidden" id="link-chat-mobile">Chat</a>
+  <a href="#" data-nav="chat" class="hidden" id="link-chat-mobile">Community</a>
   <!-- Anmelden (Mobile) — ID geändert -->
   <button id="auth-open-mobile" type="button" class="inline-flex items-center gap-2 rounded-full bg-[#0E2A47] px-4 py-2 text-sm font-medium text-white">
     Anmelden
@@ -246,6 +248,7 @@ section { scroll-margin-top: 110px; }
       <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="newsletter" role="tab">Newsletter</button>
       <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="analysen-pro" id="tab-analysen-pro" role="tab">Analysen</button>
       <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="chat" id="tab-chat" role="tab">Chat</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="chat" id="tab-chat" role="tab">Community</button>
     </div>
   </div>
 </nav>
@@ -1568,6 +1571,32 @@ window.addEventListener('DOMContentLoaded', function () {
   </div>
 </section>
 
+<section id="community" class="hidden py-16">
+  <div class="container mx-auto px-5 max-w-3xl">
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4">Frag die Community</h2>
+
+    <!-- Hinweis -->
+    <div class="bg-blue-50 border border-blue-200 text-blue-900 rounded-xl p-4 mb-6">
+      <p class="font-medium mb-1">Stell deine Frage an die Community</p>
+      <p class="text-sm leading-relaxed">
+        Kurz und sachlich formulieren. Keine Werbung, respektvoll bleiben. Antworten können von allen angemeldeten Nutzern gegeben werden.
+      </p>
+    </div>
+
+    <!-- Frage erstellen -->
+    <form id="q-form" class="mb-6 flex gap-2 items-start">
+      <textarea id="q-text" class="flex-1 input min-h-[80px]" placeholder="Deine Frage (z. B. 'Wie bewertet ihr Aktie XYZ aktuell?')" maxlength="300"></textarea>
+      <button class="btn pill shrink-0" type="submit">Frage stellen</button>
+    </form>
+
+    <!-- Fragenliste -->
+    <div id="q-list" class="space-y-4"></div>
+
+    <!-- Status / Hinweise -->
+    <p id="q-hint" class="text-sm text-neutral-600 mt-4"></p>
+  </div>
+</section>
+
 
 
 <footer class="border-t border-neutral-200 bg-white">
@@ -2693,6 +2722,135 @@ chatForm?.addEventListener("submit", async (e) => {
   }
 });
 
+// === Community-Bereich: Frag die Community ===
+
+// --- DOM-Referenzen ---
+const qForm = document.getElementById("q-form");
+const qText = document.getElementById("q-text");
+const qList = document.getElementById("q-list");
+const qHint = document.getElementById("q-hint");
+
+// Escaper für sichere Ausgabe
+const esc = (s) => String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+// Eine Frage rendern (inkl. Antworten-Container + Formular)
+function renderQuestion(id, d) {
+  const when = d.createdAt?.toDate?.() ? d.createdAt.toDate().toLocaleString("de-DE") : "–";
+  return `
+    <article class="border rounded-xl bg-white/70 p-4" data-qid="${id}">
+      <header class="mb-2 text-sm text-neutral-600">${esc(d.authorName || "Anonym")} · ${when}</header>
+      <h3 class="text-base mb-2">${esc(d.question)}</h3>
+
+      <div class="space-y-2" data-answers></div>
+
+      <form class="mt-3 flex gap-2" data-answer-form>
+        <input class="flex-1 input" name="answer" placeholder="Antwort schreiben…" autocomplete="off" maxlength="500" />
+        <button class="btn pill" type="submit">Antworten</button>
+      </form>
+    </article>
+  `;
+}
+
+// Antworten live anbinden
+function attachAnswersListener(qArticle, qid) {
+  const answersBox = qArticle.querySelector("[data-answers]");
+  const answersRef = collection(db, "community_questions", qid, "answers");
+  const aq = query(answersRef, orderBy("createdAt","asc"));
+  onSnapshot(aq, (snap) => {
+    answersBox.innerHTML = "";
+    snap.forEach(docSnap => {
+      const a = docSnap.data();
+      const when = a.createdAt?.toDate?.() ? a.createdAt.toDate().toLocaleString("de-DE") : "–";
+      const el = document.createElement("div");
+      el.className = "rounded-lg bg-neutral-50 border p-3";
+      el.innerHTML = `
+        <div class="text-xs text-neutral-600 mb-1">${esc(a.authorName || "User")} · ${when}</div>
+        <div class="text-sm">${esc(a.text)}</div>
+      `;
+      answersBox.appendChild(el);
+    });
+  });
+}
+
+// Fragenliste live (neueste zuerst)
+(function liveQuestions(){
+  const qRef = collection(db, "community_questions");
+  const qy   = query(qRef, orderBy("createdAt","desc"));
+  onSnapshot(qy, (snap) => {
+    qList.innerHTML = "";
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const wrap = document.createElement("div");
+      wrap.innerHTML = renderQuestion(docSnap.id, d);
+      const article = wrap.firstElementChild;
+      qList.appendChild(article);
+      attachAnswersListener(article, docSnap.id);
+    });
+    qHint.textContent = snap.size ? "" : "Noch keine Fragen – leg los und stelle die erste Frage!";
+  });
+})();
+
+// Frage absenden
+qForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const u = auth.currentUser;
+  if (!u) { alert("Bitte zuerst anmelden."); return; }
+  const txt = (qText?.value || "").trim();
+  if (!txt) return;
+
+  try {
+    await addDoc(collection(db, "community_questions"), {
+      question: txt,
+      authorUID: u.uid,
+      authorName: u.displayName || u.email || "User",
+      createdAt: serverTimestamp()
+    });
+    qText.value = "";
+  } catch (err) {
+    alert("Frage konnte nicht gespeichert werden: " + (err?.message || err));
+    console.error(err);
+  }
+});
+
+// Antworten absenden (Event-Delegation)
+qList?.addEventListener("submit", async (e) => {
+  const form = e.target.closest("form[data-answer-form]");
+  if (!form) return;
+  e.preventDefault();
+
+  const u = auth.currentUser;
+  if (!u) { alert("Bitte zuerst anmelden."); return; }
+
+  const article = form.closest("article[data-qid]");
+  const qid = article?.dataset?.qid;
+  const input = form.querySelector('input[name="answer"]');
+  const txt = (input?.value || "").trim();
+  if (!qid || !txt) return;
+
+  try {
+    await addDoc(collection(db, "community_questions", qid, "answers"), {
+      text: txt,
+      authorUID: u.uid,
+      authorName: u.displayName || u.email || "User",
+      createdAt: serverTimestamp()
+    });
+    input.value = "";
+  } catch (err) {
+    alert("Antwort konnte nicht gespeichert werden: " + (err?.message || err));
+    console.error(err);
+  }
+});
+
+// Hinweis je nach Login anzeigen
+function setCommunityHint(user){
+  if(!qHint) return;
+  qHint.textContent = user ? "" : "Bitte anmelden, um Fragen zu stellen und zu antworten.";
+}
+
+// An vorhandenen Auth-State anhängen
+onAuthStateChanged(auth, (user) => {
+  setCommunityHint(user);
+});
 
 </script>
 
@@ -2700,7 +2858,7 @@ chatForm?.addEventListener("submit", async (e) => {
 
 <script>
 (() => {
-  const sections = ["home","analysen","grundlagen","tools","rankings","broker","about","newsletter","analysen-pro","chat"];
+  const sections = ["home","analysen","grundlagen","tools","rankings","broker","about","newsletter","analysen-pro","chat","community"];
 
 
   function showOnly(tabId) {
