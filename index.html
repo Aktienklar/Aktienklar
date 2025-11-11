@@ -1,0 +1,3449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- ==== SEO Essentials ==== -->
+  <meta name="description" content="Aktienklar – dein smarter Rechner und Wissenshub rund um Aktien, Börse und Finanzen."/>
+  <meta name="keywords" content="Aktien, Finanzen, Börse, Aktienrechner, Finanzwissen, Aktienanalyse, Portfolio, Investieren, Dividenden, ETF"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://aktienklar.de/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aktienklar – Analysen, Rechner &amp; Rankings"/>
+  <meta property="og:description" content="Aktienklar zeigt dir verständlich, wie du Aktien analysierst und dein Portfolio verwaltest."/>
+  <meta property="og:url" content="https://aktienklar.de/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://aktienklar.de/img/aktienklar-preview.png"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Aktienklar – Analysen, Rechner &amp; Rankings"/>
+  <meta name="twitter:description" content="Aktienklar – dein smarter Rechner und Wissenshub rund um Aktien, Börse und Finanzen."/>
+  <meta name="twitter:image" content="https://aktienklar.de/img/aktienklar-preview.png"/>
+
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="nqppkJAnE8oiwtZPBJZ0drkE8zlDMp_gSKAxx8Jeh_Q"/>
+
+  <!-- JSON-LD: Website -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aktienklar",
+    "url": "https://aktienklar.de/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aktienklar.de/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: Organization (Logo zeigt bewusst auf das Favicon) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aktienklar",
+    "url": "https://aktienklar.de/",
+    "logo": "https://aktienklar.de/favicon.ico",
+    "sameAs": []
+  }
+  </script>
+
+  <title>Aktienklar – Analysen, Rechner &amp; Rankings</title>
+
+  <!-- ===== Favicons (Google-first) ===== -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/favicon-96x96.png" sizes="96x96" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Aktienklar">
+</head>
+
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Fonts & Chart.js -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .container { max-width: 1120px; }
+    .card { border-radius: 1rem; border: 1px solid #e5e7eb; background: white; padding: 1.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    .input { width: 100%; border-radius: 0.5rem; border: 1px solid #d1d5db; background: white; padding: 0.5rem 0.75rem; font-size: 0.875rem; outline: none; }
+    .input:focus { box-shadow: 0 0 0 4px rgba(14,42,71,0.15); border-color: #0E2A47; }
+    .pill { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid #e5e7eb; background: white; padding: 0.25rem 0.75rem; font-size: 0.75rem; color: #525252; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    /* Number-Spinner ausblenden (verhindert Überlappungen) */
+    /* Chrome/Safari/Edge/Opera */
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    /* Firefox */
+    input[type=number] { -moz-appearance: textfield; }
+  </style>
+<style>
+
+/* Improve readability of section headings over photos */
+#live-news h2, #analysen h2, #grundlagen h2, #tools h2, #rankings h2, #about h2, #newsletter h2 {
+  color: #fff !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.5);
+}
+
+
+/* ===== Readability & Overflow fixes (added by ChatGPT) ===== */
+
+/* 1) Make headings AND the top intro texts readable on photo backgrounds */
+#live-news > .container > p,
+#analysen > .container > p,
+#grundlagen > .container > p,
+#tools > .container > p,
+#rankings > .container > p,
+#about > .container > p,
+#newsletter > .container > p {
+  color: rgba(255,255,255,0.92) !important;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* 2) Prevent long numbers (e.g., €-Beträge) from overflowing cards */
+.card .rounded-xl p.text-lg,
+.card .rounded-xl p.text-xl,
+#home #grossOut, #home #netOut,
+#tools #c_final, #tools #c_invested,
+#tools #d_gross, #tools #d_net,
+#tools #r_netprofit, #tools #r_return, #tools #r_annual, #tools #r_invested {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* Ensure grid children can actually shrink and wrap inside cards */
+.card .grid > * { min-width: 0; }
+</style>
+<style>
+/* Ensure sections align neatly below the sticky header + tabbar when navigated to */
+:root { --nav-offset: 112px; } /* header (64px) + tabbar (~48px) */
+section { scroll-margin-top: var(--nav-offset); }
+
+/* Prevent any browser from restoring scroll position mid-page on reload */
+html, body { scroll-behavior: auto; }
+</style><style>
+/* Responsive tweaks */
+h1 { font-size: clamp(1.75rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+.container { padding-left: 1rem; padding-right: 1rem; }
+img { max-width: 100%; height: auto; }
+section { scroll-margin-top: 110px; }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  transition: right 0.3s ease;
+  z-index: 100;
+  padding: 2rem 1.5rem;
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu a { display: block; margin: 1rem 0; font-size: 1.1rem; color: #0E2A47; font-weight: 500; }
+.mobile-menu a:hover { text-decoration: underline; }
+.menu-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 90;
+}
+.menu-overlay.open { opacity: 1; pointer-events: auto; }
+</style>
+<style>
+/* ==== Mobile: Tabbar ausblenden & Scroll-Offset anpassen ==== */
+@media (max-width: 767.98px) {
+  #tabbar { display: none !important; }
+  :root { --nav-offset: 64px; } /* nur Header (ca. 64px) */
+}
+</style>
+</link></meta>
+<style>
+  .rank-tab[data-active="true"] { background: #0E2A47; color: #fff; }
+  .rank-panel.hidden { display: none; }
+</style>
+<style>
+/* sorgt dafür, dass der Chart in der Card sauber skaliert */
+#tvchart { min-height: 420px; }
+</style></head>
+<body class="bg-white text-neutral-900">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+  <div class="mx-auto container flex h-16 items-center justify-between px-5">
+    <a class="flex items-center gap-2" href="#" data-nav="home">
+      <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0E2A47] text-white font-bold">A</div>
+      <div class="text-[15px] font-semibold tracking-wide text-[#0E2A47]">Aktienklar</div>
+    </a>
+    <nav class="hidden gap-6 md:flex text-[15px]" id="main-nav">
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="analysen">Anlagestrategien</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="grundlagen">Grundlagen</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="tools">Rechner</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="rankings">Rankings</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="broker">Broker</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="about">Über uns</a>
+      <a class="hover:text-[#0E2A47]" href="#" data-nav="krypto">Krypto</a>
+      <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="analysen-pro" id="link-analysen-pro-desktop">Analysen</a>
+      <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="chat" id="link-chat-desktop">Chat</a>
+      <a class="hover:text-[#0E2A47] hidden" href="#" data-nav="community" id="link-community-desktop">Community</a>
+    </nav>
+
+     <!-- Anmelden (Header) -->
+     <button id="auth-open" type="button" class="inline-flex items-center gap-2 rounded-full bg-[#0E2A47] px-4 py-2 text-sm font-medium text-white">
+      Anmelden
+    </button>
+
+    <!-- Menü öffnen (Mobile) -->
+    <button class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-[#0E2A47] focus:outline-none" id="menu-toggle">☰</button>
+   
+  </div>
+</header>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <button class="text-right text-2xl font-bold mb-4 text-[#0E2A47]" id="close-menu" type="button">×</button>
+
+  <a href="#" data-nav="home">Start</a>
+  <a href="#" data-nav="analysen">Anlagestrategien</a>
+  <a href="#" data-nav="grundlagen">Grundlagen</a>
+  <a href="#" data-nav="tools">Rechner</a>
+  <a href="#" data-nav="rankings">Rankings</a>
+  <a href="#" data-nav="broker">Broker</a>
+  <a href="#" data-nav="about">Über uns</a>
+  <a href="#" data-nav="krypto">Krypto</a>
+  <a href="#" data-nav="analysen-pro" class="hidden" id="link-analysen-pro-mobile">Analysen</a>
+  <a href="#" data-nav="chat" class="hidden" id="link-chat-mobile">Chat</a>
+  <a href="#" data-nav="community" class="hidden" id="link-community-mobile">Community</a>
+  <!-- Anmelden (Mobile) — ID geändert -->
+  <button id="auth-open-mobile" type="button" class="inline-flex items-center gap-2 rounded-full bg-[#0E2A47] px-4 py-2 text-sm font-medium text-white">
+    Anmelden
+  </button>
+</div>
+
+
+<nav class="sticky top-16 z-40 border-b border-neutral-200/80 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60" id="tabbar">
+  <div class="container mx-auto px-5">
+    <div aria-label="Abschnitte" class="flex flex-wrap gap-2 py-3" role="tablist">
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="home" role="tab">Start</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="analysen" role="tab">Anlagestrategien</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="grundlagen" role="tab">Grundlagen</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="tools" role="tab">Rechner</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="rankings" role="tab">Rankings</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="broker" role="tab">Broker</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="about" role="tab">Über uns</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="newsletter" role="tab">Newsletter</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm" data-tab="krypto" role="tab">Krypto</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="analysen-pro" id="tab-analysen-pro" role="tab">Analysen</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="chat" id="tab-chat" role="tab">Chat</button>
+      <button class="tab-btn px-3 py-1.5 rounded-full border text-sm hidden" data-tab="community" id="tab-community" role="tab">Community</button>
+    </div>
+  </div>
+</nav>
+
+<!-- TradingView Ticker Tape (konform gestylt) -->
+<style>
+  /* Weißraum entfernen + dezentes Branding */
+  .tv-tape { margin:0 !important; padding:0 !important; line-height:0; }
+  .tv-tape .tradingview-widget-container__widget { margin:0 !important; }
+  .tv-tape .tradingview-widget-copyright{
+    margin:4px 0 0 0 !important;      /* kleiner Abstand nach oben */
+    padding:0 !important;
+    text-align:right !important;
+    font-size:10px !important;
+    line-height:1.2 !important;
+    opacity:.65;                       /* dezent, aber sichtbar */
+    color:#cbd5e1 !important;          /* hellgrau (anpassbar) */
+  }
+  .tv-tape .tradingview-widget-copyright a{
+    color:inherit !important;
+    text-decoration:none !important;
+  }
+  .tv-tape .tradingview-widget-copyright a:hover{
+    text-decoration:underline !important;
+  }
+</style>
+
+<style>
+  /* Null-Abstand und keine zusätzliche Höhe durch das Branding */
+  .tv-tape{ margin:0!important; padding:0!important; line-height:0!important; position:relative; display:block; }
+  .tv-tape .tradingview-widget-container__widget{ margin:0!important; }
+  /* Branding sichtbar, aber absolut in die Ecke gelegt -> erzeugt keine zusätzliche Höhe */
+  .tv-tape .tv-brand{
+    position:absolute; right:8px; bottom:6px;
+    margin:0!important; padding:0!important;
+    font-size:10px!important; line-height:1.1!important;
+    opacity:.65; color:#cbd5e1!important; text-align:right;
+  }
+  .tv-tape .tv-brand a{ color:inherit!important; text-decoration:none!important; }
+  .tv-tape .tv-brand a:hover{ text-decoration:underline!important; }
+
+  /* Sicherheitshalber: Body/Header ohne Standard-Margins */
+  body, header{ margin:0; padding:0; }
+</style>
+
+<!-- Ticker direkt über dem Hero -->
+<div class="tradingview-widget-container tv-tape">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tv-brand">
+    <a href="https://www.tradingview.com/markets/" target="_blank" rel="noopener nofollow">Ticker tape</a> by TradingView
+  </div>
+  <script async type="text/javascript"
+    src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js">
+  {
+    "symbols": [
+      {"proName":"FOREXCOM:SPXUSD","title":"S&P 500 Index"},
+      {"proName":"FOREXCOM:NSXUSD","title":"US 100 Cash CFD"},
+      {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+      {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+      {"proName":"XETR:DAX","title":"DAX"},
+      {"proName":"NASDAQ:AAPL","title":"Apple"},
+      {"proName":"NASDAQ:TSLA","title":"Tesla"},
+      {"proName":"NASDAQ:MSFT","title":"Microsoft"},
+      {"proName":"NYSE:NVO","title":"Novo Nordisk"},
+      {"proName":"NASDAQ:META","title":"Meta"},
+      {"proName":"NASDAQ:GOOGL","title":"Alphabet"}
+    ],
+    "colorTheme":"dark",
+    "locale":"de_DE",
+    "isTransparent": false,
+    "showSymbolLogo": true,
+    "displayMode":"regular"
+  }
+  </script>
+</div>
+<!-- Ende Live Tickerband-->
+
+<!-- Scroll-Fix: immer oben bleiben, Hash entfernen, Mobile-Menü schließen -->
+
+<script>
+  // Scroll-Restore des Browsers deaktivieren
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Helper: Mobile-Menü schließen (falls du Klassen wie 'is-open' nutzt, hier anpassen)
+ function closeMobileMenu() {
+  document.getElementById('menu-overlay')?.classList.remove('open');
+  document.getElementById('mobile-menu')?.classList.remove('open');
+}
+
+  // Gemeinsamer Handler: fängt Klicks auf Header-/Mobile-Links ab
+
+function interceptNavClicks(container) {
+  container?.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    // Nur interne Dummy-Links mit data-nav behandeln
+    if (!a.matches('[data-nav]')) return;
+
+    e.preventDefault();
+
+    const target = a.dataset.nav;
+    if (target) {
+      // Falls deine showTab-Funktion existiert → direkt Reiter wechseln
+      if (typeof window.showTab === 'function') {
+        window.showTab(target);
+      } else {
+        // Fallback: Hash setzen (dein Tab-System reagiert darauf)
+        location.hash = '#' + target;
+      }
+    }
+
+    // Menü schließen
+    if (typeof window.closeMobileMenu === 'function') {
+      window.closeMobileMenu();
+    }
+
+    // Seite nach oben scrollen (ohne Animation)
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    } catch (err) {
+      window.scrollTo(0, 0);
+    }
+  });
+}
+
+
+  interceptNavClicks(document.getElementById('main-nav'));
+  interceptNavClicks(document.getElementById('mobile-menu'));
+  interceptNavClicks(document.querySelector('header')); // Logo & Newsletter
+
+  // Beim initialen Laden sicher oben starten und Hash entfernen
+  
+window.addEventListener('DOMContentLoaded', function () {
+  window.scrollTo(0, 0);
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+});
+
+</script>
+
+<!-- HERO: Hintergrund direkt auf die Section -->
+<section id="home"
+  class="relative min-h-screen bg-center bg-cover"
+  style="background-image: url('Start.jpg');"
+>
+
+  <!-- ganz leichtes Overlay für Lesbarkeit -->
+  <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+
+  <!-- Inhalt -->
+  <div class="relative container mx-auto px-5 py-20 md:py-28">
+    <div class="max-w-3xl text-white drop-shadow-md">
+      <span class="pill bg-white/90 text-neutral-700 border-white/50">Seriös. Verständlich. Umsetzbar.</span>
+      <h1 class="mt-4 text-3xl md:text-5xl font-semibold leading-tight">
+        Klarheit bei Aktien: <span class="text-white/90">Analysen, Rechner &amp; Rankings</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-[17px] leading-7 text-white/85">
+        Fundierte Erklärtexte, praktische Tools und kuratierte Übersichten – für Einsteiger und Fortgeschrittene.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-[#0E2A47]" href="#tools">Zu den Rechnern</a>
+        <a class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-transparent px-5 py-3 text-sm font-medium text-white hover:bg-white/10" href="#rankings">Rankings ansehen</a>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3 text-xs text-white/85">
+        <span class="pill bg-white/90 text-neutral-700 border-white/50">Keine Anlageberatung</span>
+        <span class="pill bg-white/90 text-neutral-700 border-white/50">Transparente Kriterien</span>
+        <span class="pill bg-white/90 text-neutral-700 border-white/50">Fokus auf Grundlagen</span>
+      </div>
+    </div>
+
+<!-- Widgets (Glass-Look auf Wrapper; iframes bleiben deckend) -->
+
+<div class="mt-12 flex flex-col gap-6">
+  <!-- News (jetzt oben) -->
+  <div class="w-full rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl ring-1 ring-white/15 shadow-2xl">
+    <div class="p-4 md:p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-white text-lg font-semibold">Live Markt-News</h2>
+        <span class="pill bg-white/90 text-neutral-700 border-white/50">powered by TradingView</span>
+      </div>
+      <div class="tradingview-widget-container rounded-xl overflow-hidden border border-white/10">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="text-center py-2 text-xs text-white/75">
+          <a href="https://www.tradingview.com" rel="noopener" target="_blank" class="underline">News by TradingView</a>
+        </div>
+        <script async type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js">
+          {
+            "feedMode": "all_symbols",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "width": "100%",
+            "height": 520,
+            "colorTheme": "dark",
+            "locale": "de_DE"
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart (jetzt unten) -->
+  <div class="w-full rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl ring-1 ring-white/15 shadow-2xl">
+    <div class="p-4 md:p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-white text-lg font-semibold">Live-Chart</h3>
+        <input id="tv-symbol-input"
+          class="w-48 rounded-full bg-white/85 text-neutral-800 placeholder:text-neutral-500 border border-white/60 px-3 py-2 text-sm"
+          placeholder="Symbol suchen (z. B. AAPL, TSLA, DAX)" />
+      </div>
+      <div id="tvchart" class="rounded-xl border border-white/10" style="height:520px;"></div>
+<div class="text-right text-xs text-white/70 mt-2">
+  <a href="https://www.tradingview.com/" target="_blank" rel="noopener" class="underline hover:no-underline">
+    powered by TradingView
+  </a>
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+  
+<!-- ANALYSEN -->
+<!-- Analysen Section (Anlagestrategien) -->
+<section id="analysen" class="relative overflow-hidden">
+  
+  <!-- Hintergrundbild -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
+      alt="Anlagestrategien Hintergrund"
+      class="w-full h-full object-cover brightness-25"
+    />
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <div class="relative bg-transparent backdrop-blur-sm">
+    <div class="max-w-3xl mx-auto px-6 py-12 text-white drop-shadow-lg">
+      <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-2">Anlagestrategien</h3>
+      <p class="mb-8 text-white/90">Acht bewährte Strategien – kompakt als aufklappbare Karten.</p>
+
+      <div class="bg-transparent border-0 overflow-hidden" data-accordion-root>
+
+        <!-- 1) Buy-and-Hold -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">1. Buy-and-Hold-Strategie</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Langfristiges Halten breit gestreuter ETFs oder solider Einzelaktien – unabhängig von kurzfristigen Schwankungen.</p>
+            <p class="pb-3"><strong>Hintergrund</strong><br>Aktienmärkte steigen langfristig; über 15–20 Jahre hat ein breit gestreutes Portfolio historisch fast immer positiv rentiert.</p>
+            <p class="pb-3"><strong>Umsetzung</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Breite Indexfonds (z. B. MSCI World, S&amp;P 500) oder Blue Chips</li>
+              <li>Dividenden reinvestieren</li>
+              <li>Kein Market-Timing, einfach halten</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Geringer Aufwand &amp; Kosten</li>
+              <li>Steuereffizient (Gewinne erst beim Verkauf)</li>
+              <li>Zinseszinseffekt, psychologisch entlastend</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Disziplin in Krisen nötig</li>
+              <li>Keine Reaktion auf Strukturbrüche</li>
+              <li>Kein Schutz vor langen Seitwärtsphasen</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Langfristig orientierte Privatanleger &amp; Institutionelle, Zeithorizont &gt; 10 Jahre.</p>
+          </div>
+        </div>
+
+        <!-- 2) Value-Investing -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">2. Value-Investing</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Kauf unterbewerteter Aktien unter ihrem inneren Wert; Märkte sind kurzfristig ineffizient, langfristig rational.</p>
+            <p class="pb-3"><strong>Historischer Ursprung</strong><br>Benjamin Graham („The Intelligent Investor“), später Warren Buffett.</p>
+            <p class="pb-1"><strong>Bewertungsmethoden</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>KGV, KBV, Gewinnwachstum, Eigenkapitalrendite</li>
+              <li>Verschuldungsgrad &amp; Cashflow</li>
+              <li>Beispiel: Kurs 80 € vs. innerer Wert 120 € → „Margin of Safety“ 40 €</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Fundamental solide Basis</li>
+              <li>Geringeres Verlustrisiko dank Sicherheitsmarge</li>
+              <li>Potenzielle Outperformance</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Value Traps möglich / Märkte bleiben lange irrational</li>
+              <li>Erfordert Analyse-Know-how</li>
+              <li>Mitunter jahrelang „langweilige“ Performance</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Analytisch denkende Investoren mit Fokus auf Substanz.</p>
+          </div>
+        </div>
+
+        <!-- 3) Growth-Investing -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">3. Growth-Investing</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Fokus auf Unternehmen mit überdurchschnittlichem Umsatz- und Gewinnwachstum – auch bei hoher Bewertung.</p>
+            <p class="pb-3"><strong>Philosophie</strong><br>Wachstumsdynamik wird oft unterschätzt (z. B. Amazon, Nvidia, Tesla).</p>
+            <p class="pb-1"><strong>Typische Merkmale</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Reinvestition der Gewinne statt Dividenden</li>
+              <li>Hohes KGV, aber stark steigende Umsätze</li>
+              <li>Innovationsbranchen: Tech, Biotech, Cloud, grüne Energie</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Überdurchschnittliche Renditechancen</li>
+              <li>Partizipation an Megatrends (Digitalisierung, KI, Nachhaltigkeit)</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Hohe Volatilität bei Enttäuschungen</li>
+              <li>Überbewertungsgefahr (z. B. Dotcom-Blase)</li>
+              <li>Geringe laufende Erträge</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Risikofreudige Investoren mit Fokus auf Zukunftsmärkte.</p>
+          </div>
+        </div>
+
+        <!-- 4) Dividendenstrategie -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">4. Dividendenstrategie</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Regelmäßige Ausschüttungen &amp; stabile Erträge; idealerweise steigende Dividenden über Jahre.</p>
+            <p class="pb-1"><strong>Kennzahlen</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Dividendenrendite, Ausschüttungsquote</li>
+              <li>Dividendenkontinuität</li>
+            </ul>
+            <p class="pb-1"><strong>Umsetzung</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Auswahl von Dividendenaristokraten (z. B. Coca-Cola, J&amp;J)</li>
+              <li>Reinvestition der Dividenden</li>
+              <li>Kombination aus Kursgewinnen &amp; Cashflow</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Stetige Einnahmen auch bei Seitwärtsmärkten</li>
+              <li>Oft finanziell stabile Unternehmen</li>
+              <li>Geringere Volatilität</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Begrenztes Kurspotenzial reifer Unternehmen</li>
+              <li>Kürzungsrisiko bei Gewinnrückgang</li>
+              <li>Branchenfokus (Versorger, Finanzsektor)</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Konservative Anleger, Ruheständler, Stiftungen.</p>
+          </div>
+        </div>
+
+        <!-- 5) Prozyklische Strategien -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">5. Prozyklische Strategien</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Dem Trend folgen: kaufen bei steigenden, verkaufen bei fallenden Kursen.</p>
+            <p class="pb-1"><strong>Instrumente</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Technische Analyse (GD, Trendlinien, RSI)</li>
+              <li>Momentum-/Breakout-Strategien</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Nutzung des „Herdentriebs“</li>
+              <li>Potenzial für hohe Gewinne bei stabilen Trends</li>
+              <li>Klare technische Ausstiegssignale</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Späte Einstiege</li>
+              <li>Hohe Umschlagshäufigkeit (Kosten)</li>
+              <li>Fehlende fundamentale Absicherung</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Trader, Momentum-Investoren, algorithmische Systeme.</p>
+          </div>
+        </div>
+
+        <!-- 6) Antizyklische Strategien -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">6. Antizyklische Strategien</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Gegen den Trend handeln: Kaufen bei Pessimismus, verkaufen bei Euphorie.</p>
+            <p class="pb-3"><strong>Philosophie</strong><br>Märkte übertreiben – diese Übertreibungen werden gezielt genutzt (z. B. Qualitätsaktien in Crashphasen kaufen).</p>
+            <p class="pb-1"><strong>Umsetzung</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Fundamentalanalyse + Stimmungsindikatoren</li>
+              <li>Kauf bei extrem günstigen Bewertungen</li>
+              <li>Verkauf bei Überbewertung/Überkauf</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Potenzial für hohe Gewinne durch Tiefpunkteinstieg</li>
+              <li>Logisch nachvollziehbarer Kontraansatz</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Timing sehr schwierig</li>
+              <li>„Falling Knives“-Risiko</li>
+              <li>Hohe Disziplin &amp; Geduld nötig</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Erfahrene Value-/Contrarian-Investoren, langfristige Privatanleger.</p>
+          </div>
+        </div>
+
+        <!-- 7) Core-Satellite -->
+        <div class="border-b border-white/30">
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">7. Core-Satellite-Strategie</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Passiver Kern (ETFs) + aktive Satelliten (Einzeltitel/Themen) zur Renditeoptimierung.</p>
+            <p class="pb-3"><strong>Beispiel</strong><br>80 % MSCI-World-ETF (Core) + 20 % Einzeltitel wie Nvidia, Shell, Siemens Energy (Satellites).</p>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Diversifikation &amp; Kostenvorteil</li>
+              <li>Individuelle Chancen durch Satelliten</li>
+              <li>Strukturierte Portfoliosteuerung</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Regelmäßiges Rebalancing nötig</li>
+              <li>Satelliten riskanter</li>
+              <li>Übergewichtung aktiver Positionen kann schaden</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Langfristige Privatanleger, die passiv &amp; aktiv kombinieren möchten.</p>
+          </div>
+        </div>
+
+        <!-- 8) Regelbasierte Faktor-Investierung -->
+        <div>
+          <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white" aria-expanded="false" data-acc-btn>
+            <span class="text-base md:text-lg">8. Regelbasierte Faktor-Investierung</span>
+            <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/></svg>
+          </button>
+          <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+            <p class="pb-3"><strong>Grundidee</strong><br>Investieren nach wissenschaftlich belegten Renditefaktoren („Smart Beta“).</p>
+            <p class="pb-3"><strong>Hintergrund</strong><br>Kapitalmarktforschung (u. a. Fama &amp; French): bestimmte Faktoren liefern langfristig Mehrrenditen.</p>
+            <p class="pb-1"><strong>Typische Faktoren</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Value, Size, Momentum, Quality, Low Volatility</li>
+            </ul>
+            <p class="pb-1"><strong>Umsetzung</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Auswahl/Gewichtung nach objektiven Regeln</li>
+              <li>Einsatz per ETF (z. B. „MSCI World Quality Factor“)</li>
+            </ul>
+            <p class="pb-1"><strong>Vorteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Diszipliniert &amp; emotionsfrei</li>
+              <li>Systematische Diversifikation</li>
+              <li>Wissenschaftlich validiert</li>
+            </ul>
+            <p class="pb-1"><strong>Nachteile</strong></p>
+            <ul class="list-disc ml-6 pb-3">
+              <li>Faktorzyklen (Renditen bleiben mitunter aus)</li>
+              <li>Komplexe Methodik</li>
+              <li>Regeländerungen/Rebalancing nötig</li>
+            </ul>
+            <p class="pb-6"><strong>Typischer Anleger</strong><br>Institutionelle, quantitative Fonds, strategische Privatanleger.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<!-- GRUNDLAGEN -->
+<section class="py-14 md:py-20 border-t border-neutral-200/50 relative overflow-hidden" id="grundlagen">
+<div class="absolute inset-0 -z-10 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); filter: brightness(0.6);"></div>
+<div class="absolute inset-0 -z-10" style="background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0.0) 100%);"></div>
+<div class="mx-auto container px-5">
+<h2 class="text-2xl md:text-3xl font-semibold">Grundlagen der Aktienwelt</h2>
+<p class="mt-2 text-sm text-neutral-700 max-w-2xl">
+        Diese Übersicht erklärt zentrale Begriffe – klar, kurz &amp; verständlich. Nutze die Suche, um schnell zu finden, was dich interessiert.
+      </p>
+<!-- Suche -->
+<div class="mt-6 max-w-xl">
+<div class="flex gap-2 items-center">
+<input aria-label="Begriffssuche" class="input flex-1" id="gl_search" placeholder="Begriff suchen (z. B. KGV, ETF, Dividende, Order)" type="text"/>
+<button class="rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm" id="gl_clear" type="button">Leeren</button>
+</div>
+<p class="mt-2 text-xs text-neutral-500">Angezeigt: <span id="gl_count">–</span> Begriffe</p>
+</div>
+<!-- Begriffskarten -->
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8" id="termsGrid">
+<!-- 1 -->
+<article class="card term-card" data-keywords="aktie shares equity unternehmensanteil">
+<h3 class="text-lg font-semibold" id="term-aktie">Aktie</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Ein Anteil an einem Unternehmen. Als Aktionär/in partizipierst du an Gewinnen (Dividenden) und Kursentwicklung. Rechte: Stimmrecht auf der Hauptversammlung, Informationsrechte.
+          </p>
+<details class="mt-2 text-sm text-neutral-700">
+<summary class="text-sm font-medium text-[#0E2A47] cursor-pointer">Mehr Details</summary>
+<ul class="mt-2 list-disc pl-5">
+<li><strong>Stammaktie</strong> (Stimmrecht) vs. <strong>Vorzugsaktie</strong> (meist höhere Dividende, kein Stimmrecht).</li>
+<li>Wichtige Kennzahlen: Marktkapitalisierung, Streubesitz, Free Float.</li>
+</ul>
+</details>
+</article>
+<!-- 2 -->
+<article class="card term-card" data-keywords="boerse handelsplatz listing orderbuch xetra nyse nasdaq">
+<h3 class="text-lg font-semibold" id="term-boerse">Börse</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Geregelter Marktplatz, an dem Wertpapiere gehandelt werden. Preise entstehen durch Angebot und Nachfrage im Orderbuch.
+          </p>
+<details class="mt-2 text-sm text-neutral-700">
+<summary class="text-sm font-medium text-[#0E2A47] cursor-pointer">Mehr Details</summary>
+<ul class="mt-2 list-disc pl-5">
+<li>Beispiele: Xetra, NYSE, NASDAQ.</li>
+<li>Gebühren: Börsenentgelt, Maklercourtage (je nach Handelsplatz).</li>
+</ul>
+</details>
+</article>
+<!-- 3 -->
+<article class="card term-card" data-keywords="index dax msci world s&amp;p500 benchmark">
+<h3 class="text-lg font-semibold" id="term-index">Index</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Ein Korb aus ausgewählten Aktien, der einen Markt abbildet (z. B. DAX = 40 größte deutsche Unternehmen). Dient als Benchmark für die eigene Performance.
+          </p>
+</article>
+<!-- 4 -->
+<article class="card term-card" data-keywords="etf fonds indexfonds passiv thesaurierend ausschüttend ter tracking difference replikation physisch synthetisch">
+<h3 class="text-lg font-semibold" id="term-etf">ETF (Indexfonds)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Börsengehandelter Fonds, der einen Index passiv nachbildet. Vorteile: breite Streuung, geringe Kosten (TER), einfache Sparpläne.
+          </p>
+<details class="mt-2 text-sm text-neutral-700">
+<summary class="text-sm font-medium text-[#0E2A47] cursor-pointer">Mehr Details</summary>
+<ul class="mt-2 list-disc pl-5">
+<li><strong>Thesaurierend</strong> (Dividenden werden reinvestiert) vs. <strong>ausschüttend</strong>.</li>
+<li><strong>Replikation:</strong> vollständig/optimiert (physisch) oder synthetisch (Swap).</li>
+<li><strong>Kosten:</strong> TER, Tracking Difference.</li>
+</ul>
+</details>
+</article>
+<!-- 5 -->
+<article class="card term-card" data-keywords="dividende ausschüttung payout ausschüttungsquote ex-dividende record date rendite">
+<h3 class="text-lg font-semibold" id="term-dividende">Dividende &amp; Dividendenrendite</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Gewinnanteil, den Unternehmen an Aktionäre auszahlen. Die Dividendenrendite = Dividende je Aktie / Kurs. Stabilität zählt mehr als Höhe.
+          </p>
+<details class="mt-2 text-sm text-neutral-700">
+<summary class="text-sm font-medium text-[#0E2A47] cursor-pointer">Mehr Details</summary>
+<ul class="mt-2 list-disc pl-5">
+<li><strong>Ausschüttungsquote (Payout Ratio):</strong> Anteil des Gewinns, der als Dividende ausgezahlt wird.</li>
+<li>Wichtige Termine: <em>Ex-Dividenden-Tag</em>, <em>Record Date</em>, <em>Zahltag</em>.</li>
+</ul>
+</details>
+</article>
+<!-- 6 -->
+<article class="card term-card" data-keywords="kgv price to earnings pe multiple bewertung">
+<h3 class="text-lg font-semibold" id="term-kgv">KGV (Kurs‑Gewinn‑Verhältnis)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Verhältnis von Aktienkurs zu Gewinn je Aktie. Je niedriger, desto „günstiger“ – aber nur im Branchen-/Zeitvergleich sinnvoll. Zykliker haben schwankende Gewinne → KGV schwer interpretierbar.
+          </p>
+</article>
+<!-- 7 -->
+<article class="card term-card" data-keywords="kcv kcf cashflow price to cashflow fcf p/fcf free cash flow">
+<h3 class="text-lg font-semibold" id="term-kcv">KCV / P/FCF</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Bewertet den Kurs im Verhältnis zum (freien) Cashflow. Oft robuster als der Gewinn, da nicht so buchhalterisch beeinflusst.
+          </p>
+</article>
+<!-- 8 -->
+<article class="card term-card" data-keywords="kuv price to sales psr umsatz multiple">
+<h3 class="text-lg font-semibold" id="term-kuv">KUV (Kurs‑Umsatz‑Verhältnis)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Verhältnis Kurs zu Umsatz je Aktie. Vor allem bei noch unprofitablen Wachstumsfirmen üblich. Allein wenig aussagekräftig.
+          </p>
+</article>
+<!-- 9 -->
+<article class="card term-card" data-keywords="kbv price to book pb buchwert bilanzen immaterielle werte">
+<h3 class="text-lg font-semibold" id="term-kbv">KBV (Kurs‑Buchwert‑Verhältnis)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Kurs im Verhältnis zum bilanziellen Eigenkapital. Nützlich bei Finanzwerten – bei Softwarefirmen wegen immaterieller Werte weniger sinnvoll.
+          </p>
+</article>
+<!-- 10 -->
+<article class="card term-card" data-keywords="peg wachstum pe growth rule of 40">
+<h3 class="text-lg font-semibold" id="term-peg">PEG‑Ratio</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            KGV geteilt durch Gewinnwachstum. Werte ≈1 gelten als fair – aber stark abhängig von verlässlichen Wachstumsannahmen.
+          </p>
+</article>
+<!-- 11 -->
+<article class="card term-card" data-keywords="roe eigenkapitalrendite roic kapitalrendite wacc moat rendite auf eingesetztes kapital">
+<h3 class="text-lg font-semibold" id="term-roe-roic">ROE &amp; ROIC</h3>
+<p class="mt-2 text-sm text-neutral-700">
+<strong>ROE</strong> misst die Rendite auf das Eigenkapital, <strong>ROIC</strong> auf das eingesetzte Gesamtkapital. Dauerhaft über Kapitalkosten = Qualitätsmerkmal.
+          </p>
+</article>
+<!-- 12 -->
+<article class="card term-card" data-keywords="marktkapitalisierung small cap mid cap large cap mega cap">
+<h3 class="text-lg font-semibold" id="term-marktkap">Marktkapitalisierung</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Börsenwert eines Unternehmens = Aktienkurs × Anzahl ausstehender Aktien. Einordnung: Small/Mid/Large/Mega Cap.
+          </p>
+</article>
+<!-- 13 -->
+<article class="card term-card" data-keywords="volatilitaet schwankung beta risiko standardabweichung vix">
+<h3 class="text-lg font-semibold" id="term-vola">Volatilität &amp; Beta</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Volatilität misst Kursschwankungen. <em>Beta</em> zeigt die Empfindlichkeit gegenüber dem Gesamtmarkt (1 = wie der Markt, &gt;1 = stärker schwankend).
+          </p>
+</article>
+<!-- 14 -->
+<article class="card term-card" data-keywords="order market limit stop stop-loss stop limit trailing spread liquiditaet">
+<h3 class="text-lg font-semibold" id="term-orderarten">Orderarten</h3>
+<p class="mt-2 text-sm text-neutral-700">
+<strong>Market</strong> (sofort zum Marktpreis), <strong>Limit</strong> (nur bis Preisgrenze), <strong>Stop(-Loss)</strong> (aktiviert bei Schwelle), <strong>Stop-Limit</strong>, <strong>Trailing Stop</strong>.
+          </p>
+<p class="mt-2 text-sm text-neutral-700">Achte auf <em>Spread</em> und Handelszeiten.</p>
+</article>
+<!-- 15 -->
+<article class="card term-card" data-keywords="sparplan dca cost averaging langfristig">
+<h3 class="text-lg font-semibold" id="term-sparplan">Sparplan &amp; DCA</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Regelmäßige, feste Käufe (z. B. monatlich). <em>Dollar‑Cost Averaging</em> glättet Einstiegszeitpunkte und reduziert Timing‑Risiko.
+          </p>
+</article>
+<!-- 16 -->
+<article class="card term-card" data-keywords="diversifikation streuung rebalancing portfolio korrelation risiko">
+<h3 class="text-lg font-semibold" id="term-diversifikation">Diversifikation &amp; Rebalancing</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Streuung über Branchen/Länder/Assetklassen senkt Risiko. <em>Rebalancing</em> stellt Zielquoten regelmäßig wieder her.
+          </p>
+</article>
+<!-- 17 -->
+<article class="card term-card" data-keywords="long short leerverkauf bearish bullish cfd option future hebel">
+<h3 class="text-lg font-semibold" id="term-longshort">Long &amp; Short</h3>
+<p class="mt-2 text-sm text-neutral-700">
+<strong>Long:</strong> auf steigende Kurse setzen. <strong>Short:</strong> auf fallende – riskanter wegen theoretisch unbegrenzter Verluste. Für Einsteiger meist ungeeignet.
+          </p>
+</article>
+<!-- 18 -->
+<article class="card term-card" data-keywords="hebel leverage margin call cfd optionsschein zertifikat knock-out turbo">
+<h3 class="text-lg font-semibold" id="term-hebel">Hebel &amp; Margin</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Hebelprodukte vervielfachen Gewinne und Verluste. Margin‑Geschäfte erfordern Sicherheitsleistung; Unterschreiten → <em>Margin Call</em> / Zwangsschließung.
+          </p>
+</article>
+<!-- 19 -->
+<article class="card term-card" data-keywords="steuern abgeltungsteuer freistellungsauftrag quellensteuer teilfreistellung etf">
+<h3 class="text-lg font-semibold" id="term-steuern">Steuern (DE)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Kapitalerträge unterliegen der Abgeltungsteuer (25% + Soli + ggf. KiSt). <em>Freistellungsauftrag</em> nutzt den Sparerpauschbetrag. ETFs: Teilfreistellung je nach Fondsart.
+          </p>
+</article>
+<!-- 20 -->
+<article class="card term-card" data-keywords="kosten gebuehren ter courtage spread depot broker">
+<h3 class="text-lg font-semibold" id="term-kosten">Kosten &amp; Gebühren</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Beim Handel entstehen Ordergebühren &amp; Börsenentgelte; bei ETFs laufende Kosten (TER). Achte zusätzlich auf Spreads und eventuelle Depotgebühren.
+          </p>
+</article>
+<!-- 21 -->
+<article class="card term-card" data-keywords="ipo boersengang emissionspreis zeichnung lock-up">
+<h3 class="text-lg font-semibold" id="term-ipo">IPO (Börsengang)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Erstmalige Aktienausgabe eines Unternehmens an der Börse. Risiken: kurze Historie, Lock‑up‑Fristen, Hype‑Bewertungen.
+          </p>
+</article>
+<!-- 22 -->
+<article class="card term-card" data-keywords="aktien split reverse split verwässerung">
+<h3 class="text-lg font-semibold" id="term-split">Aktiensplit</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Aufteilung einer Aktie in mehrere (z. B. 1→10). Nominaler Kurs sinkt, Unternehmenswert unverändert. <em>Reverse Split</em> umgekehrt.
+          </p>
+</article>
+<!-- 23 -->
+<article class="card term-card" data-keywords="adr hinterlegungsschein us boerse auslaendische aktie">
+<h3 class="text-lg font-semibold" id="term-adr">ADR</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Amerikanischer Hinterlegungsschein, der eine ausländische Aktie repräsentiert. Handhabung und Dividenden können von Originalaktie abweichen (Gebühren/Quellensteuer).
+          </p>
+</article>
+<!-- 24 -->
+<article class="card term-card" data-keywords="rendite nominal real inflation drawdown risiko renditedreieck">
+<h3 class="text-lg font-semibold" id="term-rendite">Rendite (nominal vs. real)</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Nominale Rendite ohne Inflation; reale Rendite abzüglich Inflation. Hohe Renditen gehen oft mit höherem Risiko/Drawdown einher.
+          </p>
+</article>
+<!-- 25 -->
+<article class="card term-card" data-keywords="esg nachhaltigkeit governance klima kontroversen screening">
+<h3 class="text-lg font-semibold" id="term-esg">ESG &amp; Nachhaltigkeit</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Berücksichtigung von Umwelt‑, Sozial‑ und Governance‑Faktoren. ETFs nutzen oft Ausschlusskriterien oder Best‑in‑Class‑Ansätze.
+          </p>
+</article>
+<!-- 26 -->
+<article class="card term-card" data-keywords="liquiditaet handelsvolumen ordertiefe market impact">
+<h3 class="text-lg font-semibold" id="term-liquiditaet">Liquidität</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Wie leicht ein Wertpapier ohne großen Preiseffekt handelbar ist. Indikatoren: Volumen, Bid‑Ask‑Spread, Ordertiefe.
+          </p>
+</article>
+<!-- 27 -->
+<article class="card term-card" data-keywords="benchmark alpha beta tracking error outperformance unterperformance">
+<h3 class="text-lg font-semibold" id="term-alpha">Alpha, Beta &amp; Tracking Error</h3>
+<p class="mt-2 text-sm text-neutral-700">
+<em>Alpha</em> = Überrendite gegenüber der Benchmark. <em>Beta</em> = Marktsensitivität. <em>Tracking Error</em> misst Abweichung zum Index (bei Fonds/ETFs).
+          </p>
+</article>
+<!-- 28 -->
+<article class="card term-card" data-keywords="strategie buy and hold value growth quality faktor momentum dividende">
+<h3 class="text-lg font-semibold" id="term-strategien">Anlagestrategien</h3>
+<p class="mt-2 text-sm text-neutral-700">
+<strong>Buy &amp; Hold</strong> (langfristig halten), <strong>Value</strong> (Unterbewertung), <strong>Growth</strong> (Wachstum), <strong>Quality</strong> (robuste Profitabilität), <strong>Momentum</strong> (Trendfolge).
+          </p>
+</article>
+<!-- 29 -->
+<article class="card term-card" data-keywords="depot broker wertpapierkonto verwahrung referenzkonto">
+<h3 class="text-lg font-semibold" id="term-depot">Depot &amp; Broker</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Dein Wertpapierkonto zur Verwahrung/Abwicklung. Auswahlkriterien: Gebühren, Handelsplätze, Sparpläne, App/Service, Einlagensicherung.
+          </p>
+</article>
+<!-- 30 -->
+<article class="card term-card" data-keywords="exposure branchen sektor allokation regionen usa europa schwellenlaender">
+<h3 class="text-lg font-semibold" id="term-allokation">Asset‑ &amp; Sektorallokation</h3>
+<p class="mt-2 text-sm text-neutral-700">
+            Verteilung deines Portfolios auf Anlageklassen (Aktien/Anleihen/Bar) und Sektoren/Regionen. Größter Rendite‑ und Risikohebel.
+          </p>
+</article>
+</div>
+<p class="hidden mt-6 text-sm text-neutral-600" id="gl_empty">Keine Treffer – versuche einen anderen Suchbegriff.</p>
+</div>
+</section>
+<section class="py-14 md:py-20 border-t border-neutral-200/50 relative overflow-hidden" id="tools">
+<div class="absolute inset-0 -z-10 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); filter: brightness(0.6);"></div>
+<div class="absolute inset-0 -z-10" style="background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0.0) 100%);"></div>
+<div class="mx-auto container px-5">
+<h2 class="text-2xl md:text-3xl font-semibold">Rechner &amp; Simulatoren</h2>
+<div class="grid gap-6 md:grid-cols-2 mt-8">
+<!-- Dividenden-Rechner -->
+<div class="card text-neutral-900">
+<div class="mb-4">
+<h3 class="text-lg font-semibold">Dividenden-Rechner</h3>
+<p class="text-sm text-neutral-600">Jährliche Brutto/Netto-Ausschüttung.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-end">
+<label class="block text-xs text-neutral-500 md:col-span-1">Anlage (€)
+              <input class="input mt-1" id="d_amount" type="number" value="10000"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Rendite (%)
+              <input class="input mt-1" id="d_yield" type="number" value="4"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Steuern (%)
+              <input class="input mt-1" id="d_tax" type="number" value="26.375"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Jahre
+  <input class="input mt-1" id="d_years" type="number" value="20"/>
+</label>
+<div class="md:col-span-2 grid grid-cols-2 gap-3">
+<div class="rounded-xl bg-neutral-50 p-3">
+<p class="text-xs text-neutral-500">Brutto/Jahr</p>
+<p class="text-lg font-semibold" id="d_gross">€0</p>
+</div>
+<div class="rounded-xl bg-neutral-50 p-3">
+<p class="text-xs text-neutral-500">Netto/Jahr</p>
+<p class="text-lg font-semibold" id="d_net">€0</p>
+</div>
+</div>
+</div>
+<div class="mt-6 h-64"><canvas id="d_chart"></canvas></div>
+<p class="mt-3 text-xs text-neutral-500">Beispielwerte; tatsächliche Steuern variieren (FSA, KiSt).</p>
+</div>
+<!-- Zinseszins-Simulator -->
+<div class="card text-neutral-900">
+<div class="mb-4">
+<h3 class="text-lg font-semibold">Zinseszins-Simulator</h3>
+<p class="text-sm text-neutral-600">Monatliche Sparrate &amp; Rendite.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-end">
+<label class="block text-xs text-neutral-500 md:col-span-1">Start (€)
+              <input class="input mt-1" id="c_start" type="number" value="5000"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Rate/Monat (€)
+              <input class="input mt-1" id="c_monthly" type="number" value="200"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Jahre
+              <input class="input mt-1" id="c_years" type="number" value="10"/>
+</label>
+<label class="block text-xs text-neutral-500 md:col-span-1">Rendite/Jahr (%)
+              <input class="input mt-1" id="c_rate" type="number" value="7"/>
+</label>
+</div>
+<div class="mt-4 grid grid-cols-2 md:grid-cols-2 gap-3">
+<div class="rounded-xl bg-neutral-50 p-3">
+<p class="text-xs text-neutral-500">Endvermögen</p>
+<p class="text-lg font-semibold" id="c_final">€0</p>
+</div>
+<div class="rounded-xl bg-neutral-50 p-3">
+<p class="text-xs text-neutral-500">Einzahlungen</p>
+<p class="text-lg font-semibold" id="c_invested">€0</p>
+</div>
+</div>
+<div class="mt-6 h-64"><canvas id="c_chart"></canvas></div>
+</div>
+</div>
+<!-- Rendite nach Steuern -->
+<div class="card mt-6">
+<div class="mb-4">
+<h3 class="text-lg font-semibold">Rendite nach Steuern</h3>
+<p class="text-sm text-neutral-600">Kursgewinn + Dividenden netto inkl. Annualisierung.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 gap-3 items-end">
+<label class="block text-xs text-neutral-500">Kaufkurs (€)
+            <input class="input mt-1" id="r_buy" type="number" value="50"/>
+</label>
+<label class="block text-xs text-neutral-500">Verkauf (€)
+            <input class="input mt-1" id="r_sell" type="number" value="70"/>
+</label>
+<label class="block text-xs text-neutral-500">Stückzahl
+            <input class="input mt-1" id="r_shares" type="number" value="100"/>
+</label>
+<label class="block text-xs text-neutral-500">Dividenden (€)
+            <input class="input mt-1" id="r_divs" type="number" value="200"/>
+</label>
+<label class="block text-xs text-neutral-500">Steuern (%)
+            <input class="input mt-1" id="r_tax" type="number" value="26.375"/>
+</label>
+<label class="block text-xs text-neutral-500">Jahre Haltedauer
+            <input class="input mt-1" id="r_years" type="number" value="3"/>
+</label>
+</div>
+<div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="rounded-xl bg-neutral-50 p-3"><p class="text-xs text-neutral-500">Netto-Gewinn</p><p class="text-lg font-semibold" id="r_netprofit">€0</p></div>
+<div class="rounded-xl bg-neutral-50 p-3"><p class="text-xs text-neutral-500">Netto-Rendite</p><p class="text-lg font-semibold" id="r_return">0%</p></div>
+<div class="rounded-xl bg-neutral-50 p-3"><p class="text-xs text-neutral-500">Annualisiert</p><p class="text-lg font-semibold" id="r_annual">0%</p></div>
+<div class="rounded-xl bg-neutral-50 p-3"><p class="text-xs text-neutral-500">Investiert</p><p class="text-lg font-semibold" id="r_invested">€0</p></div>
+</div>
+<p class="mt-3 text-xs text-neutral-500">Beispielhaft; Freibetrag/Kirchensteuer nicht berücksichtigt.</p>
+</div>
+</div>
+</section>
+
+<!-- RANKINGS -->
+<!-- RANKINGS (auto-generated) -->
+<!-- RANKINGS (auto-generated, dual market: DE + S&P500) -->
+<section id="rankings" style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070'); background-size:cover; background-position:center;" class="relative py-16">
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative z-10 container mx-auto px-5">
+    <h2 class="text-3xl md:text-4xl font-semibold mb-2">Rankings</h2>
+    <p class="mb-8 max-w-2xl text-white/90">Tägliche Marktübersichten – vier Perspektiven auf das Geschehen.</p>
+
+    <!-- ===== Block 1: Deutschland ===== -->
+    <div id="block-de" class="mb-14">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-2xl font-semibold text-white">Deutschland</h3>
+        <span id="meta-de" class="text-xs text-white/80"></span>
+      </div>
+
+      <!-- Tabs (DE) -->
+      <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Rankings DE">
+        <button class="rank-tab pill" data-target="de-most-traded" aria-pressed="true">Am meisten gehandelt</button>
+        <button class="rank-tab pill" data-target="de-most-sold" aria-pressed="false">Am meisten verkauft</button>
+        <button class="rank-tab pill" data-target="de-most-bought" aria-pressed="false">Am meisten gekauft</button>
+        <button class="rank-tab pill" data-target="de-turnarounds" aria-pressed="false">Turnaround-Kandidaten</button>
+      </div>
+
+      <!-- Panels (DE) -->
+      <div id="de-most-traded"   class="rank-panel grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="de-most-sold"     class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="de-most-bought"   class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="de-turnarounds"   class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <!-- ===== Block 2: S&P 500 ===== -->
+    <div id="block-sp" class="mb-2">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-2xl font-semibold text-white">S&amp;P 500</h3>
+        <span id="meta-sp" class="text-xs text-white/80"></span>
+      </div>
+
+      <!-- Tabs (S&P) -->
+      <div class="flex flex-wrap gap-2 mb-6" role="tablist" aria-label="Rankings S&P 500">
+        <button class="rank-tab pill" data-target="sp-most-traded" aria-pressed="true">Am meisten gehandelt</button>
+        <button class="rank-tab pill" data-target="sp-most-sold" aria-pressed="false">Am meisten verkauft</button>
+        <button class="rank-tab pill" data-target="sp-most-bought" aria-pressed="false">Am meisten gekauft</button>
+        <button class="rank-tab pill" data-target="sp-turnarounds" aria-pressed="false">Turnaround-Kandidaten</button>
+      </div>
+
+      <!-- Panels (S&P) -->
+      <div id="sp-most-traded"   class="rank-panel grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="sp-most-sold"     class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="sp-most-bought"   class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+      <div id="sp-turnarounds"   class="rank-panel hidden grid gap-4 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <p id="rankings-meta" class="mt-6 text-xs text-white/80"></p>
+  </div>
+
+  <script>
+    // ---- Helfer ----
+    const fmtPct = (x) => (x===null||x===undefined) ? "–" :
+      (x>0? "+" : "") + x.toFixed(2) + "%";
+    const fmtVol = (v) => {
+      if (v==null) return "–";
+      if (v >= 1e9) return (v/1e9).toFixed(2) + " Mrd";
+      if (v >= 1e6) return (v/1e6).toFixed(2) + " Mio";
+      if (v >= 1e3) return (v/1e3).toFixed(1) + " Tsd";
+      return String(v);
+    };
+    const eur = new Intl.NumberFormat("de-DE", { style:"currency", currency:"EUR", maximumFractionDigits:0 });
+
+    // Hauptkarte: bei Turnarounds wird zusätzlich % unter ATH gezeigt
+    function cardHTML(row, isTurnaround=false){
+      const chg = row.change_pct ?? null;
+      const offHigh = row.off_high_pct ?? null; // <= falls anders heißt, bitte nennen!
+      const pillClass = chg==null ? "bg-white/10 text-white/80"
+        : chg>=0 ? "bg-green-100 text-green-700"
+        : "bg-red-100 text-red-700";
+
+      return `
+      <article class="p-6 rounded-2xl bg-white/90 shadow">
+        <div class="flex justify-between items-start mb-2">
+          <h4 class="text-lg font-semibold">${row.name || row.symbol}</h4>
+          <span class="text-xs px-2 py-1 rounded-full ${pillClass}">${fmtPct(chg)}</span>
+        </div>
+        <div class="text-sm text-black/60 mb-2">${row.symbol || ""}</div>
+        <div class="text-sm text-black/70">
+          Volumen: ${fmtVol(row.volume)} · Umsatz: ${row.turnover_eur!=null ? eur.format(row.turnover_eur) : "–"}
+        </div>
+        ${
+          isTurnaround && offHigh!=null
+            ? `<div class="mt-1 text-xs text-black/60">${Math.abs(offHigh).toFixed(1)} % unter Allzeithoch</div>`
+            : ""
+        }
+      </article>`;
+    }
+
+    function renderPanelsInto(prefix, data){
+      const m = {
+        most_traded:  `${prefix}-most-traded`,
+        most_sold:    `${prefix}-most-sold`,
+        most_bought:  `${prefix}-most-bought`,
+        turnarounds:  `${prefix}-turnarounds`,
+      };
+      document.getElementById(m.most_traded).innerHTML  = (data.most_traded  || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.most_sold).innerHTML    = (data.most_sold    || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.most_bought).innerHTML  = (data.most_bought  || []).map(r => cardHTML(r)).join("");
+      document.getElementById(m.turnarounds).innerHTML  = (data.turnarounds  || []).map(r => cardHTML(r, true)).join("");
+    }
+
+    function wireTabs(scopeSelector){
+      const scope = document.querySelector(scopeSelector);
+      scope.querySelectorAll(".rank-tab").forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          scope.querySelectorAll(".rank-tab").forEach(b=>b.setAttribute("aria-pressed","false"));
+          btn.setAttribute("aria-pressed","true");
+          const targetId = btn.dataset.target;
+          scope.querySelectorAll(".rank-panel").forEach(p=>p.classList.add("hidden"));
+          scope.querySelector("#"+targetId).classList.remove("hidden");
+        });
+      });
+    }
+
+    async function loadJSON(url){
+      const res = await fetch(url + "?v=" + Date.now(), { cache: "no-store" });
+      if(!res.ok) throw new Error(url + " → HTTP " + res.status);
+      return res.json();
+    }
+
+    (async function init(){
+      try {
+        // Daten laden
+        const de = await loadJSON("data/rankings.json");
+        renderPanelsInto("de", de);
+        document.getElementById("meta-de").textContent = de.as_of || de.generated_at || "";
+
+        const sp = await loadJSON("data/rankings_sp500.json");
+        renderPanelsInto("sp", sp);
+        document.getElementById("meta-sp").textContent = sp.as_of || sp.generated_at || "";
+
+        // Tabs verdrahten
+        wireTabs("#block-de");
+        wireTabs("#block-sp");
+
+        // Startansicht: "Am meisten gehandelt"
+        document.querySelector("#de-most-traded")?.classList.remove("hidden");
+        document.querySelector("#sp-most-traded")?.classList.remove("hidden");
+
+        document.querySelector('#block-de .rank-tab[data-target="de-most-traded"]')?.setAttribute("aria-pressed","true");
+        document.querySelector('#block-sp .rank-tab[data-target="sp-most-traded"]')?.setAttribute("aria-pressed","true");
+
+        // Fußzeile
+        document.getElementById("rankings-meta").textContent =
+          "Letztes Update: " + (de.as_of || de.generated_at || sp.as_of || sp.generated_at || "");
+      } catch (e){
+        console.error(e);
+        document.getElementById("rankings-meta").textContent = "Fehler beim Laden der Daten: " + e.message;
+      }
+    })();
+  </script>
+</section>
+
+
+<!-- ==== Glas-Stil (einmalig in <head> oder vor </body>) ==== -->
+<style>
+  .card-glass{
+    border-radius: 1rem;                 /* ~ rounded-2xl */
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);   /* leichte Transparenz */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    padding: 1rem;                       /* ~ p-4/p-5 */
+  }
+  .card-glass h3, .card-glass h4,
+  .card-glass p, .card-glass li,
+  .card-glass table, .card-glass td, .card-glass th,
+  .card-glass summary, .card-glass small, .card-glass span {
+    color: rgba(255,255,255,.92);
+  }
+  .card-glass .muted,
+  .card-glass .tradingview-widget-copyright{
+    color: rgba(255,255,255,.7) !important;
+  }
+  /* dezente Tabellenlinien auf Glas */
+  .glass-table td, .glass-table th {
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .glass-table thead th { color: rgba(255,255,255,.8); }
+  .glass-table tbody tr:nth-child(odd){ background: rgba(255,255,255,.045); }
+</style>
+
+<!-- ===================== Krypto ===================== -->
+<section id="krypto" class="relative overflow-hidden py-16">
+  <!-- Bild-Layer -->
+  <div class="absolute inset-0 -z-20 bg-cover bg-center"
+       style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?auto=format&fit=crop&q=80&w=2070');"></div>
+  <!-- Abdunkler -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 to-black/60"></div>
+
+  <div class="container mx-auto px-5 py-12">
+    <h2 class="text-2xl md:text-3xl font-semibold mb-2 text-white">Krypto</h2>
+    <p class="mb-8 max-w-3xl text-white/90">Heatmap &amp; Marktüberblick der wichtigsten Kryptowährungen – direkt von TradingView eingebettet.</p>
+
+    <!-- Widgets -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Heatmap -->
+      <div class="card-glass">
+        <h3 class="text-lg font-semibold mb-3">Crypto Coins Heatmap</h3>
+        <div class="rounded-xl overflow-hidden border border-white/20 h-[560px]">
+          <div class="tradingview-widget-container h-full">
+            <div class="tradingview-widget-container__widget h-full"></div>
+            <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+            {
+              "dataSource": "Crypto",
+              "blockSize": "market_cap_calc",
+              "blockColor": "24h_close_change|5",
+              "locale": "de",
+              "symbolUrl": "",
+              "colorTheme": "dark",
+              "hasTopBar": false,
+              "isDataSetEnabled": false,
+              "isZoomEnabled": true,
+              "hasSymbolTooltip": true,
+              "isMonoSize": false,
+              "isTransparent": true,
+              "width": "100%",
+              "height": "560"
+            }
+            </script>
+          </div>
+          <div class="tradingview-widget-copyright muted text-center py-1 text-[12px]"></div>
+        </div>
+      </div>
+
+      <!-- Markt-Tabelle -->
+      <div class="card-glass">
+        <h3 class="text-lg font-semibold mb-3">Cryptocurrency Market</h3>
+        <div class="rounded-xl overflow-hidden border border-white/20 h-[560px]">
+          <div class="tradingview-widget-container h-full">
+            <div class="tradingview-widget-container__widget h-full"></div>
+            <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+            {
+              "defaultColumn": "overview",
+              "screener_type": "crypto_mkt",
+              "displayCurrency": "EUR",
+              "locale": "de",
+              "colorTheme": "dark",
+              "isTransparent": true,
+              "width": "100%",
+              "height": "560"
+            }
+            </script>
+          </div>
+          <div class="tradingview-widget-copyright muted text-center py-1 text-[12px]"></div>
+        </div>
+      </div>
+    </div><!-- /grid -->
+
+<!-- ===== Erklär-Block ===== -->
+<div id="krypto-explain" class="card-glass mt-12">
+  <h3 class="text-xl md:text-2xl font-semibold mb-4 text-white">
+    Wie funktionieren Bitcoin &amp; Ethereum – monetär &amp; technisch
+  </h3>
+
+  <p class="text-white/90 mb-8 max-w-3xl">
+    Fundiertes Kurzkompendium: Geldlogik, Konsens, Datenmodelle, Gebühren &amp; Skalierung. Keine Anlageberatung.
+  </p>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- BTC -->
+    <article>
+      <h4 class="text-lg font-semibold mb-3">Bitcoin (BTC) – digitales, knappes Geld</h4>
+      <ul class="text-sm space-y-2 leading-relaxed">
+        <li><span class="font-medium">Monetär:</span> Fixes Angebot <b>21 Mio.</b>; <b>Halving</b> ca. alle 210&nbsp;000 Blöcke → sinkende Emission. Gebühren vergüten Miner langfristig.</li>
+        <li><span class="font-medium">Konsens:</span> <abbr title="Doppelt SHA-256; Miner suchen Nonce mit Hash unter Ziel">Proof-of-Work</abbr>, Difficulty-Anpassung ~alle 2016 Blöcke.</li>
+        <li><span class="font-medium">Datenmodell:</span> <abbr title="Unspent Transaction Outputs">UTXO</abbr> – Transaktionen verbrauchen alte UTXOs und erzeugen neue.</li>
+        <li><span class="font-medium">Gebühren/Mempool:</span> Marktpreis in Sats/vByte; Miner wählen profitabelste TX.</li>
+        <li><span class="font-medium">Skripte/Signaturen:</span> ECDSA/Schnorr; <abbr title="Segregated Witness">SegWit</abbr> &amp; <abbr title="Schnorr, Tapscript, MAST">Taproot</abbr>.</li>
+        <li><span class="font-medium">Finalität:</span> probabilistisch; ~6 Bestätigungen gelten als sehr sicher.</li>
+      </ul>
+      <details class="mt-3 group">
+        <summary class="text-sm cursor-pointer select-none">Technik im Detail</summary>
+        <div class="mt-2 text-sm space-y-2">
+          <p><span class="font-medium">Blockstruktur:</span> Header (prevHash, Merkle-Root, nBits, Nonce) + Transaktionen. Merkle-Bäume ermöglichen SPV.</p>
+          <p><span class="font-medium">Sicherheit:</span> Längste (arbeitsintensivste) gültige Kette gewinnt; 51-%-Angriff erfordert Mehrheits-Hashrate.</p>
+          <p><span class="font-medium">Skalierung:</span> On-Chain limitiert → <abbr title="Off-Chain Zahlungskanäle">Lightning</abbr>, Sidechains (z.&nbsp;B. Liquid).</p>
+        </div>
+      </details>
+    </article>
+
+    <!-- ETH -->
+    <article>
+      <h4 class="text-lg font-semibold mb-3">Ethereum (ETH) – Weltcomputer &amp; Smart-Contracts</h4>
+      <ul class="text-sm space-y-2 leading-relaxed">
+        <li><span class="font-medium">Monetär:</span> ETH als <b>Gas</b> &amp; Sicherheits-Asset. <b>EIP-1559</b> verbrennt Basisgebühr → teils deflationär.</li>
+        <li><span class="font-medium">Konsens:</span> <abbr title="Seit The Merge: Casper FFG + LMD-GHOST">Proof-of-Stake</abbr>; 32&nbsp;ETH pro Validator; Slashing bei Fehlverhalten.</li>
+        <li><span class="font-medium">Datenmodell:</span> Accounts/Contracts im <abbr title="Merkle-Patricia-Trie">MPT</abbr>; Ausführung in der <b>EVM</b>.</li>
+        <li><span class="font-medium">Gebühren:</span> Gaslimit pro Block; <b>EIP-4844</b> (Blobs) verbilligt L2-Daten.</li>
+        <li><span class="font-medium">Standards:</span> ERC-20/721/1155; DeFi, NFTs, DAOs.</li>
+      </ul>
+      <details class="mt-3">
+        <summary class="text-sm cursor-pointer select-none">Technik im Detail</summary>
+        <div class="mt-2 text-sm space-y-2">
+          <p><span class="font-medium">Finalität:</span> Slots (~12&nbsp;s) → Epochen (32 Slots). Komitees attestieren; FFG finalisiert Checkpoints.</p>
+          <p><span class="font-medium">Rollups:</span> Optimistic &amp; ZK-Rollups verlagern Ausführung Off-Chain, posten Daten/Beweise On-Chain (DA via Blobs).</p>
+          <p><span class="font-medium">Gas-Ökonomie:</span> Operationen haben fixe Gas-Kosten; Tip (Priority Fee) für Inklusion.</p>
+        </div>
+      </details>
+    </article>
+  </div>
+
+  <!-- Weitere große Coins -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+    <article>
+      <h4 class="text-base font-semibold mb-2">BNB Chain</h4>
+      <p class="text-sm leading-relaxed">
+        <b>Monetär:</b> Gebühren-Token mit Burn-Mechanik.
+        <b>Technik:</b> PoSA – wenige Validatoren, schnelle Finalität, geringere Dezentralität. EVM-kompatibel.
+      </p>
+    </article>
+    <article>
+      <h4 class="text-base font-semibold mb-2">XRP Ledger</h4>
+      <p class="text-sm leading-relaxed">
+        <b>Monetär:</b> Cross-Border-Payments.
+        <b>Technik:</b> RPCA mit <abbr title="Unique Node List">UNL</abbr>; rundenbasiertes Voting → Finalität in Sekunden.
+      </p>
+    </article>
+    <article>
+      <h4 class="text-base font-semibold mb-2">Solana</h4>
+      <p class="text-sm leading-relaxed">
+        <b>Monetär:</b> Hochdurchsatz-dApps.
+        <b>Technik:</b> Proof of History + Tower BFT; Sealevel, Gulf Stream. Hohe Hardware-Anforderungen.
+      </p>
+    </article>
+  </div>
+
+  <!-- Vergleich -->
+  <div class="mt-6">
+    <h4 class="text-lg font-semibold mb-3">Bitcoin vs. Ethereum – Kurzvergleich</h4>
+    <div class="overflow-x-auto -mx-2 md:mx-0">
+      <table class="glass-table min-w-full text-sm">
+        <thead>
+          <tr class="text-left">
+            <th class="py-2 px-2">Aspekt</th>
+            <th class="py-2 px-2">Bitcoin</th>
+            <th class="py-2 px-2">Ethereum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="py-2 px-2">Ziel</td><td class="py-2 px-2">Digitales Geld / SoV</td><td class="py-2 px-2">Weltcomputer &amp; Finanz-OS</td></tr>
+          <tr><td class="py-2 px-2">Geldmenge</td><td class="py-2 px-2">fix 21&nbsp;Mio, Halvings</td><td class="py-2 px-2">variabel; EIP-1559-Burn</td></tr>
+          <tr><td class="py-2 px-2">Konsens</td><td class="py-2 px-2">PoW (SHA-256)</td><td class="py-2 px-2">PoS (Casper FFG + LMD-GHOST)</td></tr>
+          <tr><td class="py-2 px-2">Datenmodell</td><td class="py-2 px-2">UTXO</td><td class="py-2 px-2">Accounts + MPT</td></tr>
+          <tr><td class="py-2 px-2">Skalierung</td><td class="py-2 px-2">Lightning/Sidechains</td><td class="py-2 px-2">Rollups, Blobs, Sharding</td></tr>
+          <tr><td class="py-2 px-2">Energie</td><td class="py-2 px-2">hoch</td><td class="py-2 px-2">sehr niedrig</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <p class="mt-6 text-xs text-white/80">
+    Hinweis: Starke Vereinfachung komplexer Protokolle. Keine Finanz- oder Rechtsberatung.
+  </p>
+</div>
+
+</section>
+
+
+
+
+
+<!-- Broker -->
+<section
+  id="broker"
+  class="hidden py-14 md:py-20 border-t border-neutral-200/50 relative overflow-hidden scroll-mt-16 md:scroll-mt-24"
+>
+  <div class="absolute inset-0 -z-10"
+       style="background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%);">
+  </div>
+  <div class="absolute inset-0 -z-10 bg-cover bg-center"
+       style="background-image:url('https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); filter: brightness(0.25);">
+  </div>
+
+  <div class="container mx-auto px-5">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white">Broker-Vergleich &amp; Partnerlinks</h2>
+    <p class="mt-2 text-sm md:text-base text-gray-300 max-w-2xl">
+      Hier findest du eine kuratierte Liste seriöser Broker. Die Links sind Affiliate-Links: Wenn du dich darüber
+      registrierst, kann Aktienklar eine Provision erhalten – für dich entstehen keine zusätzlichen Kosten.
+      Risikohinweis: Der Handel mit Wertpapieren/CFDs/Krypto ist mit erheblichen Risiken verbunden.
+    </p>
+
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- eToro -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">eToro</h3>
+          <span class="pill" style="color:black;">Broker</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          Multi-Asset Broker (Aktien, ETFs, Krypto). Einfacher Einstieg, Social Trading.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/Hybrid. Ersetze mit deinem individuellen Affiliate-Link.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://partners.etoro.com/" style="color:black;">Zu eToro</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Capital.com -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Capital.com</h3>
+          <span class="pill" style="color:black;">CFD/Forex</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          CFD-Broker mit vielen Märkten, schlanke App, gute Education.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/RevShare/Hybrid. Ersetze mit deinem Affiliate-Link.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://capital.com/affiliate" style="color:black;">Zu Capital.com</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Plus500 -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Plus500</h3>
+          <span class="pill" style="color:black;">CFD/Forex</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          CFD-Anbieter mit sehr breitem Produktangebot und solider Plattform.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA-Programm. Ersetze mit deinem Partnerlink.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.plus500partners.com/" style="color:black;">Zu Plus500</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Admirals -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Admirals (Admiral Markets)</h3>
+          <span class="pill" style="color:black;">CFD/Forex</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          CFD &amp; Forex, MetaTrader-Unterstützung, umfangreiche Research-Angebote.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/RevShare. Ersetze mit deinem Affiliate-Link.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://admiralmarkets.com/partners" style="color:black;">Zu Admirals</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Interactive Brokers -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Interactive Brokers</h3>
+          <span class="pill" style="color:black;">Broker</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          Professioneller Broker mit sehr niedrigen Gebühren und breitem Produktuniversum.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">Revenue Share. Ersetze mit deinem Affiliate-Link.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.interactivebrokers.com/affiliate/" style="color:black;">Zu Interactive Brokers</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- AvaTrade -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">AvaTrade</h3>
+          <span class="pill" style="color:black;">CFD/Forex</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          CFD/Forex-Broker, mehrere Plattformen, dediziertes Partnerprogramm.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">CPA/Hybrid. Ersetze mit deinem Partnerlink.</p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.avapartner.com/" style="color:black;">Zu AvaTrade</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Binance -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Binance (Krypto)</h3>
+          <span class="pill" style="color:black;">Krypto</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          Größte Krypto-Börse nach Volumen; Gebührenrabatte über Ref-Code möglich.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">
+          Prozentuale Beteiligung an Trading-Gebühren. Ersetze mit deinem Ref-Link/Code.
+        </p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.binance.com/en/affiliate" style="color:black;">Zu Binance</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Bybit -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Bybit (Krypto)</h3>
+          <span class="pill" style="color:black;">Krypto</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          Krypto-Derivate &amp; Spot, häufige Promotions und Bonusaktionen.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">
+          30–50 % der Gebühren. Ersetze mit deinem Partnerlink.
+        </p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://affiliate.bybit.com/" style="color:black;">Zu Bybit</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+
+      <!-- Coinbase -->
+      <div class="card text-black bg-white">
+        <div class="flex items-start justify-between gap-4">
+          <h3 class="text-xl font-semibold text-[#0E2A47]" style="color:black;">Coinbase (Krypto)</h3>
+          <span class="pill" style="color:black;">Krypto</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-700" style="color:black;">
+          Einsteigerfreundliche Krypto-Börse aus den USA mit starker Marke.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500" style="color:black;">
+          Provision pro Registrierung. Ersetze mit deinem Affiliate-Link.
+        </p>
+        <div class="mt-4">
+          <a class="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-neutral-50"
+             data-affiliate="HIER-DEIN-AFFILIATE-PARAMETER" href="https://www.coinbase.com/affiliate" style="color:black;">Zu Coinbase</a>
+        </div>
+        <p class="mt-3 text-[12px] text-neutral-500" style="color:black;">
+          Risikohinweis: 74–89 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Krypto ist sehr volatil.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Über uns + FAQ (nur sichtbar, wenn 'about' aktiv ist) -->
+<section id="about" class="hidden scroll-mt-16 md:scroll-mt-24">
+  <!-- FAQ-->
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img 
+        src="https://images.unsplash.com/photo-1495661637236-f46ceea3b2b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=1600" 
+        alt="Background"
+        class="w-full h-full object-cover brightness-25"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    <div class="relative bg-transparent backdrop-blur-sm">
+      <div class="max-w-3xl mx-auto px-6 py-12 text-white drop-shadow-lg">
+        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-2">Fragen &amp; Antworten</h3>
+        <p class="mb-8 text-white/90">Klicke auf eine Frage, um die Antwort zu öffnen.</p>
+
+        <div class="bg-transparent border-0 overflow-hidden" data-accordion-root>
+
+          <!-- Item 1 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Was ist das Ziel von Aktienklar.de?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Unser Ziel ist es, mit <strong>Aktienklar.de</strong> eine <strong>seriöse und fundierte Informationsplattform</strong> für sowohl Einsteiger als auch erfahrene Anleger zu schaffen. Wir möchten komplexe Themen der Aktienanalyse verständlich aufbereiten, sinnvolle Analysetools bereitstellen und wirtschaftliche Zusammenhänge klar erklären – für mehr Transparenz und Wissen im Börsengeschehen.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Wie entstehen die Aktienanalysen auf Aktienklar.de?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Unsere Analysen basieren auf einer <strong>ganzheitlichen Betrachtung</strong> der jeweiligen Unternehmen. Dabei kombinieren wir <strong>fundamentale Analysen</strong> (z. B. Bilanz- und Kennzahlenbewertung, Cashflow-Analyse, Verschuldungsgrad, Margenentwicklung) mit <strong>Branchenvergleichen</strong> sowie ausgewählten <strong>technischen Indikatoren</strong>. Ziel ist es, ein objektives, faktenbasiertes Bild der wirtschaftlichen Lage und der Marktposition eines Unternehmens zu zeichnen.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Sind die Analysen Kaufempfehlungen?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Nein, unsere Analysen stellen <strong>keine Anlageberatung oder Kaufempfehlung</strong> dar. Sie dienen ausschließlich der <strong>Information und Weiterbildung</strong>. Unser Anspruch ist es, kein Signal zu geben, dem man blind folgt, sondern ein <strong>grundlegendes Verständnis für den Aktienmarkt</strong> zu vermitteln. So möchten wir unsere Leser in die Lage versetzen, <strong>eigenständig fundierte Anlageentscheidungen</strong> zu treffen.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Wie häufig werden die Analysen aktualisiert?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Unsere Analysen werden <strong>täglich überprüft und regelmäßig aktualisiert</strong>, um sicherzustellen, dass die dargestellten Informationen stets auf dem neuesten Stand sind.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Welche Qualifikationen bringen wir mit?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Hinter Aktienklar.de steht ein <strong>Team aus studierten Wirtschaftswissenschaftlern</strong> mit fundierten Kenntnissen in den Bereichen <strong>Investition, Finanzierung und Unternehmensrecht</strong>. Darüber hinaus verfügen wir über <strong>mehrjährige private Trading-Erfahrung</strong> und nachweisbare Erfolge im Aktienhandel. Diese Kombination aus akademischem Wissen und praktischer Markterfahrung bildet die Grundlage für unsere fundierten Analysen und Einschätzungen.</p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="border-b border-white/30">
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Welche Tools oder Datenquellen werden für die Analysen verwendet?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Wir greifen auf <strong>seriöse Finanzdatenbanken und Analyseplattformen</strong> zurück, darunter öffentlich zugängliche Unternehmensberichte, Kursdaten renommierter Anbieter sowie eigens entwickelte Auswertungsmodelle. Ergänzend nutzen wir <strong>technische Analyse-Tools</strong> zur Visualisierung von Kursverläufen und Trendbewegungen.</p>
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div>
+            <button class="w-full flex items-center justify-between gap-4 px-6 py-5 text-left font-semibold focus:outline-none text-white drop-shadow-lg" aria-expanded="false" data-acc-btn>
+              <span class="text-base md:text-lg">Für wen eignet sich Aktienklar.de – eher für Einsteiger oder erfahrene Anleger?</span>
+              <svg class="h-5 w-5 shrink-0 rotate-0 transition-transform duration-300 text-white/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="px-6 overflow-hidden max-h-0 transition-all duration-300 ease-in-out text-white/90" hidden data-acc-panel>
+              <p class="pb-6 leading-relaxed drop-shadow-lg">Aktienklar.de richtet sich <strong>sowohl an Einsteiger als auch an erfahrene Anleger</strong>. Einsteiger profitieren von leicht verständlichen Erklärungen und praxisnahen Guides, während erfahrene Anleger durch tiefgehende Analysen und Marktvergleiche wertvolle Impulse für ihre eigene Strategie erhalten.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</div></div>
+</section>
+</section>
+
+</section>
+
+<!-- ANALYSEN-BEREICH -->
+<section id="analysen-pro" class="hidden py-16">
+  <div class="container mx-auto px-5">
+
+    <!-- Überschrift -->
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">
+      Analysen
+    </h2>
+
+    <!-- Hinweistext -->
+    <p class="text-white mb-6">
+      Dieser Bereich ist nur sichtbar, wenn du angemeldet bist.
+    </p>
+
+    <!-- Beispielkarte (gläserner Stil) -->
+    <div class="glass pad-lg text-white">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-semibold">Beispielanalyse</h3>
+        <span class="pill bg-white/20 text-white border border-white/30">Nur für Mitglieder</span>
+      </div>
+
+      <p class="text-sm leading-relaxed">
+        Füge hier deine geschützten Analysen, Charts, Notizen usw. ein.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CHAT-BEREICH -->
+<section id="chat" class="hidden py-16">
+  <div class="container mx-auto px-5 max-w-3xl">
+
+    <!-- Überschrift -->
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">Community-Chat</h2>
+
+    <!-- Infobox (gläserner Stil) -->
+    <div class="glass pad-lg mb-6 text-white">
+      <p class="font-medium mb-1">Willkommen im Community-Chat!</p>
+      <p class="text-sm leading-relaxed">
+        Bitte geht respektvoll miteinander um, bleibt beim Thema und helft euch gegenseitig weiter.
+        Achtet darauf, sachlich zu bleiben, keine Werbung zu posten und andere Meinungen zu akzeptieren.
+        Viel Spaß beim Austausch! 💬
+      </p>
+    </div>
+
+    <!-- Hinweis -->
+    <p class="text-white mb-4">Nur für angemeldete Nutzer.</p>
+
+    <!-- Chatfenster (gläsern) -->
+    <div id="chat-box" class="glass pad-lg h-[420px] overflow-y-auto mb-4 text-black bg-transparent"></div>
+
+    <!-- Eingabezeile -->
+    <form id="chat-form" class="mt-4 flex gap-2">
+      <input
+        id="chat-input"
+        class="flex-1 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0E2A47]"
+        placeholder="Nachricht schreiben…"
+        autocomplete="off"
+        style="color:#111; background-color:rgba(255,255,255,0.9);"
+      />
+      <button class="btn-primary" type="submit">Senden</button>
+    </form>
+
+    <!-- Status / Hinweis unten -->
+    <p id="chat-hint" class="text-sm text-white mt-2">Du bist angemeldet.</p>
+  </div>
+</section>
+
+
+<!-- COMMUNITY-BEREICH -->
+<section id="community" class="hidden py-16">
+  <div class="container mx-auto px-5 max-w-3xl">
+
+    <!-- Überschrift -->
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">
+      Frag die Community
+    </h2>
+
+    <!-- Hinweisbox im gläsernen Stil -->
+    <div class="glass pad-lg mb-6 text-white">
+      <p class="font-medium mb-1">Stell deine Frage an die Community</p>
+      <p class="text-sm leading-relaxed">
+        Kurz und sachlich formulieren. Keine Werbung, respektvoll bleiben.
+        Antworten können von allen angemeldeten Nutzern gegeben werden.
+      </p>
+    </div>
+
+    <!-- Frage erstellen -->
+    <form id="q-form" class="mb-6 flex gap-2 items-start">
+      <textarea
+        id="q-text"
+        class="flex-1 rounded-xl border border-gray-300 px-4 py-2 min-h-[80px] focus:outline-none focus:ring-2 focus:ring-[#0E2A47]"
+        placeholder="Deine Frage (z. B. 'Wie bewertet ihr Aktie XYZ aktuell?')"
+        maxlength="300"
+        style="color:#111; background-color:rgba(255,255,255,0.9);"
+      ></textarea>
+
+      <button class="btn-primary shrink-0" type="submit">
+        Frage stellen
+      </button>
+    </form>
+
+    <!-- Fragenliste -->
+    <div id="q-list" class="space-y-4">
+      <!-- Jede Frage, die du später renderst, kannst du in eine .glass-Box packen -->
+      <!-- Beispiel:
+      <div class="glass pad-lg text-black">
+        <p class="font-semibold">Wie bewertet ihr Aktie XYZ aktuell?</p>
+        <div class="mt-2 text-sm text-gray-800">Antworten folgen …</div>
+      </div>
+      -->
+    </div>
+
+    <!-- Status / Hinweis -->
+    <p id="q-hint" class="text-sm text-white mt-4"></p>
+  </div>
+</section>
+
+
+
+
+<footer class="border-t border-neutral-200 bg-white">
+  <div class="container mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- Logo & Beschreibung -->
+    <div>
+      <div class="mb-3 flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0E2A47] text-white font-bold">A</div>
+        <div class="text-[15px] font-semibold tracking-wide text-[#0E2A47]">Aktienklar</div>
+      </div>
+      <p class="text-sm text-neutral-600">
+        Klarheit bei Aktien: Analysen, Rechner &amp; Rankings.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <ul class="mt-3 space-y-2 text-sm text-neutral-700">
+        <li><a class="hover:text-[#0E2A47]" href="#analysen">Analysen</a></li>
+        <li><a class="hover:text-[#0E2A47]" href="#grundlagen">Grundlagen</a></li>
+        <li><a class="hover:text-[#0E2A47]" href="#tools">Rechner</a></li>
+        <li><a class="hover:text-[#0E2A47]" href="#rankings">Rankings</a></li>
+      </ul>
+    </div>
+
+    <!-- Rechtliches -->
+    <div>
+      <h4 class="text-sm font-semibold text-neutral-800">Rechtliches</h4>
+      <ul class="mt-3 space-y-2 text-sm text-neutral-700">
+        <li><a class="hover:text-[#0E2A47]" href="impressum.html">Impressum</a></li>
+        <li><a class="hover:text-[#0E2A47]" href="datenschutz.html">Datenschutz</a></li>
+        <li><a class="hover:text-[#0E2A47]" href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-xs text-neutral-500 self-end">
+      © <span id="year"></span> Aktienklar – Keine Anlageberatung. Beispielzahlen.
+    </div>
+  </div>
+
+  <!-- Automatisches Jahr -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</footer>
+
+<!-- ===== Robust init for calculators & search (GitHub Pages safe) ===== -->
+<!-- ===== End robust init ===== -->
+<script>
+// ---- Helpers ----
+(function(){
+  if (typeof window["€"] !== "function") {
+    window["€"] = function(v){ try { return (v||0).toLocaleString("de-DE",{style:"currency",currency:"EUR"}); } catch(e){ return String(v); } };
+  }
+})();
+
+// ---- Mini-Dividenden (Hero) ----
+function updateMini() {
+  var pvEl = document.getElementById("pv");
+  var yEl = document.getElementById("yieldPct");
+  var tEl = document.getElementById("taxPct");
+  if (!(pvEl && yEl && tEl && document.getElementById("grossOut") && document.getElementById("netOut"))) return;
+  var pv = +pvEl.value || 0;
+  var y = +yEl.value || 0;
+  var t = +tEl.value || 0;
+  var gross = pv * y / 100;
+  var net = gross * (1 - t/100);
+  document.getElementById("grossOut").textContent = window["€"](gross);
+  document.getElementById("netOut").textContent = window["€"](net);
+}
+
+// ---- Dividenden-Rechner ----
+function updateDiv(){
+  var a = +((document.getElementById("d_amount")||{}).value || 0);
+  var y = +((document.getElementById("d_yield")||{}).value || 0);
+  var t = +((document.getElementById("d_tax")||{}).value || 0);
+  if (!(document.getElementById("d_gross") && document.getElementById("d_net"))) return;
+  var g = a * y / 100;
+  var n = g * (1 - t/100);
+  document.getElementById("d_gross").textContent = window["€"](g);
+  document.getElementById("d_net").textContent = window["€"](n);
+}
+
+// ---- Chart init (optional) ----
+function ensureChart(){
+  try{
+    var canvas = document.getElementById("c_chart");
+    if (!canvas || !window.Chart || window.cChart) return;
+    var ctx = canvas.getContext("2d");
+    window.cChart = new Chart(ctx, {
+      type: "line",
+      data: { labels: [], datasets: [
+        {label:"Vermögen", data: [], tension:0.25},
+        {label:"Einzahlungen", data: [], tension:0.25}
+      ]},
+      options: { responsive:true, plugins:{legend:{position:"bottom"}},
+        scales:{ y:{ ticks:{ callback:function(v){ try{return v.toLocaleString('de-DE');}catch(e){return v;} } } } } }
+    });
+  } catch(e){ console.warn("Chart init skipped:", e); }
+}
+
+// ---- Zinseszins ----
+function updateCompound(){
+  if (!(document.getElementById("c_start") && document.getElementById("c_monthly") && document.getElementById("c_years") && document.getElementById("c_rate"))) return;
+  ensureChart();
+  var start = +document.getElementById("c_start").value||0;
+  var monthly = +document.getElementById("c_monthly").value||0;
+  var years = +document.getElementById("c_years").value||0;
+  var rate = +document.getElementById("c_rate").value||0;
+
+  var balance = start;
+  var invested = start;
+  var labels = ["0"];
+  var bal = [Math.round(balance)];
+  var inv = [invested];
+
+  for(var y=1; y<=years; y++){
+    for(var m=0; m<12; m++){
+      balance = balance*(1+rate/100/12)+monthly;
+      invested += monthly;
+    }
+    labels.push(String(y));
+    bal.push(Math.round(balance));
+    inv.push(invested);
+  }
+
+  if (document.getElementById("c_final")) document.getElementById("c_final").textContent = window["€"](bal[bal.length-1]);
+  if (document.getElementById("c_invested")) document.getElementById("c_invested").textContent = window["€"](inv[inv.length-1]);
+
+  if (window.cChart){
+    try{
+      window.cChart.data.labels = labels;
+      window.cChart.data.datasets[0].data = bal;
+      window.cChart.data.datasets[1].data = inv;
+      window.cChart.update();
+    } catch(e){ console.warn("Chart update skipped:", e); }
+  }
+}
+
+// ---- Rendite nach Steuern ----
+function updateReturn(){
+  if (!(document.getElementById("r_buy") && document.getElementById("r_sell") && document.getElementById("r_shares") && document.getElementById("r_divs") && document.getElementById("r_tax") && document.getElementById("r_years"))) return;
+  var buy=+document.getElementById("r_buy").value||0;
+  var sell=+document.getElementById("r_sell").value||0;
+  var shares=+document.getElementById("r_shares").value||0;
+  var divs=+document.getElementById("r_divs").value||0;
+  var tax=+document.getElementById("r_tax").value||0;
+  var years=+document.getElementById("r_years").value||0;
+  var invested = buy*shares;
+  var grossGain=(sell-buy)*shares;
+  var taxedGain=grossGain*(1-tax/100);
+  var taxedDivs=divs*(1-tax/100);
+  var totalNet = taxedGain + taxedDivs;
+  var final = invested + totalNet;
+  var netReturnPct = invested>0 ? ((final/invested)-1)*100 : 0;
+  var annual = years>0 && invested>0 ? (Math.pow(final/invested,1/years)-1)*100 : 0;
+
+  if (document.getElementById("r_netprofit")) document.getElementById("r_netprofit").textContent = window["€"](totalNet);
+  if (document.getElementById("r_return")) document.getElementById("r_return").textContent = netReturnPct.toFixed(2)+"%";
+  if (document.getElementById("r_annual")) document.getElementById("r_annual").textContent = annual.toFixed(2)+"%";
+  if (document.getElementById("r_invested")) document.getElementById("r_invested").textContent = window["€"](invested);
+}
+
+// ---- Grundlagen-Suche ----
+function glFilter(){
+  var input = document.getElementById("gl_search");
+  var cards = Array.prototype.slice.call(document.querySelectorAll("#termsGrid .term-card, .term-card, .gl-card, .infocard, .info-card, [data-card], [data-role='card']"));
+  if (!input || cards.length===0) return;
+  var q = (input.value || "").trim().toLowerCase();
+  var shown = 0;
+  for (var i=0; i<cards.length; i++) {
+    var c = cards[i];
+    var txt = ((c.innerText||"") + " " + (c.getAttribute("data-keywords")||"") + " " + (c.getAttribute("data-tags")||"")).toLowerCase();
+    var vis = q === "" || txt.indexOf(q) !== -1;
+    c.style.display = vis ? "" : "none";
+    if (vis) shown++;
+  }
+  var cnt = document.getElementById("gl_count"); if (cnt) cnt.textContent = String(shown);
+  var empty = document.getElementById("gl_empty"); if (empty) empty.classList.toggle("hidden", shown !== 0);
+}
+
+// ---- Bindings ----
+function bindUI(){
+  // prevent forms from reloading page
+  Array.prototype.slice.call(document.querySelectorAll("form")).forEach(function(f){ f.addEventListener("submit", function(e){ e.preventDefault(); }); });
+
+  // Listeners
+  ["pv","yieldPct","taxPct"].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input", updateMini); });
+  ["d_amount","d_yield","d_tax"].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input", updateDiv); });
+  ["c_start","c_monthly","c_years","c_rate"].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input", updateCompound); });
+  ["r_buy","r_sell","r_shares","r_divs","r_tax","r_years"].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener("input", updateReturn); });
+  var glS = document.getElementById("gl_search");
+  var glC = document.getElementById("gl_clear");
+  if (glS) glS.addEventListener("input", glFilter);
+  if (glC) glC.addEventListener("click", function(){ if (glS) glS.value = ""; glFilter(); glS && glS.focus(); });
+
+  // Initial run (safe)
+  updateMini();
+  updateDiv();
+  ensureChart();
+  updateCompound();
+  updateReturn();
+  glFilter();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bindUI);
+} else {
+  bindUI();
+}
+</script>
+<script>
+(function(){
+  const TAB_IDS = ["home","analysen","grundlagen","tools","rankings","krypto","broker","about","newsletter","analysen-pro","chat","community"];
+  const qs = (sel, el=document) => el.querySelector(sel);
+  const qsa = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+  // ensure Tailwind fallback (optional)
+  const style = document.createElement('style');
+  style.textContent = '.hidden{display:none}';
+  document.head.appendChild(style);
+
+  const getTabFromHash = () => {
+    const h = (location.hash || "").replace(/^#/, "");
+    return TAB_IDS.includes(h) ? h : null;
+  };
+  const showTab = (id, {pushHash=true} = {}) => {
+    TAB_IDS.forEach(sec => {
+      const el = qs('#'+sec);
+      if (!el) return;
+      if (sec === id) {
+        el.classList.remove('hidden');
+        el.setAttribute('aria-hidden','false');
+      } else {
+        el.classList.add('hidden');
+        el.setAttribute('aria-hidden','true');
+      }
+    });
+    qsa('[role="tab"]').forEach(btn => {
+      const active = btn.getAttribute('data-tab') === id;
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      btn.classList.toggle('bg-[#0E2A47]', active);
+      btn.classList.toggle('text-white', active);
+      btn.classList.toggle('border-[#0E2A47]', active);
+    });
+    if (pushHash) history.replaceState(null, '', '#'+id);
+  };
+
+ qsa('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = btn.getAttribute('data-tab');
+    showTab(id);
+    // immer ganz nach oben – ohne Smooth
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch(e) { window.scrollTo(0,0); }
+  });
+});
+
+  window.addEventListener('hashchange', () => {
+    const h = getTabFromHash();
+    if (h) showTab(h, {pushHash:false});
+  });
+
+  const initial = getTabFromHash() || 'home';
+  TAB_IDS.forEach(id => {
+    const el = qs('#'+id);
+    if (!el) return;
+    if (id !== initial) el.classList.add('hidden');
+    el.setAttribute('aria-hidden', id === initial ? 'false' : 'true');
+  });
+  showTab(initial);
+})();
+</script>
+<script>
+// ---- Non-destructive dividend chart patch (corrected placement) ----
+(function _wrapDivChart(){
+  var orig = window.updateDiv;
+  function ensureReady(){
+    return typeof Chart !== "undefined" && document.getElementById("d_chart");
+  }
+  function ensureDivChart(){
+    if (!ensureReady()) return;
+    if (window.dChart) return;
+    var ctx = document.getElementById("d_chart").getContext("2d");
+    window.dChart = new Chart(ctx, {
+      type: "line",
+      data: { labels: [], datasets: [
+        { label: "Kumuliert brutto", data: [], tension: 0.25 },
+        { label: "Kumuliert netto",  data: [], tension: 0.25 }
+      ]},
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: "bottom" } },
+        scales: {
+          y: { ticks: { callback: function(v){ try { return v.toLocaleString('de-DE'); } catch(e){ return v; } } } }
+        }
+      }
+    });
+  }
+  function drawDivChart(){
+    try{
+      if (!ensureReady()) return;
+      ensureDivChart();
+      var a = +((document.getElementById("d_amount")||{}).value || 0);
+      var y = +((document.getElementById("d_yield")||{}).value || 0);
+      var t = +((document.getElementById("d_tax")||{}).value || 0);
+      var yrs = +((document.getElementById("d_years")||{}).value || 20);
+      var g = a * y / 100;                 // Brutto pro Jahr
+      var n = g * (1 - t/100);             // Netto pro Jahr
+      var labels=["0"], G=[0], N=[0], cg=0, cn=0;
+      for (var i=1;i<=yrs;i++){ cg+=g; cn+=n; labels.push(String(i)); G.push(Math.round(cg)); N.push(Math.round(cn)); }
+      window.dChart.data.labels = labels;
+      window.dChart.data.datasets[0].data = G;
+      window.dChart.data.datasets[1].data = N;
+      window.dChart.update();
+    }catch(e){}
+  }
+  if (typeof orig === "function"){
+    window.updateDiv = function(){
+      try{ orig(); }catch(e){}
+      drawDivChart();
+    };
+  } else {
+    window.updateDiv = function(){ drawDivChart(); };
+  }
+  var yrsEl = document.getElementById("d_years");
+  if (yrsEl) yrsEl.addEventListener("input", drawDivChart);
+  document.addEventListener("DOMContentLoaded", function(){ drawDivChart(); });
+})();
+</script>
+
+
+<script>
+try {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.addEventListener('load', () => {
+    // In case the browser restores hash/scroll, bring it to the very top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    // Fallback in case some browsers ignore the first call
+    setTimeout(() => window.scrollTo(0, 0), 0);
+  });
+  window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
+} catch(e) { /* no-op */ }
+</script>
+
+<script>
+(() => {
+  const menuBtn      = document.getElementById('menu-toggle');
+  const menu         = document.getElementById('mobile-menu');
+  const menuOverlay  = document.getElementById('menu-overlay');   // <-- umbenannt
+  const menuCloseBtn = document.getElementById('close-menu');      // <-- umbenannt
+
+  const openMenu  = () => { menu.classList.add('open');  menuOverlay.classList.add('open');  };
+  const closeMenu = () => { menu.classList.remove('open'); menuOverlay.classList.remove('open'); };
+
+  if (menuBtn && menu && menuOverlay && menuCloseBtn) {
+    menuBtn.addEventListener('click', openMenu);
+    menuCloseBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+  }
+
+  // optional global nutzbar (z. B. vom Modal aus)
+  window.closeMobileMenu = closeMenu;
+})();
+</script>
+
+
+
+
+
+
+<!-- ===== Live-News (TradingView) – elegant card ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  var news = document.querySelector('section#live-news[data-news-home-only="true"]');
+  if(!news){ return; }
+  function updateVisibility(){
+    var onHome = (location.hash === '' || location.hash === '#home');
+    news.style.display = onHome ? 'block' : 'none';
+  }
+  updateVisibility();
+  window.addEventListener('hashchange', updateVisibility);
+  document.querySelectorAll('[data-tab]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setTimeout(updateVisibility, 0); });
+  });
+});
+</script>
+<!-- ==== Auto-Refresh für TradingView News alle 5 Minuten ==== -->
+<script>
+  setInterval(function() {
+    const container = document.querySelector('.tradingview-widget-container');
+    if (container) {
+      const clone = container.cloneNode(true);
+      container.parentNode.replaceChild(clone, container);
+      console.log("🔄 TradingView-News-Widget aktualisiert");
+    }
+  }, 300000); // 300000 ms = 5 Minuten
+</script>
+<script>
+function toggleCard(btn){
+  const body = btn.nextElementSibling;
+  const icon = btn.querySelector('span:last-child');
+  if(body.classList.contains('hidden')){
+    body.classList.remove('hidden');
+    icon.textContent = '▲';
+  } else {
+    body.classList.add('hidden');
+    icon.textContent = '▼';
+  }
+}
+</script>
+<!-- Injected by ChatGPT: default to "Anlagestrategien" and remove specific cards -->
+<script>
+
+
+    // 2) Remove cards "KGV klar erklärt", "Dividendenstrategie", "Wachstum vs. Qualität" in #analysen
+    var titlesToRemove = ["KGV klar erklärt", "Dividendenstrategie", "Wachstum vs. Qualität"];
+    var section = document.getElementById('analysen');
+    if (section) {
+      var possibleTitleNodes = section.querySelectorAll('h2, h3, h4, .card h2, .card h3, .card h4, .text-xl, .text-lg, [role="heading"]');
+      titlesToRemove.forEach(function(title) {
+        possibleTitleNodes.forEach(function(node) {
+          if (!node || !node.textContent) return;
+          var txt = node.textContent.trim();
+          if (txt === title || txt.includes(title)) {
+            // Find a reasonable "card" container to remove
+            var container = node.closest('.card') ||
+                            node.closest('article') ||
+                            node.closest('[class*="card"]') ||
+                            node.closest('[class*="Card"]');
+            if (!container) {
+              // fallback: go up a few levels if needed (max 4)
+              var climb = node;
+              for (var i = 0; i < 4 && climb && climb.parentElement; i++) {
+                if (climb.parentElement.children.length > 0 && /grid|card|rounded|border/.test(climb.parentElement.className||"")) {
+                  container = climb.parentElement;
+                  break;
+                }
+                climb = climb.parentElement;
+              }
+            }
+            (container || node).remove();
+          }
+        });
+      });
+    }
+  } catch (e) {
+    console.warn('Injected script failed:', e);
+  }
+});
+</script>
+<script>
+/* rankings-renderer */
+(function(){
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+
+  function activate(id){
+    $$(".rank-tab").forEach(b => b.setAttribute("data-active", String(b.dataset.target === id)));
+    $$(".rank-panel").forEach(p => p.classList.toggle("hidden", p.id !== id));
+  }
+  document.addEventListener("click", e => {
+    const btn = e.target.closest(".rank-tab");
+    if (!btn) return;
+    activate(btn.dataset.target);
+  });
+  activate("r-most-traded");
+
+  function kNum(n){
+    if (n == null) return "–";
+    const a = Math.abs(n);
+    if (a >= 1e9) return (n/1e9).toFixed(2) + " Mrd";
+    if (a >= 1e6) return (n/1e6).toFixed(2) + " Mio";
+    if (a >= 1e3) return (n/1e3).toFixed(1) + " Tsd";
+    return String(n);
+  }
+  function pct(x){
+    if (x == null) return "–";
+    const s = (x).toFixed(2) + "%";
+    return x >= 0 ? "+"+s : s;
+  }
+  function card(it, kind){
+    const up = (it.change_pct ?? 0) >= 0;
+    const chip = kind === "turnarounds"
+      ? `<span class="pill">${pct(it.drawdown_pct ?? -10)} vom Hoch</span>`
+      : `<span class="pill ${up ? 'text-green-700 border-green-200' : 'text-red-700 border-red-200'}">${pct(it.change_pct)}</span>`;
+    const sub = kind === "most_traded"
+      ? `<div class="text-xs text-neutral-500">Volumen: ${kNum(it.volume)} · Umsatz: ${kNum(it.turnover_eur)} €</div>`
+      : `<div class="text-xs text-neutral-500">Volumen: ${kNum(it.volume)}</div>`;
+    return `
+      <div class="card text-neutral-900">
+        <div class="flex items-center justify-between mb-2">
+          <div class="font-semibold">${it.name ?? it.ticker ?? "–"}</div>
+          ${chip}
+        </div>
+        <div class="text-3xl font-bold mb-1">${it.price != null ? it.price.toFixed(2) + " €" : "–"}</div>
+        ${sub}
+        <div class="mt-3 text-xs text-neutral-500">${it.ticker ?? ""}</div>
+      </div>`;
+  }
+  function render(list, targetId, kind){
+    const root = document.getElementById(targetId);
+    root.innerHTML = (list && list.length)
+      ? list.slice(0,6).map(i => card(i, kind)).join("")
+      : `<div class="text-white/90">Keine Daten vorhanden.</div>`;
+  }
+
+  async function load(){
+    let data;
+    try{
+      const res = await fetch("/data/rankings.json", {cache:"no-store"});
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      data = await res.json();
+    }catch(e){
+      // 6er Fallback pro Kategorie
+      data = {
+        as_of: new Date().toISOString().slice(0,10),
+        most_traded: [
+          {ticker:"SAP", name:"SAP SE", price:184.20, change_pct:1.3, volume:5200000, turnover_eur:957840000},
+          {ticker:"SIE", name:"Siemens", price:164.50, change_pct:-0.9, volume:3100000, turnover_eur:509950000},
+          {ticker:"BAS", name:"BASF", price:44.80, change_pct:-4.2, volume:4600000, turnover_eur:206080000},
+          {ticker:"ALV", name:"Allianz", price:257.10, change_pct:0.8, volume:1200000, turnover_eur:308520000},
+          {ticker:"LIN", name:"Linde", price:406.10, change_pct:2.1, volume:900000, turnover_eur:365490000},
+          {ticker:"IFX", name:"Infineon", price:34.60, change_pct:1.1, volume:1500000, turnover_eur:51900000}
+        ],
+        most_bought: [
+          {ticker:"MTU", name:"MTU Aero", price:237.40, change_pct:4.4, volume:680000},
+          {ticker:"MRK", name:"Merck KGaA", price:185.10, change_pct:3.2, volume:740000},
+          {ticker:"IFX", name:"Infineon", price:34.60, change_pct:2.8, volume:890000},
+          {ticker:"HEN", name:"Henkel", price:75.30, change_pct:2.2, volume:510000},
+          {ticker:"RWE", name:"RWE", price:34.20, change_pct:2.1, volume:1200000},
+          {ticker:"DBK", name:"Deutsche Bank", price:12.90, change_pct:1.9, volume:2100000}
+        ],
+        most_sold: [
+          {ticker:"BAS", name:"BASF", price:44.80, change_pct:-4.2, volume:4600000},
+          {ticker:"PAH3", name:"Porsche SE", price:48.10, change_pct:-3.7, volume:970000},
+          {ticker:"HFG", name:"HelloFresh", price:16.40, change_pct:-3.4, volume:1300000},
+          {ticker:"VNA", name:"Vonovia", price:28.70, change_pct:-2.9, volume:1100000},
+          {ticker:"ZAL", name:"Zalando", price:24.10, change_pct:-2.6, volume:840000},
+          {ticker:"BAYN", name:"Bayer", price:29.30, change_pct:-2.1, volume:1500000}
+        ],
+        turnarounds: [
+          {ticker:"LIN", name:"Linde", price:406.10, drawdown_pct:-12.4, trend10y_cagr:14.2, volume:900000},
+          {ticker:"SRT3", name:"Sartorius", price:268.50, drawdown_pct:-18.1, trend10y_cagr:11.0, volume:420000},
+          {ticker:"SHL", name:"Siemens Healthineers", price:52.60, drawdown_pct:-10.7, trend10y_cagr:10.1, volume:650000},
+          {ticker:"BEI", name:"Beiersdorf", price:139.40, drawdown_pct:-11.0, trend10y_cagr:10.3, volume:380000},
+          {ticker:"HNR1", name:"Hannover Rück", price:230.10, drawdown_pct:-13.6, trend10y_cagr:12.2, volume:270000},
+          {ticker:"DTE", name:"Deutsche Telekom", price:23.80, drawdown_pct:-10.4, trend10y_cagr:10.8, volume:2100000}
+        ]
+      };
+    }
+
+    render(data.most_traded, "r-most-traded", "most_traded");
+    render(data.most_sold, "r-most-sold", "most_sold");
+    render(data.most_bought, "r-most-bought", "most_bought");
+    render(data.turnarounds, "r-turnarounds", "turnarounds");
+    const meta = document.getElementById("rankings-meta");
+    meta.textContent = "Letztes Update: " + (data.as_of || "–");
+  }
+
+  load();
+})();
+</script>
+
+<script>
+  // Lazy-Loader für TradingView
+  function loadTradingView(cb) {
+    if (window.TradingView) return cb();
+    var s = document.createElement('script');
+    s.src = 'https://s3.tradingview.com/tv.js';
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  // Nur initialisieren, wenn der Container auf der Seite vorhanden ist (Startbereich)
+  function initTV(symbol) {
+    var el = document.getElementById('tvchart');
+    if (!el || !window.TradingView) return;
+    // Bestehendes Chart aufräumen (bei Hot-Reload)
+    el.innerHTML = '';
+    new TradingView.widget({
+      autosize: true,
+      symbol: symbol || 'NASDAQ:AAPL', // Startsymbol
+      interval: 'D',
+      timezone: 'Europe/Berlin',
+      theme: 'light',
+      style: '1',           // 1 = Kerzenchart
+      locale: 'de',
+      withdateranges: true,
+      allow_symbol_change: true,
+      hide_side_toolbar: false,
+      container_id: 'tvchart'
+    });
+  }
+
+  // Wenn #tvchart existiert, lade TradingView und initialisiere
+  (function() {
+    var chartEl = document.getElementById('tvchart');
+    if (!chartEl) return;
+
+    // Optional: erst laden, sobald der Bereich sichtbar wird
+    var startInit = function() { loadTradingView(function() { initTV(); }); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries) {
+        if (entries.some(function(e){ return e.isIntersecting; })) {
+          startInit();
+          io.disconnect();
+        }
+      }, { rootMargin: '200px' });
+      io.observe(chartEl);
+    } else {
+      // Fallback
+      startInit();
+    }
+
+    // Mini-Suche: Symbol wechseln (Enter)
+    var input = document.getElementById('tv-symbol-input');
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && input.value.trim()) {
+          loadTradingView(function() { initTV(input.value.trim().toUpperCase()); });
+        }
+      });
+    }
+  })();
+</script>
+
+<script>
+(function initAccordion() {
+  const roots = document.querySelectorAll('[data-accordion-root]');
+  roots.forEach((root) => {
+    root.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('[data-acc-btn]');
+      if (!btn || !root.contains(btn)) return;
+
+      const panel =
+        btn.parentElement?.nextElementSibling?.matches?.('[data-acc-panel]')
+          ? btn.parentElement.nextElementSibling
+          : btn.nextElementSibling?.matches?.('[data-acc-panel]')
+            ? btn.nextElementSibling
+            : null;
+      if (!panel) return;
+
+      const wasOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Optional: Nur wenn root das Attribut data-accordion="single" hat, andere schließen
+      if (root.getAttribute('data-accordion') === 'single') {
+        root.querySelectorAll('[data-acc-btn][aria-expanded="true"]').forEach((openBtn) => {
+          if (openBtn === btn) return;
+          openBtn.setAttribute('aria-expanded', 'false');
+          openBtn.querySelector('svg')?.classList.remove('rotate-180');
+          const openPanel = openBtn.parentElement?.nextElementSibling;
+          if (openPanel) {
+            openPanel.style.maxHeight = openPanel.scrollHeight + 'px';
+            requestAnimationFrame(() => { openPanel.style.maxHeight = '0px'; });
+            const onEnd = (e) => {
+              if (e.propertyName !== 'max-height') return;
+              openPanel.hidden = true;
+              openPanel.removeEventListener('transitionend', onEnd);
+            };
+            openPanel.addEventListener('transitionend', onEnd);
+          }
+        });
+      }
+
+      // Scrollposition sichern, um Mini-Jumps zu vermeiden
+      const y = window.scrollY;
+
+      if (!wasOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.querySelector('svg')?.classList.add('rotate-180');
+        panel.hidden = false;
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      } else {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.querySelector('svg')?.classList.remove('rotate-180');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        requestAnimationFrame(() => { panel.style.maxHeight = '0px'; });
+        const onEnd = (e) => {
+          if (e.propertyName !== 'max-height') return;
+          panel.hidden = true;
+          panel.removeEventListener('transitionend', onEnd);
+        };
+        panel.addEventListener('transitionend', onEnd);
+      }
+
+      // Scrollposition zurücksetzen (falls sich Layout leicht verschiebt)
+      window.scrollTo(0, y);
+    });
+  });
+})();
+</script>
+
+<!-- Cookie Banner & Preferences (Aktienklar) -->
+<div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-[100] hidden">
+  <div class="mx-auto container px-5 pb-5">
+    <div class="rounded-xl border border-neutral-200 bg-white shadow-lg p-5 md:p-6">
+      <h2 class="text-lg font-semibold text-[#0E2A47]">Cookies auf aktienklar.de</h2>
+      <p class="mt-2 text-sm text-neutral-700">
+        Wir verwenden notwendige Cookies für den Betrieb. Optionale Cookies (Analytics) helfen uns, die Seite zu verbessern.
+        Mehr dazu in unserer <a class="underline text-[#0E2A47]" href="datenschutz.html" target="_self">Datenschutzerklärung</a>.
+      </p>
+
+      <details class="mt-4 group">
+        <summary class="cursor-pointer text-sm font-medium">
+          <span class="inline-block mr-2">⚙️</span> Einstellungen
+        </summary>
+        <div class="mt-3 grid gap-3 text-sm">
+          <label class="flex items-start gap-3">
+            <input type="checkbox" checked disabled class="mt-1">
+            <span><strong>Notwendig</strong> – für Grundfunktionen. Immer aktiv.</span>
+          </label>
+          <label class="flex items-start gap-3">
+            <input id="consent-analytics" type="checkbox" class="mt-1">
+            <span><strong>Analytics</strong> – anonyme Nutzungsstatistik (Google Analytics).</span>
+          </label>
+        </div>
+      </details>
+
+      <div class="mt-5 flex flex-col sm:flex-row gap-3">
+        <button id="btn-accept-all"
+          class="inline-flex justify-center rounded-lg bg-[#0E2A47] px-4 py-2 text-white text-sm font-medium">
+          Alle akzeptieren
+        </button>
+        <button id="btn-reject"
+          class="inline-flex justify-center rounded-lg border px-4 py-2 text-sm font-medium">
+          Nur notwendige
+        </button>
+        <button id="btn-save"
+          class="inline-flex justify-center rounded-lg border px-4 py-2 text-sm font-medium">
+          Auswahl speichern
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Präferenz-Dialog (erneut öffnen) -->
+<div id="cookie-modal" class="fixed inset-0 z-[100] hidden">
+  <div class="absolute inset-0 bg-black/40"></div>
+  <div class="relative mx-auto container px-5 py-10">
+    <div class="mx-auto max-w-lg rounded-xl border border-neutral-200 bg-white shadow-xl p-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-[#0E2A47]">Cookie-Einstellungen</h2>
+        <button id="cookie-modal-close" class="text-2xl leading-none">&times;</button>
+      </div>
+      <p class="mt-2 text-sm text-neutral-700">
+        Passe deine Präferenzen an. Änderungen wirken ab sofort.
+      </p>
+      <div class="mt-4 grid gap-3 text-sm">
+        <label class="flex items-start gap-3">
+          <input type="checkbox" checked disabled class="mt-1">
+          <span><strong>Notwendig</strong> – immer aktiv.</span>
+        </label>
+        <label class="flex items-start gap-3">
+          <input id="modal-analytics" type="checkbox" class="mt-1">
+          <span><strong>Analytics</strong> – anonyme Nutzungsstatistik (Google Analytics).</span>
+        </label>
+      </div>
+      <div class="mt-5 flex gap-3 justify-end">
+        <button id="cookie-modal-save" class="rounded-lg bg-[#0E2A47] px-4 py-2 text-white text-sm font-medium">Speichern</button>
+        <button id="cookie-modal-cancel" class="rounded-lg border px-4 py-2 text-sm font-medium">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const KEY = "ak_consent_v1"; // LocalStorage-Schlüssel (Versionsbump bei Änderungen)
+    const GA_ID = "G-XXXXXXXXXX"; // <- HIER deine GA4 Measurement-ID eintragen
+
+    // --- Utilities ---
+    const $ = (id) => document.getElementById(id);
+    const getConsent = () => {
+      try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; }
+    };
+    const setConsent = (obj) => localStorage.setItem(KEY, JSON.stringify({ ...obj, ts: Date.now(), necessary: true }));
+
+    // GA erst dynamisch laden, wenn Analytics erlaubt
+    function loadGA() {
+      if (!GA_ID) return;
+      // gtag laden
+      const s1 = document.createElement("script");
+      s1.async = true;
+      s1.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(s1);
+
+      const s2 = document.createElement("script");
+      s2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // IP-Anonymisierung + grundlegende Privatsphäre-Optionen
+        gtag('config', '${GA_ID}', { 'anonymize_ip': true });
+      `;
+      document.head.appendChild(s2);
+    }
+
+    // --- Banner / Modal Elemente ---
+    const banner = $("cookie-banner");
+    const chkBannerAnalytics = $("consent-analytics");
+    const btnAcceptAll = $("btn-accept-all");
+    const btnReject = $("btn-reject");
+    const btnSave = $("btn-save");
+
+    const modal = $("cookie-modal");
+    const modalClose = $("cookie-modal-close");
+    const modalSave = $("cookie-modal-save");
+    const modalCancel = $("cookie-modal-cancel");
+    const chkModalAnalytics = $("modal-analytics");
+    const manageLink = $("manage-cookies");
+
+    // --- Initialisieren ---
+    const existing = getConsent();
+    if (!existing) {
+      // Noch keine Entscheidung – Banner zeigen
+      banner.classList.remove("hidden");
+    } else {
+      // Entscheidung vorhanden – ggf. GA laden
+      if (existing.analytics) loadGA();
+    }
+
+    // --- Banner-Buttons ---
+    btnAcceptAll?.addEventListener("click", () => {
+      setConsent({ analytics: true });
+      banner.classList.add("hidden");
+      loadGA();
+    });
+
+    btnReject?.addEventListener("click", () => {
+      setConsent({ analytics: false });
+      banner.classList.add("hidden");
+      // Nichts laden
+    });
+
+    btnSave?.addEventListener("click", () => {
+      const allowAnalytics = !!chkBannerAnalytics?.checked;
+      setConsent({ analytics: allowAnalytics });
+      banner.classList.add("hidden");
+      if (allowAnalytics) loadGA();
+    });
+
+    // --- Manage Link / Modal ---
+    manageLink?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const c = getConsent() || { analytics: false };
+      chkModalAnalytics.checked = !!c.analytics;
+      modal.classList.remove("hidden");
+    });
+
+    function closeModal(){ modal.classList.add("hidden"); }
+
+    modalClose?.addEventListener("click", closeModal);
+    modalCancel?.addEventListener("click", closeModal);
+    modalSave?.addEventListener("click", () => {
+      const allow = !!chkModalAnalytics.checked;
+      setConsent({ analytics: allow });
+      closeModal();
+
+      // Wenn der User jetzt Analytics erlaubt und GA noch nicht geladen ist, laden
+      const alreadyLoaded = !!window.dataLayer;
+      if (allow && !alreadyLoaded) loadGA();
+
+      // Wenn vorher erlaubt und jetzt verboten: GA wird nicht „entladen“,
+      // aber zukünftige Seitenaufrufe respektieren die neue Einstellung.
+    });
+
+    // Wenn Banner offen ist, initialen Zustand setzen (aus evtl. vorherigem Klick auf Einstellungen)
+    chkBannerAnalytics && (chkBannerAnalytics.checked = false);
+  })();
+</script>
+
+
+
+<!-- ==== AUTH MODAL ==== -->
+<div id="auth-modal" class="fixed inset-0 z-[120] hidden">
+  <!-- Overlay -->
+  <div id="auth-overlay" class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Dialog -->
+  <div class="absolute inset-0 flex items-start md:items-center justify-center p-4 md:p-6">
+    <div class="card w-full max-w-md bg-white shadow-xl">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="text-xl font-semibold">Anmeldung / Registrierung</h2>
+        <button id="auth-close" class="text-2xl leading-none px-2 -mr-2 hover:opacity-70">×</button>
+      </div>
+
+      <input id="email" type="email" class="input mb-2" placeholder="E-Mail-Adresse" />
+      <input id="password" type="password" class="input mb-4" placeholder="Passwort" />
+
+      <div class="flex justify-center gap-3 mb-3">
+        <button id="register" class="bg-[#0E2A47] text-white px-3 py-1.5 rounded">Registrieren</button>
+        <button id="loginBtn" class="bg-[#0E2A47] text-white px-3 py-1.5 rounded">Anmelden</button>
+      </div>
+
+      <div class="flex items-center justify-between mb-3">
+        <button id="logout" class="hidden bg-gray-500 text-white px-3 py-1.5 rounded">Abmelden</button>
+        <button id="reset" class="text-sm underline">Passwort vergessen?</button>
+      </div>
+
+      <p id="status" class="text-sm text-neutral-700"></p>
+
+      <div id="protected" class="hidden mt-4 p-4 border rounded-lg">
+        <p class="font-medium">Geschützter Bereich</p>
+        <p class="text-sm text-neutral-700">Dieser Block wird angezeigt, wenn der Nutzer angemeldet ist.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal öffnen/schließen
+  const authModal  = document.getElementById('auth-modal');
+  const openBtn    = document.getElementById('auth-open');
+  const closeBtn   = document.getElementById('auth-close');
+  const overlay    = document.getElementById('auth-overlay');
+
+function openAuth()  {
+  // ➕ Mobile-Menü und Overlay schließen, falls offen
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  document.getElementById('menu-overlay')?.classList.remove('open');
+
+  // Modal öffnen
+  authModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAuth() {
+  authModal.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+  openBtn?.addEventListener('click', (e) => { e.preventDefault(); openAuth(); });
+  document.getElementById('auth-open-mobile')?.addEventListener('click', (e) => { e.preventDefault(); openAuth(); });
+  closeBtn?.addEventListener('click', closeAuth);
+  overlay?.addEventListener('click', closeAuth);
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAuth(); });
+</script>
+
+
+<!-- ==== Firebase Auth Integration ==== -->
+
+ <script type="module"> // 1) Firebase SDKs laden (modulare Version)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
+  signInWithEmailAndPassword, signOut, sendEmailVerification,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, onSnapshot }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+  // 2) >>> Deine echte Firebase-Konfiguration (wie bei dir bereits verwendet) <<<
+  const firebaseConfig = {
+    apiKey: "AIzaSyBCJcSdWAwdesHJFdsYB13zOxesa2gWZLA",
+    authDomain: "aktienklar.firebaseapp.com",
+    projectId: "aktienklar",
+    storageBucket: "aktienklar.firebasestorage.app",
+    messagingSenderId: "1021547744313",
+    appId: "1:1021547744313:web:2ca49fa9a32a66ffd651e8",
+    measurementId: "G-XLBWMTYZFG"
+  };
+
+  // 3) Firebase/App & Auth initialisieren
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// ➕ Hier einfügen:
+const db = getFirestore(app);
+
+
+  // 4) DOM-Elemente greifen
+  const emailEl = document.getElementById('email');
+  const passEl  = document.getElementById('password');
+  const status  = document.getElementById('status');
+  const btnReg  = document.getElementById('register');
+  const btnLog  = document.getElementById('loginBtn');
+  const btnOut  = document.getElementById('logout');
+  const protectedBox = document.getElementById('protected');
+
+  // === Chat: DOM-Referenzen (NEU – Schritt 6a)
+const chatBox  = document.getElementById("chat-box");
+const chatForm = document.getElementById("chat-form");
+const chatInp  = document.getElementById("chat-input");
+const chatHint = document.getElementById("chat-hint");
+
+// Wird genutzt, um den Live-Listener sauber abzubestellen
+let unsubChat = null;
+
+// Nachricht rendern (einfaches HTML-escaping für „<“)
+function renderMsg(doc) {
+  const d = doc.data();
+  const wrap = document.createElement("div");
+  wrap.className = "mb-2";
+  const when = d.createdAt?.toDate?.() ? d.createdAt.toDate().toLocaleString("de-DE") : "–";
+  wrap.innerHTML = `<div class="text-sm text-neutral-600">${d.user || "Anonym"} · ${when}</div>
+                    <div class="text-base">${(d.text || "").replace(/</g,"&lt;")}</div>`;
+  if (chatBox) {
+    chatBox.appendChild(wrap);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+}
+
+  // 4a) Passwort-Reset
+  const resetBtn = document.getElementById('reset');
+  resetBtn?.addEventListener('click', async () => {
+    const email = emailEl?.value || '';
+    try {
+      await sendPasswordResetEmail(auth, email);
+      status.textContent = "Passwort-Reset gesendet. Bitte E-Mails prüfen.";
+    } catch (e) {
+      status.textContent = "Reset fehlgeschlagen: " + (e?.message || e);
+    }
+  });
+
+  // 5) Registrierung (mit E-Mail-Verifizierung)
+  btnReg?.addEventListener('click', async () => {
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, emailEl.value, passEl.value);
+      await sendEmailVerification(cred.user);
+      status.textContent = "Registrierung erfolgreich. Prüfe dein Postfach zur E-Mail-Verifizierung.";
+    } catch (e) {
+      if (e?.code === "auth/email-already-in-use") {
+        status.textContent = "Diese E-Mail ist bereits registriert. Bitte auf »Anmelden« klicken.";
+      } else {
+        status.textContent = "Fehler: " + (e?.message || e);
+      }
+    }
+  });
+
+  // 6) Anmeldung
+  btnLog?.addEventListener('click', async () => {
+    try {
+      await signInWithEmailAndPassword(auth, emailEl.value, passEl.value);
+      status.textContent = "Anmeldung erfolgreich.";
+    } catch (e) {
+      status.textContent = "Fehler: " + (e?.message || e);
+    }
+  });
+
+  // 7) Abmeldung
+  btnOut?.addEventListener('click', async () => { await signOut(auth); });
+
+  // 8) Auth-Status beobachten → UI umschalten
+  onAuthStateChanged(auth, (user) => {
+    const loggedIn = !!user;
+    
+    // Sichtbarkeit des neuen Tabs/Links je nach Login-Status
+
+// Bestehend (Analysen):
+["tab-analysen-pro","link-analysen-pro-desktop","link-analysen-pro-mobile"]
+  .forEach(id => document.getElementById(id)?.classList.toggle("hidden", !loggedIn));
+
+// ➕ Neu (Chat):
+["tab-chat","link-chat-desktop","link-chat-mobile"]
+  .forEach(id => document.getElementById(id)?.classList.toggle("hidden", !loggedIn));
+
+// ➕ Neu (Community):
+["tab-community","link-community-desktop","link-community-mobile"]
+  .forEach(id => document.getElementById(id)?.classList.toggle("hidden", !loggedIn));
+
+// === Live-Chat verbinden/trennen (NEU – Schritt 6b)
+
+// Bisherigen Listener (falls vorhanden) abbauen
+if (unsubChat) { unsubChat(); unsubChat = null; }
+
+if (loggedIn) {
+  // Nachrichten live anhören (chronologisch)
+  const q = query(collection(db, "chat_messages"), orderBy("createdAt","asc"));
+  unsubChat = onSnapshot(q, (snap) => {
+    if (chatBox) chatBox.innerHTML = "";
+    snap.forEach(doc => renderMsg(doc));
+  });
+
+  if (chatHint) {
+    chatHint.textContent = user.emailVerified
+      ? "Du bist angemeldet."
+      : "Hinweis: E-Mail noch nicht verifiziert.";
+  }
+} else {
+  if (chatBox) chatBox.innerHTML = "";
+  if (chatHint) chatHint.textContent = "Bitte anmelden, um zu schreiben.";
+}
+
+
+    btnOut?.classList.toggle("hidden", !loggedIn);
+    protectedBox?.classList.toggle("hidden", !loggedIn);
+
+    if (loggedIn) {
+      status.textContent = `${user.email} ist angemeldet${user.emailVerified ? "" : " (nicht verifiziert)"}`;
+      // Modal automatisch schließen
+      if (typeof closeAuth === 'function' && !document.getElementById('auth-modal').classList.contains('hidden')) {
+        closeAuth();
+      }
+    } else {
+      status.textContent = "Niemand angemeldet.";
+    }
+  });
+
+// === Senden-Handler (NEU – Schritt 6c)
+chatForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const u = auth.currentUser;
+  if (!u) { alert("Bitte zuerst anmelden."); return; }
+  const text = (chatInp?.value || "").trim();
+  if (!text) return;
+
+  try {
+    await addDoc(collection(db, "chat_messages"), {
+      text,
+      uid: u.uid,
+      user: u.email || "User",
+      createdAt: serverTimestamp(),
+    });
+    if (chatInp) chatInp.value = "";
+  } catch (err) {
+    alert("Senden fehlgeschlagen: " + (err?.message || err));
+    console.error(err);
+  }
+});
+
+// === Community-Bereich: Frag die Community ===
+
+// --- DOM-Referenzen ---
+const qForm = document.getElementById("q-form");
+const qText = document.getElementById("q-text");
+const qList = document.getElementById("q-list");
+const qHint = document.getElementById("q-hint");
+
+// Escaper für sichere Ausgabe
+const esc = (s) => String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+// Eine Frage rendern (inkl. Antworten-Container + Formular)
+function renderQuestion(id, d) {
+  const when = d.createdAt?.toDate?.() ? d.createdAt.toDate().toLocaleString("de-DE") : "–";
+  return `
+    <article class="border rounded-xl bg-white/70 p-4" data-qid="${id}">
+      <header class="mb-2 text-sm text-neutral-600">${esc(d.authorName || "Anonym")} · ${when}</header>
+      <h3 class="text-base mb-2">${esc(d.question)}</h3>
+
+      <div class="space-y-2" data-answers></div>
+
+      <form class="mt-3 flex gap-2" data-answer-form>
+        <input class="flex-1 input" name="answer" placeholder="Antwort schreiben…" autocomplete="off" maxlength="500" />
+        <button class="btn pill" type="submit">Antworten</button>
+      </form>
+    </article>
+  `;
+}
+
+// Antworten live anbinden
+function attachAnswersListener(qArticle, qid) {
+  const answersBox = qArticle.querySelector("[data-answers]");
+  const answersRef = collection(db, "community_questions", qid, "answers");
+  const aq = query(answersRef, orderBy("createdAt","asc"));
+  onSnapshot(aq, (snap) => {
+    answersBox.innerHTML = "";
+    snap.forEach(docSnap => {
+      const a = docSnap.data();
+      const when = a.createdAt?.toDate?.() ? a.createdAt.toDate().toLocaleString("de-DE") : "–";
+      const el = document.createElement("div");
+      el.className = "rounded-lg bg-neutral-50 border p-3";
+      el.innerHTML = `
+        <div class="text-xs text-neutral-600 mb-1">${esc(a.authorName || "User")} · ${when}</div>
+        <div class="text-sm">${esc(a.text)}</div>
+      `;
+      answersBox.appendChild(el);
+    });
+  });
+}
+
+// Fragenliste live (neueste zuerst)
+(function liveQuestions(){
+  const qRef = collection(db, "community_questions");
+  const qy   = query(qRef, orderBy("createdAt","desc"));
+  onSnapshot(qy, (snap) => {
+    qList.innerHTML = "";
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const wrap = document.createElement("div");
+      wrap.innerHTML = renderQuestion(docSnap.id, d);
+      const article = wrap.firstElementChild;
+      qList.appendChild(article);
+      attachAnswersListener(article, docSnap.id);
+    });
+    qHint.textContent = snap.size ? "" : "Noch keine Fragen – leg los und stelle die erste Frage!";
+  });
+})();
+
+// Frage absenden
+qForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const u = auth.currentUser;
+  if (!u) { alert("Bitte zuerst anmelden."); return; }
+  const txt = (qText?.value || "").trim();
+  if (!txt) return;
+
+  try {
+    await addDoc(collection(db, "community_questions"), {
+      question: txt,
+      authorUID: u.uid,
+      authorName: u.displayName || u.email || "User",
+      createdAt: serverTimestamp()
+    });
+    qText.value = "";
+  } catch (err) {
+    alert("Frage konnte nicht gespeichert werden: " + (err?.message || err));
+    console.error(err);
+  }
+});
+
+// Antworten absenden (Event-Delegation)
+qList?.addEventListener("submit", async (e) => {
+  const form = e.target.closest("form[data-answer-form]");
+  if (!form) return;
+  e.preventDefault();
+
+  const u = auth.currentUser;
+  if (!u) { alert("Bitte zuerst anmelden."); return; }
+
+  const article = form.closest("article[data-qid]");
+  const qid = article?.dataset?.qid;
+  const input = form.querySelector('input[name="answer"]');
+  const txt = (input?.value || "").trim();
+  if (!qid || !txt) return;
+
+  try {
+    await addDoc(collection(db, "community_questions", qid, "answers"), {
+      text: txt,
+      authorUID: u.uid,
+      authorName: u.displayName || u.email || "User",
+      createdAt: serverTimestamp()
+    });
+    input.value = "";
+  } catch (err) {
+    alert("Antwort konnte nicht gespeichert werden: " + (err?.message || err));
+    console.error(err);
+  }
+});
+
+// Hinweis je nach Login anzeigen
+function setCommunityHint(user){
+  if(!qHint) return;
+  qHint.textContent = user ? "" : "Bitte anmelden, um Fragen zu stellen und zu antworten.";
+}
+
+// An vorhandenen Auth-State anhängen
+onAuthStateChanged(auth, (user) => {
+  setCommunityHint(user);
+});
+
+</script>
+
+
+
+<script>
+(() => {
+  const sections = ["home","analysen","grundlagen","tools","rankings","krypto","broker","about","newsletter","analysen-pro","chat","community"];
+
+
+  function showOnly(tabId) {
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (id === tabId) el.classList.remove("hidden");
+      else el.classList.add("hidden");
+    });
+  }
+
+  document.querySelectorAll("[data-nav], [data-tab]").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const id = link.getAttribute("data-nav") || link.getAttribute("data-tab");
+      showOnly(id);
+      document.getElementById("mobile-menu")?.classList.remove("open");
+      document.getElementById("menu-overlay")?.classList.remove("open");
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    });
+  });
+
+})();
+</script>
+
+
+<!-- Glass Card Global-->
+<style>
+  .card-glass{
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    padding: 1rem;
+  }
+  .card-glass,
+  .card-glass :where(h1,h2,h3,h4,h5,h6,p,li,span,summary,small,td,th){
+    color: rgba(255,255,255,.92);
+  }
+  .card-glass .muted,
+  .card-glass .tradingview-widget-copyright{
+    color: rgba(255,255,255,.7) !important;
+  }
+  .card-glass table{ width:100%; font-size:.875rem; }
+  .card-glass thead th{ color:rgba(255,255,255,.85); }
+  .card-glass td, .card-glass th{ border-bottom:1px solid rgba(255,255,255,.12); }
+  .card-glass tbody tr:nth-child(odd){ background:rgba(255,255,255,.045); }
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 0) Vorherige Glas-Klasse überall entfernen (Aufräumen)
+  document.querySelectorAll('.card-glass').forEach(el => el.classList.remove('card-glass'));
+
+  // 1) GLAS NUR in diesen Bereichen einschalten (nach Bedarf anpassen)
+  const SCOPE = ['#krypto', '#faq', '#broker', '#rankings', '#tools', '#about', '#grundlagen'];
+
+  // 2) Kandidaten-Klassen, die meist deine Cards/Boxen sind
+  const CANDIDATES = ['.card', '.panel', '.box', '.widget'];
+
+  // 3) Anwenden innerhalb des Scopes, aber NICHT in header/nav/footer
+  SCOPE.forEach(rootSel => {
+    const root = document.querySelector(rootSel);
+    if (!root) return;
+
+    CANDIDATES.forEach(sel => {
+      root.querySelectorAll(sel).forEach(el => {
+        // Sicherheit: wenn Element in Header/Nav/Footer liegt → skip
+        if (el.closest('header, nav, footer')) return;
+
+        el.classList.add('card-glass');
+        el.classList.remove('bg-white', 'border-neutral-200', 'shadow-sm');
+      });
+    });
+
+    // 4) (Optional) TradingView-Widgets im Krypto-Bereich glasig einrahmen
+    if (rootSel === '#krypto') {
+      root.querySelectorAll('.tradingview-widget-container').forEach(c => {
+        const frame = c.closest('.card') || c.parentElement;
+        if (!frame) return;
+        frame.classList.add('card-glass', 'rounded-xl');
+        frame.classList.remove('bg-white', 'border-neutral-200', 'shadow-sm');
+      });
+    }
+  });
+});
+</script>
+
+<!-- Ende Glas Card Global-->
+
+<style>
+  /* ========== Broker & Krypto: Glass + weiße Schrift ========== */
+  :is(#broker,#krypto) .card {
+    color:#fff !important;
+    background: rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  :is(#broker,#krypto) .card :is(h1,h2,h3,h4,p,a) { color:#fff !important; }
+
+  :is(#broker,#krypto) .pill {
+    color:#fff !important;
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+  }
+
+  :is(#broker,#krypto) .card button {
+    color:#fff !important;
+    background: rgba(255,255,255,0.15) !important;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  :is(#broker,#krypto) .card button:hover {
+    background: rgba(255,255,255,0.30) !important;
+  }
+
+  /* ========== Tools/Rechner: Labels weiß, Eingaben & Ergebnisse schwarz ========== */
+  /* Standard-Texte in Karten weiß lassen */
+  :is(#tools,#rechner) .card-glass {
+    color:#fff !important; /* Labels, Fließtext etc. */
+  }
+  :is(#tools,#rechner) .card-glass :is(h1,h2,h3,h4,h5,h6,p,label,span,small,strong) {
+    color:#fff !important;
+  }
+
+  /* Interaktive Felder dunkel auf hellem Hintergrund */
+  :is(#tools,#rechner) .card-glass :is(input,textarea,select,output) {
+    color:#000 !important;
+    background: rgba(255,255,255,0.90) !important;
+    border: 1px solid rgba(0,0,0,0.15);
+    box-shadow: none;
+  }
+  :is(#tools,#rechner) .card-glass :is(input,textarea,select):focus {
+    background:#fff !important;
+    border-color: rgba(0,0,0,0.30);
+    outline:none;
+  }
+
+  /* Ergebnis-Kästchen komplett schwarz (Titel + Zahl) */
+  :is(#tools,#rechner) .card-glass .rounded-xl,
+  :is(#tools,#rechner) .card-glass .rounded-xl * {
+    color:#000 !important;
+  }
+
+  /* Fallback: einzelne Ergebnis-IDs zusätzlich absichern */
+  #tools :is(#d_gross,#d_net,#c_final,#c_invested,#r_netprofit,#r_return,#r_annual,#r_invested) {
+    color:#000 !important;
+  }
+</style>
+
+<style>
+  /* ========== Krypto-Reiter: Text komplett weiß ========== */
+  #krypto,
+  #krypto * {
+    color: #fff !important;
+  }
+
+  /* Falls du Überschriften oder Links etwas stärker machen willst */
+  #krypto h1, 
+  #krypto h2, 
+  #krypto h3, 
+  #krypto h4, 
+  #krypto a {
+    color: #fff !important;
+    font-weight: 600;
+  }
+</style>
+
+<style>
+  /* === Gemeinsamer Foto-Hintergrund für Analysen, Chat & Community === */
+  :is(#analysen-pro, #chat, #community) {
+    --bg-url: url('https://images.unsplash.com/photo-1492632589699-187d26378201?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070');
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* stabil auf iOS/Safari */
+    position: relative;
+    z-index: 0;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  /* dezentes Abdunklungs-Overlay nur hinter dem Inhalt */
+  :is(#analysen-pro, #chat, #community)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: -1;
+  }
+
+  /* Überschriften/Status in Weiß */
+  :is(#analysen-pro, #chat, #community) h2,
+  #chat .chat-title,
+  #chat .chat-status { color: #fff !important; }
+
+  /* === Glassmorphism Card === */
+  .glass {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+  }
+
+  /* Komfort-Abstände für typische Boxen */
+  .glass.pad { padding: 1rem; }
+  .glass.pad-lg { padding: 1.5rem; }
+
+  /* Eingabefelder in Glas-Umgebung: gut lesbar */
+  :is(#analysen-pro, #chat, #community) input[type="text"],
+  :is(#analysen-pro, #chat, #community) textarea {
+    color: #111 !important;
+    background-color: rgba(255,255,255,0.9) !important;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* Buttons über Glas */
+  :is(#analysen-pro, #chat, #community) .btn-primary {
+    background: #0E2A47; color: #fff; border-radius: 9999px; padding: .5rem 1rem;
+  }
+</style>
+
+
+</body>
+</html>
