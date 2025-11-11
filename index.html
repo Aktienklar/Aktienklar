@@ -125,62 +125,77 @@
 .card .grid > * { min-width: 0; }
 </style>
 <style>
-/* Ensure sections align neatly below the sticky header + tabbar when navigated to */
-:root { --nav-offset: 112px; } /* header (64px) + tabbar (~48px) */
-section { scroll-margin-top: var(--nav-offset); }
+  /* Ensure sections align neatly below the sticky header + tabbar when navigated to */
+  :root { --nav-offset: 112px; } /* header (~64px) + tabbar (~48px) */
+  section { scroll-margin-top: var(--nav-offset); }
 
-/* Prevent any browser from restoring scroll position mid-page on reload */
-html, body { scroll-behavior: auto; }
-</style><style>
-/* Responsive tweaks */
-h1 { font-size: clamp(1.75rem, 5vw, 3rem); }
-h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
-.container { padding-left: 1rem; padding-right: 1rem; }
-img { max-width: 100%; height: auto; }
-section { scroll-margin-top: 110px; }
-
-/* Mobile menu overlay */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 70%;
-  height: 100%;
-  background-color: rgba(255,255,255,0.95);
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-  transition: right 0.3s ease;
-  z-index: 100;
-  padding: 2rem 1.5rem;
-}
-.mobile-menu.open { right: 0; }
-.mobile-menu a { display: block; margin: 1rem 0; font-size: 1.1rem; color: #0E2A47; font-weight: 500; }
-.mobile-menu a:hover { text-decoration: underline; }
-.menu-overlay {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.4);
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 90;
-}
-.menu-overlay.open { opacity: 1; pointer-events: auto; }
+  /* Prevent any browser from restoring scroll position mid-page on reload */
+  html, body { scroll-behavior: auto; }
 </style>
+
 <style>
-/* ==== Mobile: Tabbar ausblenden & Scroll-Offset anpassen ==== */
-@media (max-width: 767.98px) {
-  #tabbar { display: none !important; }
-  :root { --nav-offset: 64px; } /* nur Header (ca. 64px) */
-}
+  /* Responsive tweaks */
+  h1 { font-size: clamp(1.75rem, 5vw, 3rem); }
+  h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+  .container { padding-left: 1rem; padding-right: 1rem; }
+  img { max-width: 100%; height: auto; }
+
+  /* Mobile menu overlay */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+    transition: right 0.3s ease;
+    z-index: 100;
+    padding: 2rem 1.5rem;
+  }
+  .mobile-menu.open { right: 0; }
+
+  /* Wichtig: 'hidden' respektieren */
+  .mobile-menu a { 
+    margin: 1rem 0; 
+    font-size: 1.1rem; 
+    color: #0E2A47; 
+    font-weight: 500; 
+  }
+  .mobile-menu a:not(.hidden) { display: block; }
+  .mobile-menu a.hidden { display: none !important; }
+
+  .mobile-menu a:hover { text-decoration: underline; }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 90;
+  }
+  .menu-overlay.open { opacity: 1; pointer-events: auto; }
 </style>
-</link></meta>
+
+<style>
+  /* ==== Mobile: Tabbar ausblenden & Scroll-Offset anpassen ==== */
+  @media (max-width: 767.98px) {
+    #tabbar { display: none !important; }
+    :root { --nav-offset: 64px; } /* nur Header (~64px) */
+  }
+</style>
+
 <style>
   .rank-tab[data-active="true"] { background: #0E2A47; color: #fff; }
   .rank-panel.hidden { display: none; }
 </style>
+
 <style>
-/* sorgt dafür, dass der Chart in der Card sauber skaliert */
-#tvchart { min-height: 420px; }
-</style></head>
+  /* sorgt dafür, dass der Chart in der Card sauber skaliert */
+  #tvchart { min-height: 420px; }
+</style>
+</head>
 <body class="bg-white text-neutral-900">
 
 <!-- NAV -->
