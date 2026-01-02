@@ -336,6 +336,9 @@
     "symbol": "CPT"
   },
   {
+    "symbol": "CRH"
+  },
+  {
     "symbol": "CRL"
   },
   {
@@ -364,6 +367,9 @@
   },
   {
     "symbol": "CTVA"
+  },
+  {
+    "symbol": "CVNA"
   },
   {
     "symbol": "CVS"
@@ -1231,9 +1237,6 @@
   },
   {
     "symbol": "SO"
-  },
-  {
-    "symbol": "SOLS"
   },
   {
     "symbol": "SOLV"
