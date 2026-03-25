@@ -312,6 +312,9 @@
     "symbol": "COF"
   },
   {
+    "symbol": "COHR"
+  },
+  {
     "symbol": "COIN"
   },
   {
@@ -846,6 +849,9 @@
     "symbol": "LIN"
   },
   {
+    "symbol": "LITE"
+  },
+  {
     "symbol": "LLY"
   },
   {
@@ -868,9 +874,6 @@
   },
   {
     "symbol": "LVS"
-  },
-  {
-    "symbol": "LW"
   },
   {
     "symbol": "LYB"
@@ -933,9 +936,6 @@
     "symbol": "MO"
   },
   {
-    "symbol": "MOH"
-  },
-  {
     "symbol": "MOS"
   },
   {
@@ -967,9 +967,6 @@
   },
   {
     "symbol": "MTB"
-  },
-  {
-    "symbol": "MTCH"
   },
   {
     "symbol": "MTD"
@@ -1066,9 +1063,6 @@
   },
   {
     "symbol": "PANW"
-  },
-  {
-    "symbol": "PAYC"
   },
   {
     "symbol": "PAYX"
@@ -1204,6 +1198,9 @@
   },
   {
     "symbol": "RVTY"
+  },
+  {
+    "symbol": "SATS"
   },
   {
     "symbol": "SBAC"
@@ -1417,6 +1414,9 @@
   },
   {
     "symbol": "VRSN"
+  },
+  {
+    "symbol": "VRT"
   },
   {
     "symbol": "VRTX"
