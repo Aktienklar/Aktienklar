@@ -231,6 +231,9 @@
     "symbol": "CARR"
   },
   {
+    "symbol": "CASY"
+  },
+  {
     "symbol": "CAT"
   },
   {
@@ -679,9 +682,6 @@
   },
   {
     "symbol": "HLT"
-  },
-  {
-    "symbol": "HOLX"
   },
   {
     "symbol": "HON"
