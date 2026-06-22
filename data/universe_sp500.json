@@ -336,9 +336,6 @@
     "symbol": "CPAY"
   },
   {
-    "symbol": "CPB"
-  },
-  {
     "symbol": "CPRT"
   },
   {
@@ -580,6 +577,9 @@
   },
   {
     "symbol": "FIX"
+  },
+  {
+    "symbol": "FLEX"
   },
   {
     "symbol": "FOX"
@@ -951,6 +951,9 @@
     "symbol": "MRSH"
   },
   {
+    "symbol": "MRVL"
+  },
+  {
     "symbol": "MS"
   },
   {
@@ -1117,9 +1120,6 @@
   },
   {
     "symbol": "PODD"
-  },
-  {
-    "symbol": "POOL"
   },
   {
     "symbol": "PPG"
