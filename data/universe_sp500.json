@@ -462,6 +462,9 @@
     "symbol": "EBAY"
   },
   {
+    "symbol": "ECHO"
+  },
+  {
     "symbol": "ECL"
   },
   {
@@ -1195,9 +1198,6 @@
   },
   {
     "symbol": "RVTY"
-  },
-  {
-    "symbol": "SATS"
   },
   {
     "symbol": "SBAC"
