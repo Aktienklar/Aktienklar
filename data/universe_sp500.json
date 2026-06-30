@@ -222,9 +222,6 @@
     "symbol": "C"
   },
   {
-    "symbol": "CAG"
-  },
-  {
     "symbol": "CAH"
   },
   {
@@ -685,6 +682,9 @@
   },
   {
     "symbol": "HON"
+  },
+  {
+    "symbol": "HONA"
   },
   {
     "symbol": "HOOD"
