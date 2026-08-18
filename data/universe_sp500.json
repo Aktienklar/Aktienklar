@@ -132,9 +132,6 @@
     "symbol": "ATO"
   },
   {
-    "symbol": "AVB"
-  },
-  {
     "symbol": "AVGO"
   },
   {
@@ -490,9 +487,6 @@
   },
   {
     "symbol": "EQIX"
-  },
-  {
-    "symbol": "EQR"
   },
   {
     "symbol": "EQT"
@@ -1161,6 +1155,9 @@
     "symbol": "RCL"
   },
   {
+    "symbol": "RDDT"
+  },
+  {
     "symbol": "REG"
   },
   {
@@ -1408,6 +1405,9 @@
   },
   {
     "symbol": "VMC"
+  },
+  {
+    "symbol": "VMRK"
   },
   {
     "symbol": "VRSK"
