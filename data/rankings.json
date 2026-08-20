@@ -1,251 +1,251 @@
 {
-  "as_of": "2026-08-19",
+  "as_of": "2026-08-20",
   "most_traded": [
-    {
-      "symbol": "SAP.DE",
-      "name": "SAP",
-      "close": 185.89999389648438,
-      "volume": 2161811,
-      "turnover_eur": 401880651.7053528,
-      "change_pct": 1.8630103542380136,
-      "drawdown_pct": 0,
-      "trend10y_cagr": 9.071907557019788
-    },
     {
       "symbol": "IFX.DE",
       "name": "Infineon",
-      "close": 54.97999954223633,
-      "volume": 6094431,
-      "turnover_eur": 335071813.5901909,
-      "change_pct": -3.9482915268338683,
-      "drawdown_pct": -37.522727792913265,
-      "trend10y_cagr": 13.626708250401176
+      "close": 55.40999984741211,
+      "volume": 4731811,
+      "turnover_eur": 262189646.78798294,
+      "change_pct": 0.7821031443360592,
+      "drawdown_pct": -37.03409108248624,
+      "trend10y_cagr": 13.718975703395774
     },
     {
-      "symbol": "ENR.DE",
-      "name": "Siemens Energy",
-      "close": 154.33999633789062,
-      "volume": 1823908,
-      "turnover_eur": 281501954.0406494,
-      "change_pct": 0.03888874712760316,
-      "drawdown_pct": -17.737980836482905,
-      "trend10y_cagr": 21.508198076190066
+      "symbol": "SAP.DE",
+      "name": "SAP",
+      "close": 185.63999938964844,
+      "volume": 1372239,
+      "turnover_eur": 254742447.12245178,
+      "change_pct": -0.1398571895492969,
+      "drawdown_pct": -0.13985718954929727,
+      "trend10y_cagr": 9.154988915763562
     },
     {
       "symbol": "SIE.DE",
       "name": "Siemens",
-      "close": 276.6499938964844,
-      "volume": 782905,
-      "turnover_eur": 216590663.4715271,
-      "change_pct": 0.30819657039060067,
-      "drawdown_pct": -3.7571813713364266,
-      "trend10y_cagr": 11.111768149393363
+      "close": 276,
+      "volume": 626083,
+      "turnover_eur": 172798908,
+      "change_pct": -0.23495171184698696,
+      "drawdown_pct": -3.9833055212342705,
+      "trend10y_cagr": 11.195236355569694
     },
     {
       "symbol": "ALV.DE",
       "name": "Allianz",
-      "close": 438,
-      "volume": 489137,
-      "turnover_eur": 214242006,
-      "change_pct": -0.904977375565611,
-      "drawdown_pct": -1.0616697712746537,
-      "trend10y_cagr": 12.993844357113993
+      "close": 438.29998779296875,
+      "volume": 370684,
+      "turnover_eur": 162470792.67504883,
+      "change_pct": 0.06849036369149543,
+      "drawdown_pct": -0.9939065490707111,
+      "trend10y_cagr": 12.9884603393148
+    },
+    {
+      "symbol": "ENR.DE",
+      "name": "Siemens Energy",
+      "close": 152.5800018310547,
+      "volume": 1016278,
+      "turnover_eur": 155063699.1008606,
+      "change_pct": -1.140335978097893,
+      "drawdown_pct": -18.676044237314272,
+      "trend10y_cagr": 21.36892170519358
     },
     {
       "symbol": "RHM.DE",
       "name": "Rheinmetall",
-      "close": 1178.800048828125,
-      "volume": 150700,
-      "turnover_eur": 177645167.35839844,
-      "change_pct": -2.883506227717744,
-      "drawdown_pct": -22.201683816289332,
-      "trend10y_cagr": 33.81944684402691
+      "close": 1162.199951171875,
+      "volume": 131384,
+      "turnover_eur": 152694478.38476562,
+      "change_pct": -1.4082199668003559,
+      "drawdown_pct": -22.37510091673406,
+      "trend10y_cagr": 33.54035624534531
     }
   ],
   "most_bought": [
     {
-      "symbol": "SAP.DE",
-      "name": "SAP",
-      "close": 185.89999389648438,
-      "volume": 2161811,
-      "turnover_eur": 401880651.7053528,
-      "change_pct": 1.8630103542380136,
-      "drawdown_pct": 0,
-      "trend10y_cagr": 9.071907557019788
-    },
-    {
-      "symbol": "BAS.DE",
-      "name": "BASF",
-      "close": 51.790000915527344,
-      "volume": 1649225,
-      "turnover_eur": 85413364.25991058,
-      "change_pct": 1.568933537412274,
-      "drawdown_pct": -5.38911339511322,
-      "trend10y_cagr": -3.259800550633707
-    },
-    {
-      "symbol": "DTE.DE",
-      "name": "Deutsche Telekom",
-      "close": 29.18000030517578,
-      "volume": 5494447,
-      "turnover_eur": 160327965.13677216,
-      "change_pct": 1.108800027916287,
-      "drawdown_pct": -1.3856027215202738,
-      "trend10y_cagr": 6.735745303132457
-    },
-    {
-      "symbol": "BAYN.DE",
-      "name": "Bayer",
-      "close": 49.0099983215332,
-      "volume": 1696522,
-      "turnover_eur": 83146540.37244415,
-      "change_pct": 0.5539528801159029,
-      "drawdown_pct": -8.15217810918556,
-      "trend10y_cagr": -6.386260911711917
-    },
-    {
-      "symbol": "SIE.DE",
-      "name": "Siemens",
-      "close": 276.6499938964844,
-      "volume": 782905,
-      "turnover_eur": 216590663.4715271,
-      "change_pct": 0.30819657039060067,
-      "drawdown_pct": -3.7571813713364266,
-      "trend10y_cagr": 11.111768149393363
-    },
-    {
-      "symbol": "ENR.DE",
-      "name": "Siemens Energy",
-      "close": 154.33999633789062,
-      "volume": 1823908,
-      "turnover_eur": 281501954.0406494,
-      "change_pct": 0.03888874712760316,
-      "drawdown_pct": -17.737980836482905,
-      "trend10y_cagr": 21.508198076190066
-    }
-  ],
-  "most_sold": [
-    {
       "symbol": "IFX.DE",
       "name": "Infineon",
-      "close": 54.97999954223633,
-      "volume": 6094431,
-      "turnover_eur": 335071813.5901909,
-      "change_pct": -3.9482915268338683,
-      "drawdown_pct": -37.522727792913265,
-      "trend10y_cagr": 13.626708250401176
-    },
-    {
-      "symbol": "RHM.DE",
-      "name": "Rheinmetall",
-      "close": 1178.800048828125,
-      "volume": 150700,
-      "turnover_eur": 177645167.35839844,
-      "change_pct": -2.883506227717744,
-      "drawdown_pct": -22.201683816289332,
-      "trend10y_cagr": 33.81944684402691
-    },
-    {
-      "symbol": "MUV2.DE",
-      "name": "Munich Re",
-      "close": 514.5999755859375,
-      "volume": 277975,
-      "turnover_eur": 143045928.21350098,
-      "change_pct": -1.7188694460744578,
-      "drawdown_pct": -9.401412748954662,
-      "trend10y_cagr": 12.45530725388313
+      "close": 55.40999984741211,
+      "volume": 4731811,
+      "turnover_eur": 262189646.78798294,
+      "change_pct": 0.7821031443360592,
+      "drawdown_pct": -37.03409108248624,
+      "trend10y_cagr": 13.718975703395774
     },
     {
       "symbol": "ALV.DE",
       "name": "Allianz",
-      "close": 438,
-      "volume": 489137,
-      "turnover_eur": 214242006,
-      "change_pct": -0.904977375565611,
-      "drawdown_pct": -1.0616697712746537,
-      "trend10y_cagr": 12.993844357113993
+      "close": 438.29998779296875,
+      "volume": 370684,
+      "turnover_eur": 162470792.67504883,
+      "change_pct": 0.06849036369149543,
+      "drawdown_pct": -0.9939065490707111,
+      "trend10y_cagr": 12.9884603393148
+    },
+    {
+      "symbol": "SAP.DE",
+      "name": "SAP",
+      "close": 185.63999938964844,
+      "volume": 1372239,
+      "turnover_eur": 254742447.12245178,
+      "change_pct": -0.1398571895492969,
+      "drawdown_pct": -0.13985718954929727,
+      "trend10y_cagr": 9.154988915763562
+    },
+    {
+      "symbol": "SIE.DE",
+      "name": "Siemens",
+      "close": 276,
+      "volume": 626083,
+      "turnover_eur": 172798908,
+      "change_pct": -0.23495171184698696,
+      "drawdown_pct": -3.9833055212342705,
+      "trend10y_cagr": 11.195236355569694
+    },
+    {
+      "symbol": "MUV2.DE",
+      "name": "Munich Re",
+      "close": 513.2000122070312,
+      "volume": 200643,
+      "turnover_eur": 102969990.04925537,
+      "change_pct": -0.27204886228613084,
+      "drawdown_pct": -9.647885174818438,
+      "trend10y_cagr": 12.456525132018825
+    },
+    {
+      "symbol": "BAS.DE",
+      "name": "BASF",
+      "close": 51.5,
+      "volume": 1299451,
+      "turnover_eur": 66921726.5,
+      "change_pct": -0.5599554168773871,
+      "drawdown_pct": -5.918892179613,
+      "trend10y_cagr": -3.2292640740419376
+    }
+  ],
+  "most_sold": [
+    {
+      "symbol": "ADS.DE",
+      "name": "Adidas",
+      "close": 151,
+      "volume": 748804,
+      "turnover_eur": 113069404,
+      "change_pct": -3.143036618550421,
+      "drawdown_pct": -19.63810276482121,
+      "trend10y_cagr": -0.190050817998777
+    },
+    {
+      "symbol": "DTE.DE",
+      "name": "Deutsche Telekom",
+      "close": 28.719999313354492,
+      "volume": 3914150,
+      "turnover_eur": 112414385.31236649,
+      "change_pct": -1.5764255894805346,
+      "drawdown_pct": -2.940185315130217,
+      "trend10y_cagr": 6.590839876575871
+    },
+    {
+      "symbol": "RHM.DE",
+      "name": "Rheinmetall",
+      "close": 1162.199951171875,
+      "volume": 131384,
+      "turnover_eur": 152694478.38476562,
+      "change_pct": -1.4082199668003559,
+      "drawdown_pct": -22.37510091673406,
+      "trend10y_cagr": 33.54035624534531
+    },
+    {
+      "symbol": "ENR.DE",
+      "name": "Siemens Energy",
+      "close": 152.5800018310547,
+      "volume": 1016278,
+      "turnover_eur": 155063699.1008606,
+      "change_pct": -1.140335978097893,
+      "drawdown_pct": -18.676044237314272,
+      "trend10y_cagr": 21.36892170519358
     },
     {
       "symbol": "DBK.DE",
       "name": "Deutsche Bank",
-      "close": 32.60499954223633,
-      "volume": 3775420,
-      "turnover_eur": 123097567.37174988,
-      "change_pct": -0.6096654811123356,
-      "drawdown_pct": -2.336375074171504,
-      "trend10y_cagr": 11.822823642241875
+      "close": 32.290000915527344,
+      "volume": 2373058,
+      "turnover_eur": 76626044.99259949,
+      "change_pct": -0.9661052940698158,
+      "drawdown_pct": -3.2799085249604176,
+      "trend10y_cagr": 11.695637926395497
     },
     {
-      "symbol": "MBG.DE",
-      "name": "Mercedes-Benz Group",
-      "close": 45.025001525878906,
-      "volume": 1625667,
-      "turnover_eur": 73195659.15557098,
-      "change_pct": -0.08875424841658104,
-      "drawdown_pct": -17.324637747347683,
-      "trend10y_cagr": -1.2533630585897293
+      "symbol": "BAYN.DE",
+      "name": "Bayer",
+      "close": 48.61000061035156,
+      "volume": 1435404,
+      "turnover_eur": 69774989.31610107,
+      "change_pct": -0.8161553252000343,
+      "drawdown_pct": -8.901798998627687,
+      "trend10y_cagr": -6.4181717690139255
     }
   ],
   "turnarounds": [
     {
       "symbol": "IFX.DE",
       "name": "Infineon",
-      "close": 54.97999954223633,
-      "volume": 6094431,
-      "turnover_eur": 335071813.5901909,
-      "change_pct": -3.9482915268338683,
-      "drawdown_pct": -37.522727792913265,
-      "trend10y_cagr": 13.626708250401176
+      "close": 55.40999984741211,
+      "volume": 4731811,
+      "turnover_eur": 262189646.78798294,
+      "change_pct": 0.7821031443360592,
+      "drawdown_pct": -37.03409108248624,
+      "trend10y_cagr": 13.718975703395774
     },
     {
       "symbol": "RHM.DE",
       "name": "Rheinmetall",
-      "close": 1178.800048828125,
-      "volume": 150700,
-      "turnover_eur": 177645167.35839844,
-      "change_pct": -2.883506227717744,
-      "drawdown_pct": -22.201683816289332,
-      "trend10y_cagr": 33.81944684402691
-    },
-    {
-      "symbol": "HEI.DE",
-      "name": "Heidelberg Materials",
-      "close": 157.8000030517578,
-      "volume": 246735,
-      "turnover_eur": 38934783.752975464,
-      "change_pct": 1.4791016410018085,
-      "drawdown_pct": -19.510328694002567,
-      "trend10y_cagr": 6.9756896640550625
+      "close": 1162.199951171875,
+      "volume": 131384,
+      "turnover_eur": 152694478.38476562,
+      "change_pct": -1.4082199668003559,
+      "drawdown_pct": -22.37510091673406,
+      "trend10y_cagr": 33.54035624534531
     },
     {
       "symbol": "ENR.DE",
       "name": "Siemens Energy",
-      "close": 154.33999633789062,
-      "volume": 1823908,
-      "turnover_eur": 281501954.0406494,
-      "change_pct": 0.03888874712760316,
-      "drawdown_pct": -17.737980836482905,
-      "trend10y_cagr": 21.508198076190066
+      "close": 152.5800018310547,
+      "volume": 1016278,
+      "turnover_eur": 155063699.1008606,
+      "change_pct": -1.140335978097893,
+      "drawdown_pct": -18.676044237314272,
+      "trend10y_cagr": 21.36892170519358
+    },
+    {
+      "symbol": "HEI.DE",
+      "name": "Heidelberg Materials",
+      "close": 160.10000610351562,
+      "volume": 334827,
+      "turnover_eur": 53605804.743621826,
+      "change_pct": 1.4575430971337942,
+      "drawdown_pct": -18.337157045976316,
+      "trend10y_cagr": 7.11728261166209
     },
     {
       "symbol": "PUM.DE",
       "name": "Puma",
-      "close": 25.530000686645508,
-      "volume": 311628,
-      "turnover_eur": 7955863.053977966,
-      "change_pct": -1.1614372355658271,
-      "drawdown_pct": -14.899997711181644,
-      "trend10y_cagr": 1.1795939472861727
+      "close": 25.059999465942383,
+      "volume": 801577,
+      "turnover_eur": 20087519.191911697,
+      "change_pct": -1.840976138120427,
+      "drawdown_pct": -16.466668446858723,
+      "trend10y_cagr": 0.9917633660679215
     },
     {
       "symbol": "LIN.DE",
       "name": "Linde plc",
-      "close": 412.3999938964844,
-      "volume": 6857,
-      "turnover_eur": 2827826.7581481934,
-      "change_pct": -0.33832622952729907,
-      "drawdown_pct": -13.434089172953767,
-      "trend10y_cagr": 18.433174392871
+      "close": 418.6000061035156,
+      "volume": 8104,
+      "turnover_eur": 3392334.4494628906,
+      "change_pct": 1.5033977446147833,
+      "drawdown_pct": -12.132659221974706,
+      "trend10y_cagr": 18.61003333143607
     }
   ]
 }
