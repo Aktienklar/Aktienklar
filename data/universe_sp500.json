@@ -168,6 +168,9 @@
     "symbol": "BDX"
   },
   {
+    "symbol": "BE"
+  },
+  {
     "symbol": "BEN"
   },
   {
@@ -184,9 +187,6 @@
   },
   {
     "symbol": "BKR"
-  },
-  {
-    "symbol": "BLDR"
   },
   {
     "symbol": "BLK"
@@ -729,6 +729,9 @@
     "symbol": "IFF"
   },
   {
+    "symbol": "ILMN"
+  },
+  {
     "symbol": "INCY"
   },
   {
@@ -1059,6 +1062,9 @@
     "symbol": "OXY"
   },
   {
+    "symbol": "P"
+  },
+  {
     "symbol": "PANW"
   },
   {
@@ -1278,9 +1284,6 @@
     "symbol": "T"
   },
   {
-    "symbol": "TAP"
-  },
-  {
     "symbol": "TDG"
   },
   {
@@ -1342,9 +1345,6 @@
   },
   {
     "symbol": "TT"
-  },
-  {
-    "symbol": "TTD"
   },
   {
     "symbol": "TTWO"
