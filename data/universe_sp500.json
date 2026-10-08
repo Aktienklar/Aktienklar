@@ -363,9 +363,6 @@
     "symbol": "CTSH"
   },
   {
-    "symbol": "CTVA"
-  },
-  {
     "symbol": "CVNA"
   },
   {
@@ -1137,9 +1134,6 @@
     "symbol": "PSA"
   },
   {
-    "symbol": "PSKY"
-  },
-  {
     "symbol": "PSX"
   },
   {
@@ -1216,6 +1210,9 @@
   },
   {
     "symbol": "SJM"
+  },
+  {
+    "symbol": "SKYD"
   },
   {
     "symbol": "SLB"
@@ -1350,6 +1347,9 @@
     "symbol": "TTWO"
   },
   {
+    "symbol": "TWLO"
+  },
+  {
     "symbol": "TXN"
   },
   {
@@ -1431,6 +1431,9 @@
     "symbol": "VTRS"
   },
   {
+    "symbol": "VYLR"
+  },
+  {
     "symbol": "VZ"
   },
   {
@@ -1438,9 +1441,6 @@
   },
   {
     "symbol": "WAT"
-  },
-  {
-    "symbol": "WBD"
   },
   {
     "symbol": "WDAY"
