@@ -1,227 +1,227 @@
 {
-  "as_of": "2026-11-10",
+  "as_of": "2026-11-12",
   "most_traded": [
     {
       "symbol": "NVDA",
-      "close": 168.88999938964844,
-      "volume": 427096957,
-      "turnover_eur": 72132404807.0507,
-      "change_pct": -5.473777847162221,
-      "drawdown_pct": -29.405619665698335,
-      "trend10y_cagr": 54.35934736201236
-    },
-    {
-      "symbol": "AMD",
-      "close": 515.2100219726562,
-      "volume": 46958570,
-      "turnover_eur": 24193525881.504517,
-      "change_pct": 1.303636709158736,
-      "drawdown_pct": -20.66612738586876,
-      "trend10y_cagr": 54.40302979728029
+      "close": 173.72999572753906,
+      "volume": 281514030,
+      "turnover_eur": 48907431229.1423,
+      "change_pct": 2.8657684619467627,
+      "drawdown_pct": -27.382548178171174,
+      "trend10y_cagr": 55.579394151660196
     },
     {
       "symbol": "MU",
-      "close": 725.1099853515625,
-      "volume": 28264244,
-      "turnover_eur": 20494685552.81299,
-      "change_pct": -1.0966430873306787,
-      "drawdown_pct": -33.92413128673669,
-      "trend10y_cagr": 44.98288364878278
+      "close": 811.2999877929688,
+      "volume": 35547757,
+      "turnover_eur": 28839894820.16742,
+      "change_pct": 11.88647297411273,
+      "drawdown_pct": -26.07004100972444,
+      "trend10y_cagr": 46.587282262968
     },
     {
-      "symbol": "MSFT",
-      "close": 533.1599731445312,
-      "volume": 26910016,
-      "turnover_eur": 14347343407.878906,
-      "change_pct": -2.2047800162758926,
-      "drawdown_pct": -4.073410425635116,
-      "trend10y_cagr": 24.619450773637386
+      "symbol": "AMD",
+      "close": 552.9000244140625,
+      "volume": 43171056,
+      "turnover_eur": 23869277916.38086,
+      "change_pct": 7.315463759244685,
+      "drawdown_pct": -14.86248668597664,
+      "trend10y_cagr": 55.2664715525998
     },
     {
       "symbol": "SNDK",
-      "close": 859.989990234375,
-      "volume": 13704477,
-      "turnover_eur": 11785713041.397217,
-      "change_pct": -2.991508188188574,
-      "drawdown_pct": -55.11347183030346,
-      "trend10y_cagr": 37.34697209671663
+      "close": 977.6900024414062,
+      "volume": 15938099,
+      "turnover_eur": 15582520050.221375,
+      "change_pct": 13.686207228406715,
+      "drawdown_pct": -48.97020856736164,
+      "trend10y_cagr": 39.12009557317231
     },
     {
-      "symbol": "AMZN",
-      "close": 270.8699951171875,
-      "volume": 38874955,
-      "turnover_eur": 10530058871.030884,
-      "change_pct": 1.4760433632468792,
-      "drawdown_pct": -4.629953667046783,
-      "trend10y_cagr": 22.043332372597146
+      "symbol": "MSFT",
+      "close": 521.125,
+      "volume": 28565538,
+      "turnover_eur": 14886215990.25,
+      "change_pct": -2.2572911979025774,
+      "drawdown_pct": -6.238752888545385,
+      "trend10y_cagr": 24.526456778729333
+    },
+    {
+      "symbol": "AAPL",
+      "close": 355.6300048828125,
+      "volume": 34023762,
+      "turnover_eur": 12099870646.19165,
+      "change_pct": 2.04298152640601,
+      "drawdown_pct": 0,
+      "trend10y_cagr": 29.686339404476602
     }
   ],
   "most_bought": [
     {
-      "symbol": "TTWO",
-      "close": 224.63999938964844,
-      "volume": 8434598,
-      "turnover_eur": 1894748089.57193,
-      "change_pct": 8.312442623199274,
-      "drawdown_pct": -12.859307209921134,
-      "trend10y_cagr": 16.699728880956897
+      "symbol": "SNDK",
+      "close": 977.6900024414062,
+      "volume": 15938099,
+      "turnover_eur": 15582520050.221375,
+      "change_pct": 13.686207228406715,
+      "drawdown_pct": -48.97020856736164,
+      "trend10y_cagr": 39.12009557317231
     },
     {
-      "symbol": "CVS",
-      "close": 89.01000213623047,
-      "volume": 14636510,
-      "turnover_eur": 1302795786.3669586,
-      "change_pct": 4.410559690592925,
-      "drawdown_pct": -19.520792618222682,
-      "trend10y_cagr": 1.7151567782340393
+      "symbol": "BE",
+      "close": 209.47000122070312,
+      "volume": 18255290,
+      "turnover_eur": 3823935618.5842896,
+      "change_pct": 12.970555112315699,
+      "drawdown_pct": -29.18047126742872,
+      "trend10y_cagr": 23.685327302566872
     },
     {
-      "symbol": "AKAM",
-      "close": 83.70999908447266,
-      "volume": 23422864,
-      "turnover_eur": 1960727923.9957275,
-      "change_pct": 4.259556769146725,
-      "drawdown_pct": -35.36905781104007,
-      "trend10y_cagr": 2.491245460437863
+      "symbol": "MU",
+      "close": 811.2999877929688,
+      "volume": 35547757,
+      "turnover_eur": 28839894820.16742,
+      "change_pct": 11.88647297411273,
+      "drawdown_pct": -26.07004100972444,
+      "trend10y_cagr": 46.587282262968
     },
     {
-      "symbol": "AVGO",
-      "close": 331.9800109863281,
-      "volume": 28299731,
-      "turnover_eur": 9394945008.29013,
-      "change_pct": 3.9126078534330984,
-      "drawdown_pct": -22.39105961115344,
-      "trend10y_cagr": 34.802933494290954
+      "symbol": "DELL",
+      "close": 373.67999267578125,
+      "volume": 9124733,
+      "turnover_eur": 3409730160.6084595,
+      "change_pct": 11.753091458546363,
+      "drawdown_pct": -36.49218606884027,
+      "trend10y_cagr": 39.13094154819863
     },
     {
-      "symbol": "HUM",
-      "close": 438.05999755859375,
-      "volume": 2085418,
-      "turnover_eur": 913538203.9886475,
-      "change_pct": 3.506449670404821,
-      "drawdown_pct": 0,
-      "trend10y_cagr": 8.531272454233086
+      "symbol": "LITE",
+      "close": 648.0599975585938,
+      "volume": 6335839,
+      "turnover_eur": 4106003806.871643,
+      "change_pct": 10.671651459733235,
+      "drawdown_pct": -42.82160017654637,
+      "trend10y_cagr": 32.98918924470811
     },
     {
-      "symbol": "MCK",
-      "close": 1082.5899658203125,
-      "volume": 601143,
-      "turnover_eur": 650791379.8231201,
-      "change_pct": 2.191865996785798,
-      "drawdown_pct": 0,
-      "trend10y_cagr": 22.434464550319476
+      "symbol": "STX",
+      "close": 551.719970703125,
+      "volume": 7604387,
+      "turnover_eur": 4195492172.8552246,
+      "change_pct": 9.987635276427376,
+      "drawdown_pct": -44.53905016240927,
+      "trend10y_cagr": 30.675301497249173
     }
   ],
   "most_sold": [
     {
-      "symbol": "MRNA",
-      "close": 250.8300018310547,
-      "volume": 11129237,
-      "turnover_eur": 2791546537.0882416,
-      "change_pct": -6.754646159459224,
-      "drawdown_pct": -6.754646159459221,
-      "trend10y_cagr": 29.71394053624765
+      "symbol": "ABNB",
+      "close": 181.1300048828125,
+      "volume": 6456269,
+      "turnover_eur": 1169424035.494751,
+      "change_pct": -3.087206635687541,
+      "drawdown_pct": -4.918632607447504,
+      "trend10y_cagr": 2.2702184286915728
     },
     {
-      "symbol": "FSLR",
-      "close": 180.97999572753906,
-      "volume": 3888608,
-      "turnover_eur": 703760259.2260742,
-      "change_pct": -5.5477296847512365,
-      "drawdown_pct": -27.622478096879664,
-      "trend10y_cagr": 18.895852093812394
+      "symbol": "MCD",
+      "close": 274.79998779296875,
+      "volume": 6851283,
+      "turnover_eur": 1882732484.7661743,
+      "change_pct": -2.611909587853189,
+      "drawdown_pct": -2.6119095878531895,
+      "trend10y_cagr": 8.834109216936504
     },
     {
-      "symbol": "NVDA",
-      "close": 168.88999938964844,
-      "volume": 427096957,
-      "turnover_eur": 72132404807.0507,
-      "change_pct": -5.473777847162221,
-      "drawdown_pct": -29.405619665698335,
-      "trend10y_cagr": 54.35934736201236
+      "symbol": "MSFT",
+      "close": 521.125,
+      "volume": 28565538,
+      "turnover_eur": 14886215990.25,
+      "change_pct": -2.2572911979025774,
+      "drawdown_pct": -6.238752888545385,
+      "trend10y_cagr": 24.526456778729333
     },
     {
-      "symbol": "COHR",
-      "close": 214.66000366210938,
-      "volume": 10753246,
-      "turnover_eur": 2308291825.739563,
-      "change_pct": -4.676050741656148,
-      "drawdown_pct": -43.380898135862424,
-      "trend10y_cagr": 22.225136490819054
+      "symbol": "META",
+      "close": 628.77001953125,
+      "volume": 15429277,
+      "turnover_eur": 9701466800.643066,
+      "change_pct": -1.967600809018651,
+      "drawdown_pct": -19.13862089075894,
+      "trend10y_cagr": 18.508416887612555
     },
     {
-      "symbol": "BE",
-      "close": 185.4199981689453,
-      "volume": 13175337,
-      "turnover_eur": 2442970962.4152374,
-      "change_pct": -4.363527182176777,
-      "drawdown_pct": -37.31151567577741,
-      "trend10y_cagr": 22.18605875219182
+      "symbol": "ACN",
+      "close": 253.66000366210938,
+      "volume": 3383553,
+      "turnover_eur": 858272066.3709412,
+      "change_pct": -1.8761386098406112,
+      "drawdown_pct": -4.337004013114409,
+      "trend10y_cagr": 8.022422948000706
     },
     {
-      "symbol": "CVNA",
-      "close": 73.0199966430664,
-      "volume": 12464551,
-      "turnover_eur": 910161472.17733,
-      "change_pct": -4.248630215582913,
-      "drawdown_pct": -5.85353411350682,
-      "trend10y_cagr": 41.81066149742245
+      "symbol": "UAL",
+      "close": 118.37000274658203,
+      "volume": 4883279,
+      "turnover_eur": 578033748.6423264,
+      "change_pct": -1.8165186267089566,
+      "drawdown_pct": -10.839102407098212,
+      "trend10y_cagr": 6.520082188472909
     }
   ],
   "turnarounds": [
     {
-      "symbol": "SNDK",
-      "close": 859.989990234375,
-      "volume": 13704477,
-      "turnover_eur": 11785713041.397217,
-      "change_pct": -2.991508188188574,
-      "drawdown_pct": -55.11347183030346,
-      "trend10y_cagr": 37.34697209671663
+      "symbol": "AXON",
+      "close": 315.4200134277344,
+      "volume": 2312015,
+      "turnover_eur": 729255802.3451233,
+      "change_pct": 4.2572897861540335,
+      "drawdown_pct": -51.15219789713592,
+      "trend10y_cagr": 27.62620782837908
     },
     {
       "symbol": "INTC",
-      "close": 58.130001068115234,
-      "volume": 100526592,
-      "turnover_eur": 5843610900.333984,
-      "change_pct": -2.0885933738893634,
-      "drawdown_pct": -54.36847370544944,
-      "trend10y_cagr": 5.322187923610411
+      "close": 62.5,
+      "volume": 129112498,
+      "turnover_eur": 8069531125,
+      "change_pct": 7.517630916201281,
+      "drawdown_pct": -50.93806397719578,
+      "trend10y_cagr": 6.128316859116323
     },
     {
-      "symbol": "AXON",
-      "close": 302.5400085449219,
-      "volume": 2342863,
-      "turnover_eur": 708809792.0395813,
-      "change_pct": -0.21109048958378002,
-      "drawdown_pct": -53.14687135733376,
-      "trend10y_cagr": 27.248694599866607
+      "symbol": "SNDK",
+      "close": 977.6900024414062,
+      "volume": 15938099,
+      "turnover_eur": 15582520050.221375,
+      "change_pct": 13.686207228406715,
+      "drawdown_pct": -48.97020856736164,
+      "trend10y_cagr": 39.12009557317231
     },
     {
       "symbol": "RDDT",
-      "close": 98.66999816894531,
-      "volume": 5429513,
-      "turnover_eur": 535730037.7682648,
-      "change_pct": -2.1033859780979833,
-      "drawdown_pct": -51.45865297631956,
-      "trend10y_cagr": 6.940203305070813
+      "close": 105.66000366210938,
+      "volume": 4775525,
+      "turnover_eur": 504581988.9884949,
+      "change_pct": 7.084225826370844,
+      "drawdown_pct": -48.0198743339997,
+      "trend10y_cagr": 7.6746715164240475
+    },
+    {
+      "symbol": "FICO",
+      "close": 728.8499755859375,
+      "volume": 871717,
+      "turnover_eur": 635350914.1678467,
+      "change_pct": -0.24772091330035345,
+      "drawdown_pct": -46.91860642404508,
+      "trend10y_cagr": 20.564126781093872
     },
     {
       "symbol": "WDC",
-      "close": 289.20001220703125,
-      "volume": 6521530,
-      "turnover_eur": 1886026555.6085205,
-      "change_pct": -0.20014720640100359,
-      "drawdown_pct": -50.3596012846308,
-      "trend10y_cagr": 20.578995351095397
-    },
-    {
-      "symbol": "STX",
-      "close": 501.6199951171875,
-      "volume": 5293134,
-      "turnover_eur": 2655141851.234619,
-      "change_pct": -0.8930373810475317,
-      "drawdown_pct": -49.575286623625445,
-      "trend10y_cagr": 29.695484612392665
+      "close": 313.30999755859375,
+      "volume": 8039401,
+      "turnover_eur": 2518824707.682556,
+      "change_pct": 8.33678573094345,
+      "drawdown_pct": -46.221187607744454,
+      "trend10y_cagr": 21.427293225588496
     }
   ]
 }
